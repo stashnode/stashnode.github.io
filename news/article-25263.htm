@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-25263.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>聊下 git remote prune origin</title>
+        <meta name="description" content="在你经常使用的命令当中有一个git branch –a 用来查看所有的分支，包括本地和远程的。但是时间长了你会发现有些分支在远程其实早就被删除了，但是在你本地依然可以看见这些被删除的分支。 你可以通过" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                                <a href="/"><span>Stash Node</span></a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>聊下 git remote prune origin</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body"> <p>在你经常使用的命令当中有一个git branch –a 用来查看所有的分支，包括本地和远程的。但是时间长了你会发现有些分支在远程其实早就被删除了，但是在你本地依然可以看见这些被删除的分支。</p> <p>你可以通过命令，git remote show origin 来查看有关于origin的一些信息，包括分支是否tracking。</p> <p><a href="http://images2015.cnblogs.com/blog/202205/201611/202205-20161113090750045-714061164.png" rel="nofollow" class="fancybox" data-fancybox-group="button"><img fetchpriority="high" decoding="async" style="background-image:none;border:0px;" title="1" src="http://img.555519.xyz/uploads3/20220707/1eecadd50e2eb38e5e9d489ab83abbee.jpg" alt="聊下 git remote prune origin"></a></p> <p>Local refs configured for ‘git push’，这一栏说明你push了哪些分支上origin。</p> <p><a href="http://images2015.cnblogs.com/blog/202205/201611/202205-20161113090750592-1519818265.png" rel="nofollow" class="fancybox" data-fancybox-group="button"><img decoding="async" style="background-image:none;border:0px;" title="2" src="http://img.555519.xyz/uploads3/20220707/9d16000f89059027c7b51d1572442559.jpg" alt="聊下 git remote prune origin"></a></p> <p>develop_newfeature_apiwrapper，分支在远程，我们现在去把他删除掉。</p> <p><a href="http://images2015.cnblogs.com/blog/202205/201611/202205-20161113090751045-1040918315.png" rel="nofollow" class="fancybox" data-fancybox-group="button"><img decoding="async" style="background-image:none;border:0px;" title="3" src="http://img.555519.xyz/uploads3/20220707/ce74ae58d6803a1a72d195020c4e060a.jpg" alt="聊下 git remote prune origin"></a></p> <p>点击垃圾桶，将其删除。再回到本地来查看所有分支。</p> <p><a href="http://images2015.cnblogs.com/blog/202205/201611/202205-20161113090751874-830771201.png" rel="nofollow" class="fancybox" data-fancybox-group="button"><img loading="lazy" decoding="async" style="background-image:none;border:0px;" title="4" src="http://img.555519.xyz/uploads3/20220707/0d44449f983e244f5e556fff8eaa6080.jpg" alt="聊下 git remote prune origin"></a></p> <p>它依然存在。但是你再通过 git remote show origin，来查看就会发现问题。</p> <p><a href="http://images2015.cnblogs.com/blog/202205/201611/202205-20161113090752358-672493368.png" rel="nofollow" class="fancybox" data-fancybox-group="button"><img loading="lazy" decoding="async" style="background-image:none;border:0px;" title="5" src="http://img.555519.xyz/uploads3/20220707/ab342fdbe662fa7dd95166b27d81f861.jpg" alt="聊下 git remote prune origin"></a></p> <p>提示你可以通过git remote prune 移除这个分支。（也就是说你可以刷新本地仓库与远程仓库的保持这些改动的同步）</p> <p><a href="http://images2015.cnblogs.com/blog/202205/201611/202205-20161113090752858-929888010.png" rel="nofollow" class="fancybox" data-fancybox-group="button"><img loading="lazy" decoding="async" style="background-image:none;border:0px;" title="6" src="http://img.555519.xyz/uploads3/20220707/95a127a8cc9d1392a7452a7d4251f167.jpg" alt="聊下 git remote prune origin"></a></p> <p>这个在远程删除的分支在你本地仓库也将被删除。再通过git branch –a 来查看。</p> <p><a href="http://images2015.cnblogs.com/blog/202205/201611/202205-20161113090753389-401638706.png" rel="nofollow" class="fancybox" data-fancybox-group="button"><img loading="lazy" decoding="async" style="background-image:none;border:0px;" title="7" src="http://img.555519.xyz/uploads3/20220707/e8f9c222fd847cb986110b891565dd82.jpg" alt="聊下 git remote prune origin"></a></p> <p>已经不存在了。</p> <p>作者：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.cnblogs.com/wangiqngpei557/"  rel="nofollow">王清培</a></p> <p>出处：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.cnblogs.com/wangiqngpei557/"  rel="nofollow">http://www.cnblogs.com/wangiqngpei557/</a></p> <p>本文版权归作者和博客园共有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面</p> </div> <p>转载于:https://www.cnblogs.com/wangiqngpei557/p/6058115.html</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24803.htm">使用maven构建SpringBoot打包成war包，步骤，超级详细</a></p>
+                                        <p>下一个：<a href="/news/article-25265.htm">猫的跳蚤怎么去除（猫猫的跳蚤有什么办法治?）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-subscribe-node.htm" title="「12月12日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接">「12月12日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-ssr-node.htm" title="「10月7日」最高速度20.5M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「10月7日」最高速度20.5M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-clash-v2ray-ss-ssr.htm" title="「11月20日」最高速度21.4M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接">「11月20日」最高速度21.4M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-shadowrocket-node.htm" title="「11月16日」最高速度22.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「11月16日」最高速度22.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-node-share.htm" title="「12月7日」最高速度18.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「12月7日」最高速度18.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share.htm" title="「12月13日」最高速度18.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接">「12月13日」最高速度18.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20199.htm" title="国内兽药公司排名（国内兽药公司排名前十）">国内兽药公司排名（国内兽药公司排名前十）</a></li>
+                        <li class="py-2"><a href="/news/article-21571.htm" title="动物打疫苗需要什么 动物打疫苗需要什么证件">动物打疫苗需要什么 动物打疫苗需要什么证件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-high-speed-nodes.htm" title="「11月13日」最高速度21M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「11月13日」最高速度21M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-shadowrocket-node.htm" title="「8月27日」最高速度18.8M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接">「8月27日」最高速度18.8M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
