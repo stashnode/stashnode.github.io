@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>3.	Springmvc架构</title>
         <meta name="description" content="架构流程 1、 用户发送请求至前端控制器DispatcherServlet 2、 DispatcherServlet收到请求调用HandlerMapping处理器映射器。 3、 处理器映射器根据请求u" />
-        <link rel="icon" href="__ADDON__/img/stashnode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
     <!-- Vendor CSS Files -->
@@ -71,7 +71,8 @@
             <div class="container" data-aos="fade-up">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/e7a6839450d9cfe882c5d49b10d36d21.jpg" alt="3.	Springmvc架构"><br /><strong>架构流程<br /> 1、 用户发送请求至前端控制器DispatcherServlet<br /> 2、 DispatcherServlet收到请求调用HandlerMapping处理器映射器。<br /> 3、 处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。<br /> 4、 DispatcherServlet通过HandlerAdapter处理器适配器调用处理器<br /> 5、 执行处理器(Controller，也叫后端控制器)。<br /> 6、 Controller执行完成返回ModelAndView<br /> 7、 HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet<br /> 8、 DispatcherServlet将ModelAndView传给ViewReslover视图解析器<br /> 9、 ViewReslover解析后返回具体View<br /> 10、 DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中）。<br /> 11、 DispatcherServlet响应用户</strong></p> <p>3.3. 组件说明<br /> 以下组件通常使用框架提供实现：<br />  DispatcherServlet：前端控制器<br /> 用户请求到达前端控制器，它就相当于mvc模式中的c，dispatcherServlet是整个流程控制的中心，由它调用其它组件处理用户的请求，dispatcherServlet的存在降低了组件之间的耦合性。<br />  HandlerMapping：处理器映射器<br /> HandlerMapping负责根据用户请求url找到Handler即处理器，springmvc提供了不同的映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。<br />  Handler：处理器<br /> Handler 是继DispatcherServlet前端控制器的后端控制器，在DispatcherServlet的控制下Handler对具体的用户请求进行处理。<br /> 由于Handler涉及到具体的用户业务请求，所以一般情况需要程序员根据业务需求开发Handler。</p> <p> HandlAdapter：处理器适配器<br /> 通过HandlerAdapter对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。<br /> 下图是许多不同的适配器，最终都可以使用usb接口连接</p> <p> ViewResolver：视图解析器<br /> View Resolver负责将处理结果生成View视图，View Resolver首先根据逻辑视图名解析成物理视图名即具体的页面地址，再生成View视图对象，最后对View进行渲染将处理结果通过页面展示给用户。<br />  View：视图<br /> springmvc框架提供了很多的View视图类型的支持，包括：jstlView、freemarkerView、pdfView等。我们最常用的视图就是jsp。<br /> 一般情况下需要通过页面标签或页面模版技术将模型数据通过页面展示给用户，需要由程序员根据业务需求开发具体的页面。</p> <p>在springmvc的各个组件中，处理器映射器、处理器适配器、视图解析器称为springmvc的三大组件。<br /> 需要用户开发的组件有handler、view</p> </p></div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/e7a6839450d9cfe882c5d49b10d36d21.jpg" alt="3.	Springmvc架构"><br /><strong>架构流程<br /> 1、 用户发送请求至前端控制器DispatcherServlet<br /> 2、 DispatcherServlet收到请求调用HandlerMapping处理器映射器。<br /> 3、 处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。<br /> 4、 DispatcherServlet通过HandlerAdapter处理器适配器调用处理器<br /> 5、 执行处理器(Controller，也叫后端控制器)。<br /> 6、 Controller执行完成返回ModelAndView<br /> 7、 HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet<br /> 8、 DispatcherServlet将ModelAndView传给ViewReslover视图解析器<br /> 9、 ViewReslover解析后返回具体View<br /> 10、 DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中）。<br /> 11、 DispatcherServlet响应用户</strong></p> <p>3.3. 组件说明<br /> 以下组件通常使用框架提供实现：<br />  DispatcherServlet：前端控制器<br /> 用户请求到达前端控制器，它就相当于mvc模式中的c，dispatcherServlet是整个流程控制的中心，由它调用其它组件处理用户的请求，dispatcherServlet的存在降低了组件之间的耦合性。<br />  HandlerMapping：处理器映射器<br /> HandlerMapping负责根据用户请求url找到Handler即处理器，springmvc提供了不同的映射器实现不同的映射方式，例如：配置文件方式，实现接口方式，注解方式等。<br />  Handler：处理器<br /> Handler 是继DispatcherServlet前端控制器的后端控制器，在DispatcherServlet的控制下Handler对具体的用户请求进行处理。<br /> 由于Handler涉及到具体的用户业务请求，所以一般情况需要程序员根据业务需求开发Handler。</p> <p> HandlAdapter：处理器适配器<br /> 通过HandlerAdapter对处理器进行执行，这是适配器模式的应用，通过扩展适配器可以对更多类型的处理器进行执行。<br /> 下图是许多不同的适配器，最终都可以使用usb接口连接</p> <p> ViewResolver：视图解析器<br /> View Resolver负责将处理结果生成View视图，View Resolver首先根据逻辑视图名解析成物理视图名即具体的页面地址，再生成View视图对象，最后对View进行渲染将处理结果通过页面展示给用户。<br />  View：视图<br /> springmvc框架提供了很多的View视图类型的支持，包括：jstlView、freemarkerView、pdfView等。我们最常用的视图就是jsp。<br /> 一般情况下需要通过页面标签或页面模版技术将模型数据通过页面展示给用户，需要由程序员根据业务需求开发具体的页面。</p> <p>在springmvc的各个组件中，处理器映射器、处理器适配器、视图解析器称为springmvc的三大组件。<br /> 需要用户开发的组件有handler、view</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-22036.htm">人和动物提取的狂犬疫苗区别 人和动物提取的狂犬疫苗区别在哪</a></p>
                                         <p>下一个：<a href="/news/article-22490.htm">宠物寄养流程图（宠物寄养流程图片大全）</a></p>
@@ -84,16 +85,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-node-share-links.htm" title="「8月15日」最高速度21.4M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接">「8月15日」最高速度21.4M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-2-free-ssr-subscribe.htm" title="「9月2日」最高速度18.7M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「9月2日」最高速度18.7M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-ssr-subscribe.htm" title="「10月5日」最高速度21.1M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接">「10月5日」最高速度21.1M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20198.htm" title="动物疫苗销售需要什么手续呢（动物疫苗经营许可证办理条件）">动物疫苗销售需要什么手续呢（动物疫苗经营许可证办理条件）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-21-free-subscribe-node.htm" title="「9月21日」最高速度21.3M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接">「9月21日」最高速度21.3M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-22-clash-v2ray-ss-ssr.htm" title="「10月22日」最高速度19.7M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接">「10月22日」最高速度19.7M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-14-shadowrocket-node.htm" title="「9月14日」最高速度18.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接">「9月14日」最高速度18.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-free-high-speed-nodes.htm" title="「9月13日」最高速度22.5M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接">「9月13日」最高速度22.5M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-ssr-node.htm" title="「11月2日」最高速度18.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅链接">「11月2日」最高速度18.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-high-speed-nodes.htm" title="「10月31日」最高速度22.5M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「10月31日」最高速度22.5M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-16-free-shadowrocket-node.htm" title="「8月16日」最高速度20.8M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接">「8月16日」最高速度20.8M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-subscribe-node.htm" title="「10月17日」最高速度18.2M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「10月17日」最高速度18.2M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24803.htm" title="使用maven构建SpringBoot打包成war包，步骤，超级详细">使用maven构建SpringBoot打包成war包，步骤，超级详细</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-shadowrocket-node.htm" title="「8月22日」最高速度22M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「8月22日」最高速度22M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-clash-v2ray-ss-ssr.htm" title="「12月11日」最高速度18.5M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接">「12月11日」最高速度18.5M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-free-ssr-node.htm" title="「10月3日」最高速度20.4M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接">「10月3日」最高速度20.4M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-high-speed-nodes.htm" title="「11月13日」最高速度21M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「11月13日」最高速度21M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-free-node-subscribe-links.htm" title="「9月20日」最高速度19.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「9月20日」最高速度19.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-node-share.htm" title="「12月7日」最高速度18.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「12月7日」最高速度18.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-clash-v2ray-ss-ssr.htm" title="「11月28日」最高速度18M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费节点订阅链接">「11月28日」最高速度18M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -105,7 +106,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -132,6 +133,15 @@
     <footer id="footer">
         <div class="container">
             <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                 StashNode免费订阅官网 版权所有 Powered by WordPress
             </div>
         </div>

@@ -71,7 +71,8 @@
             <div class="container" data-aos="fade-up">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>SpringBoot打包成war包，步骤超级详细</h3> <ul> <li> <ul> <li><a href="#mavenSpringBootwar_1" rel="nofollow">问题：使用maven构建SpringBoot打包成war包，发布到服务器上，总是报错</a></li> <li><a href="#_4" rel="nofollow">第一步：</a></li> <li><a href="#_22" rel="nofollow">第二步：</a></li> <li><a href="#_29" rel="nofollow">第三步：</a></li> <li><a href="#_55" rel="nofollow">第四步：</a></li> </ul> </li> </ul> </div> <h2><a id="mavenSpringBootwar_1" rel="nofollow"></a>问题：使用maven构建SpringBoot打包成war包，发布到服务器上，总是报错</h2> <p>由于maven构建的SpringBoot项目，发布了n多次，也在网上查了很多，方法试完了，也没有找到错误原因，最后查看tomcat错误日志，总结了一下步骤</p> <h2><a id="_4" rel="nofollow"></a>第一步：</h2> <p>SpringBoot项目集成了tomcat的内置插件，我们需要在pom文件中将tomcat的内置插件排除在外<br /> 代码如下</p> <pre><code>&lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;             &lt;!-- 移除嵌入式tomcat插件 --&gt;             &lt;exclusions&gt;                 &lt;exclusion&gt;                     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;                     &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;                 &lt;/exclusion&gt;             &lt;/exclusions&gt;         &lt;/dependency&gt;</code></pre> <h2><a id="_22" rel="nofollow"></a>第二步：</h2> <p>排除了Tomcat的内置插件之后，我们还需要注意的是，pom文件中打包方式一定要设置为war包形式</p> <pre><code>&lt;packaging&gt;war&lt;/packaging&gt;</code></pre> <h2><a id="_29" rel="nofollow"></a>第三步：</h2> <p>重写我们的SpringBoot启动类</p> <pre><code>import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; import org.springframework.boot.builder.SpringApplicationBuilder; import org.springframework.boot.web.support.SpringBootServletInitializer; import org.springframework.scheduling.annotation.EnableScheduling;  @SpringBootApplication @EnableScheduling public class JiChengSpringBoot extends SpringBootServletInitializer {      @Override     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {         return application.sources(JiChengSpringBoot.class);     }      public static void main(String[] args) {         SpringApplication.run(JiChengSpringBoot.class, args);     }  }</code></pre> <h2><a id="_55" rel="nofollow"></a>第四步：</h2> <p>这一步就是我遇到的问题关键了！！！！<br /> 去除pom文件中的</p> <pre><code>&lt;name&gt;jicheng&lt;/name&gt;</code></pre> <p>一定要去除name标签，据我查看日志，导致错误的原因是web.xml的mapping与servlet-name不匹配导致的，所以这里大胆的猜测，这个name会影响web.xml中的某个name</p> <p><strong>这里我去掉这个标签之后，问题得到了结局，<strong>希望可以帮到你们</strong></strong></p> </div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>SpringBoot打包成war包，步骤超级详细</h3> <ul> <li> <ul> <li><a href="#mavenSpringBootwar_1" rel="nofollow">问题：使用maven构建SpringBoot打包成war包，发布到服务器上，总是报错</a></li> <li><a href="#_4" rel="nofollow">第一步：</a></li> <li><a href="#_22" rel="nofollow">第二步：</a></li> <li><a href="#_29" rel="nofollow">第三步：</a></li> <li><a href="#_55" rel="nofollow">第四步：</a></li> </ul> </li> </ul> </div> <h2><a id="mavenSpringBootwar_1" rel="nofollow"></a>问题：使用maven构建SpringBoot打包成war包，发布到服务器上，总是报错</h2> <p>由于maven构建的SpringBoot项目，发布了n多次，也在网上查了很多，方法试完了，也没有找到错误原因，最后查看tomcat错误日志，总结了一下步骤</p> <h2><a id="_4" rel="nofollow"></a>第一步：</h2> <p>SpringBoot项目集成了tomcat的内置插件，我们需要在pom文件中将tomcat的内置插件排除在外<br /> 代码如下</p> <pre><code>&lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;             &lt;!-- 移除嵌入式tomcat插件 --&gt;             &lt;exclusions&gt;                 &lt;exclusion&gt;                     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;                     &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;                 &lt;/exclusion&gt;             &lt;/exclusions&gt;         &lt;/dependency&gt;</code></pre> <h2><a id="_22" rel="nofollow"></a>第二步：</h2> <p>排除了Tomcat的内置插件之后，我们还需要注意的是，pom文件中打包方式一定要设置为war包形式</p> <pre><code>&lt;packaging&gt;war&lt;/packaging&gt;</code></pre> <h2><a id="_29" rel="nofollow"></a>第三步：</h2> <p>重写我们的SpringBoot启动类</p> <pre><code>import org.springframework.boot.SpringApplication; import org.springframework.boot.autoconfigure.SpringBootApplication; import org.springframework.boot.builder.SpringApplicationBuilder; import org.springframework.boot.web.support.SpringBootServletInitializer; import org.springframework.scheduling.annotation.EnableScheduling;  @SpringBootApplication @EnableScheduling public class JiChengSpringBoot extends SpringBootServletInitializer {      @Override     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {         return application.sources(JiChengSpringBoot.class);     }      public static void main(String[] args) {         SpringApplication.run(JiChengSpringBoot.class, args);     }  }</code></pre> <h2><a id="_55" rel="nofollow"></a>第四步：</h2> <p>这一步就是我遇到的问题关键了！！！！<br /> 去除pom文件中的</p> <pre><code>&lt;name&gt;jicheng&lt;/name&gt;</code></pre> <p>一定要去除name标签，据我查看日志，导致错误的原因是web.xml的mapping与servlet-name不匹配导致的，所以这里大胆的猜测，这个name会影响web.xml中的某个name</p> <p><strong>这里我去掉这个标签之后，问题得到了结局，<strong>希望可以帮到你们</strong></strong></p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-24802.htm">使用 Docker 搭建 Confluence</a></p>
                                         <p>下一个：<a href="/news/article-25263.htm">聊下 git remote prune origin</a></p>
@@ -84,16 +85,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-node-share-links.htm" title="「8月15日」最高速度21.4M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接">「8月15日」最高速度21.4M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-23872.htm" title="哈尔滨农业大学动物医院怎么样知乎（哈尔滨农业大学动物医院电话）">哈尔滨农业大学动物医院怎么样知乎（哈尔滨农业大学动物医院电话）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-subscribe-node.htm" title="「10月17日」最高速度18.2M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「10月17日」最高速度18.2M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-25728.htm" title="宠物粮食品牌上市公司有几家公司（宠物粮食的上市公司）">宠物粮食品牌上市公司有几家公司（宠物粮食的上市公司）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-shadowrocket-node.htm" title="「9月6日」最高速度19.5M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接">「9月6日」最高速度19.5M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-node-subscribe-links.htm" title="「12月5日」最高速度21.2M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费节点订阅链接">「12月5日」最高速度21.2M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-23-free-shadowrocket-node.htm" title="「8月23日」最高速度20.7M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接">「8月23日」最高速度20.7M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-free-high-speed-nodes.htm" title="「10月30日」最高速度19.1M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接">「10月30日」最高速度19.1M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe-links.htm" title="「11月24日」最高速度22.6M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「11月24日」最高速度22.6M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-node-share.htm" title="「10月14日」最高速度20.3M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「10月14日」最高速度20.3M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19743.htm" title="宠物粮食怎么销售的 宠物粮食怎么销售的呢">宠物粮食怎么销售的 宠物粮食怎么销售的呢</a></li>
+                        <li class="py-2"><a href="/news/article-25729.htm" title="南京宠物领养日要钱吗 南京宠物领养日活动">南京宠物领养日要钱吗 南京宠物领养日活动</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-22-free-node-subscribe.htm" title="「9月22日」最高速度21.3M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接">「9月22日」最高速度21.3M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27120.htm" title="动物疫苗合格证明在哪办理的 动物疫苗合格证明在哪办理的呢">动物疫苗合格证明在哪办理的 动物疫苗合格证明在哪办理的呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-shadowrocket-node.htm" title="「11月9日」最高速度20.3M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接">「11月9日」最高速度20.3M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20657.htm" title="好忙的动物医院幼儿园教案（好忙的动物医院中班教案）">好忙的动物医院幼儿园教案（好忙的动物医院中班教案）</a></li>
+                        <li class="py-2"><a href="/news/article-22948.htm" title="动物医院布局分析（动物医院面积）">动物医院布局分析（动物医院面积）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-subscribe-node.htm" title="「11月23日」最高速度21.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「11月23日」最高速度21.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-high-speed-nodes.htm" title="「10月1日」最高速度20.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「10月1日」最高速度20.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-21-free-high-speed-nodes.htm" title="「8月21日」最高速度18.7M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「8月21日」最高速度18.7M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -105,7 +106,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -132,6 +133,15 @@
     <footer id="footer">
         <div class="container">
             <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                 StashNode免费订阅官网 版权所有 Powered by WordPress
             </div>
         </div>
