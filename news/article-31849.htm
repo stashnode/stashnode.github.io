@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-31849.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ASP.NET和ASP.NETCore多环境配置对比</title>
+        <meta name="description" content="前言 多环境配置应该都很熟悉了，最为常见的环境便是Debug和Release，例如下图是新建的一个asp.net项目，配置文件展开共有三个文件组成 有些开发者从来没了解过Web.Debug.confi" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                                <a href="/"><span>Stash Node</span></a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>ASP.NET和ASP.NETCore多环境配置对比</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="前言">前言</h2> <p>多环境配置应该都很熟悉了，最为常见的环境便是<code>Debug</code>和<code>Release</code>，例如下图是新建的一个<code>asp.net</code>项目，配置文件展开共有三个文件组成<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1eb50f36acf53049a834b9b70a1db59f.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 有些开发者从来没了解过<code>Web.Debug.config</code>和<code>Web.Release.config</code>，始终是一个<code>Web.config</code>文件改来改去来切换不同的配置，但凡有点追求都不能忍受这种煎熬。</p> <h2 id="aspnet下的多环境配置">asp.net下的多环境配置</h2> <p>双击打开<code>Web.Debug.config</code>和<code>Web.Release.config</code>任何一个，看看里面的内容。</p> <pre><code>Web.Debug.config</code></pre> <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;  &lt;!-- 有关使用 Web.config 转换的详细信息，请访问 https://go.microsoft.com/fwlink/?LinkId=301874 --&gt;  &lt;configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"&gt;   &lt;!--     在下例中，“SetAttributes”转换将更改     “connectionString”的值，仅在“Match”定位器找到值为“MyDB”的     特性“name”时使用“ReleaseSQLServer”。      &lt;connectionStrings&gt;       &lt;add name="MyDB"         connectionString="Data Source=ReleaseSQLServer;Initial Catalog=MyReleaseDB;Integrated Security=True"         xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/&gt;     &lt;/connectionStrings&gt;   --&gt;   &lt;system.web&gt;     &lt;!--       在以下示例中，"Replace" 转换将替换 Web.config 文件的       整个 &lt;customErrors&gt; 节。       请注意，由于在 &lt;system.web&gt; 节点下只有一个        customErrors 节，因此无需使用 "xdt:Locator" 属性。        &lt;customErrors defaultRedirect="GenericError.htm"         mode="RemoteOnly" xdt:Transform="Replace"&gt;         &lt;error statusCode="500" redirect="InternalError.htm"/&gt;       &lt;/customErrors&gt;     --&gt;   &lt;/system.web&gt; &lt;/configuration&gt;</code></pre> <p>微软为了让我们使用它，把不仅给出示例，还配上详细的注释，看过注释和示例大概就该知道如何进行配置，覆盖<code>Web.config</code>中的配置。<br /> 下面展示下最为常用的<code>appSettings</code>如何配置</p> <pre><code class="language-xml">  &lt;!--Web.config 开发环境--&gt;   &lt;appSettings&gt;     &lt;add key="webpages:Version" value="3.0.0.0" /&gt;     &lt;add key="webpages:Enabled" value="false" /&gt;     &lt;add key="ClientValidationEnabled" value="true" /&gt;     &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;          &lt;add key="MyKey" value="Myvalue" /&gt;   &lt;/appSettings&gt;</code></pre> <pre><code class="language-xml">  &lt;!--Web.Release.config 生产环境--&gt;   &lt;appSettings&gt;     &lt;add key="webpages:Version" value="3.0.0.0" /&gt;     &lt;add key="webpages:Enabled" value="false" /&gt;     &lt;add key="ClientValidationEnabled" value="true" /&gt;     &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;          &lt;add key="MyKey" value="Releasvalue" xdt:Transform="Replace" xdt:Locator="Match(key)" /&gt;   &lt;/appSettings&gt;</code></pre> <p>经过这样的配置后，本机开发时读取到<code>MyKey</code>的值为<code>Myvalue</code>,发布生产环境时值为<code>Releasvalue</code>。<br /> 按照上面的配置，本地发布程序试试效果。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f3285f53dbc263097d5638e7ff40c501.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 发布成功后，打开发布后生成的<code>Web.config</code>文件，我们发现开发环境下<code>Web.config</code>中对应的值被替换了，这样开发和生产配置分别配置在不同文件，不需要频繁修改配置文件切换配置了。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/cfe58eb99d16001700a2795042d674b0.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"></p> <h3 id="如何增加额外的环境配置">如何增加额外的环境配置</h3> <p>有时候Debug和Release两个环境还不能满足我们的需要，需要增加更多的环境配置。<br /> 打开菜单生成--&gt;配置管理器，新建一个<code>TEST1</code>环境<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/26bac684d3c678e3e25871fddbe6c166.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 然后右键<code>Web.config</code>选择<code>添加配置转换</code>（第四个）<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7b2e8a1131adc1caf081990d5b1e3ef2.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 会自动生成一个<code>Web.TEST1.config</code>文件，非常的人性化，然后我们在该文件配置一些参数。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/04c0cb8f85350e5eb54829e727267a7d.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 更改发布的配置，进行发布。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4455a813e2f0f6be9c452e57cb641653.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 打开发布成功后的<code>Web.config</code>文件<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d73290bd34b8aa3160d4a0fdbb6738ec.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 效果与预期一致。</p> <h2 id="aspnetcore下的多环境配置">aspnetcore下的多环境配置</h2> <p>aspnetcore中的配置文件被<code>appsettings.json</code>所取代，.NET Core中的配置是使用一个或多个<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/extensions/configuration#configuration-providers"  target="_blank" rel="nofollow">配置提供程序</a>执行的。 配置提供程序使用各种配置源从键值对读取配置数据：</p> <h3 id="什么是配置提供程序">什么是配置提供程序</h3> <p>下表显示了 .NET Core 应用可用的配置提供程序。</p> <table> <thead> <tr> <th>提供程序</th> <th>通过以下对象提供配置</th> </tr> </thead> <tbody> <tr> <td><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/azure/azure-app-configuration/quickstart-aspnet-core-app"  target="_blank" rel="nofollow">Azure 应用配置提供程序</a></td> <td>Azure 应用程序配置</td> </tr> <tr> <td><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/azure/key-vault/general/tutorial-net-virtual-machine"  target="_blank" rel="nofollow">Azure Key Vault 配置提供程序</a></td> <td>Azure Key Vault</td> </tr> <tr> <td><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/extensions/configuration-providers#command-line-configuration-provider"  target="_blank" rel="nofollow">命令行配置提供程序</a></td> <td>命令行参数</td> </tr> <tr> <td><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/extensions/custom-configuration-provider"  target="_blank" rel="nofollow">自定义配置提供程序</a></td> <td>自定义源</td> </tr> <tr> <td><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider"  target="_blank" rel="nofollow">环境变量配置提供程序</a></td> <td>环境变量</td> </tr> <tr> <td><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/extensions/configuration-providers#file-configuration-provider"  target="_blank" rel="nofollow">文件配置提供程序</a></td> <td>JSON、XML 和 INI 文件</td> </tr> <tr> <td><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/extensions/configuration-providers#key-per-file-configuration-provider"  target="_blank" rel="nofollow">Key-per-file 配置提供程序</a></td> <td>目录文件</td> </tr> <tr> <td><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/extensions/configuration-providers#memory-configuration-provider"  target="_blank" rel="nofollow">内存配置提供程序</a></td> <td>内存中集合</td> </tr> <tr> <td><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/aspnet/core/security/app-secrets"  target="_blank" rel="nofollow">应用机密（机密管理器）</a></td> <td>用户配置文件目录中的文件</td> </tr> </tbody> </table> <p>详细内容参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/extensions/configuration"  target="_blank" rel="nofollow">.NET 中的配置</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/extensions/configuration"  target="_blank" rel="nofollow">https://docs.microsoft.com/zh-cn/dotnet/core/extensions/configuration</a><br /> 其中以下部分比较值得注意<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f484600c5a7167a59e01d731c5d5e466.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 划重点：<code>后来添加的配置提供程序会替代之前的密钥设置</code><br /><code>appsettings.Development.json</code>比<code>appsettings.json</code>后加载，则后加载的会覆盖先加载配置的值，没毛病!</p> <h3 id="多环境配置文件时如何加载">多环境配置文件时如何加载</h3> <p>为了彻底弄清楚底层加载逻辑，下载源码一探究竟。</p> <pre><code class="language-c#">builder.ConfigureAppConfiguration((hostingContext, config) =&gt;         {             var env = hostingContext.HostingEnvironment;              config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)                   .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);              if (env.IsDevelopment())             {                 if (!string.IsNullOrEmpty(env.ApplicationName))                 {                     var appAssembly = Assembly.Load(new AssemblyName(env.ApplicationName));                     if (appAssembly != null)                     {                         config.AddUserSecrets(appAssembly, optional: true);                     }                 }             }              config.AddEnvironmentVariables();              if (args != null)             {                 config.AddCommandLine(args);             }         })</code></pre> <p>默认的<code>WebHostBuilder</code>实现中,用环境变量<code>env.EnvironmentName</code>值拼接的json文件进行加载。这也是为什么开发阶段会加载<code>appsettings.Development.json</code>配置文件的原理。</p> <h3 id="开发阶段的多环境">开发阶段的多环境</h3> <p>如何传参修改环境变量<code>EnvironmentName</code>值是问题的关键，若能修改想要的值，然后创建对应名称的配置文件即可。<br /> 在web根目录存在一个文件：<code>Properties/launchSettings.json</code><br /> 其中有一个配置环境变量的配置</p> <pre><code class="language-json">"environmentVariables": {     "ASPNETCORE_ENVIRONMENT": "Development" },</code></pre> <p>本地开发时只需要创建多个启动配置，分别设置不同的<code>ASPNETCORE_ENVIRONMENT</code>即可进行切换了，修改后的<code>launchSettings.json</code></p> <pre><code class="language-json">// launchSettings.json {   "iisSettings": {     "windowsAuthentication": false,     "anonymousAuthentication": true,     "iisExpress": {       "applicationUrl": "http://localhost:2364",       "sslPort": 44302     }   },   "profiles": {     "Web1": {       "commandName": "Project",       "launchBrowser": true,       "environmentVariables": {         "ASPNETCORE_ENVIRONMENT": "Development"       },       "applicationUrl": "https://localhost:7006;http://localhost:5006",       "dotnetRunMessages": true     },     "Web1:Test": {       "commandName": "Project",       "launchBrowser": true,       "environmentVariables": {         "ASPNETCORE_ENVIRONMENT": "TEST"       },       "applicationUrl": "https://localhost:7006;http://localhost:5006",       "dotnetRunMessages": true     }   } }</code></pre> <p><code>Web1</code>和<code>Web1:Test</code>启动选项便会同步显示在VS启动选项中，切换为<code>Web1:Test</code>再运行程序，就会加载<code>appsettings.TEST.json</code>，效果和<code>appsettings.Development.json</code>没区别。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b939f65140188955938adf36ffecefaf.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"></p> <h3 id="发布阶段的实现多环境配置">发布阶段的实现多环境配置</h3> <p>在上文中我们学会了在本地配置多个不同环境配置进行开发，那如果需要发布的生产环境也有很多种配置，那如何让程序自动加载不同的配置文件呢，毕竟<code>launchSettings.json</code>文件只是在开发时搭配VS用的，既然<code>launchSettings.json</code>可以配置环境变量，没了它我们手动创建环境变量应该也可以。在操作系统添加环境变量如：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4ec921c50d564c839494ffefcdd1f5b0.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 也可以在程序启动时通过命令行传参设置环境值。<br /> 但是这两种我都感觉不方便，我们希望程序根据不同的环境发布好以后，只需要直接执行就好，而不是需要进行额外的配置或传参。</p> <h3 id="environmentname-属性">EnvironmentName 属性</h3> <p>在项目的工程文件中有<code>EnvironmentName</code>属性，可以指定当前<code>EnvironmentName</code>值，添加如下代码<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/943829a8030fc69fd3af88e4c4fe9ca7.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 然后编译后的，直接运行，就能够读取到<code>appsettings.TEST.json</code>配置文件。<br /> 这配置不会覆盖<code>launchSettings.json</code>中指定的环境值，但在影响发布后的<code>EnvironmentName</code>值，从而可以改变实现发布后默认的<code>EnvironmentName</code>值。<br /> 那这样设置后，岂不是发布后的<code>EnvironmentName</code>值只能是<code>Test</code>，如果要发布其他环境还要每次发布前修改这个值，那不是很麻烦吗？<br /> 没错如果没有点其他手段，那这真是多此一举啊，请看下图。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/cec1be7a8be98fad83b7416a3690f7b4.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 懂了吧，我们只需要多配置一个<code>PublishProfile</code>发布文件，指定不同的<code>配置</code>项，然后结合<code>Condition</code>条件来控制<code>EnvironmentName</code>。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/80ee14d34611fb4bc8d7af43a1988738.jpg" alt="ASP.NET和ASP.NETCore多环境配置对比"><br /> 至此，完美实现根据不同环境选择不同的发布文件，进行发布项目，目标机器不需要做任何配置，直接运行就是我们想要的效果。<br /> 总结虽然ASP.NET和ASP.NETCore实现多环境的方式不同，但是最后发布时我们可以做到一样的效果，所有的配置都是一次性的，发布时指定对应的<code>PublishProfile</code>即可。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-31269.htm">网上的无货源网店是真的吗可信吗（网上无货源开网店是真的吗）</a></p>
+                                        <p>下一个：<a href="/news/article-31851.htm">天津宠物店地址（天津宠物店宠物市场排行）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-7-node-share-links.htm" title="「9月7日」最高速度20.5M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接">「9月7日」最高速度20.5M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-clash-v2ray-ss-ssr.htm" title="「11月8日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接">「11月8日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31851.htm" title="天津宠物店地址（天津宠物店宠物市场排行）">天津宠物店地址（天津宠物店宠物市场排行）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-free-shadowrocket-node.htm" title="「9月11日」最高速度20.3M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接">「9月11日」最高速度20.3M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28512.htm" title="厦门宠物回收公司电话（厦门宠物狗回收电话）">厦门宠物回收公司电话（厦门宠物狗回收电话）</a></li>
+                        <li class="py-2"><a href="/news/article-23872.htm" title="哈尔滨农业大学动物医院怎么样知乎（哈尔滨农业大学动物医院电话）">哈尔滨农业大学动物医院怎么样知乎（哈尔滨农业大学动物医院电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-node-share-links.htm" title="「12月3日」最高速度20.7M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接">「12月3日」最高速度20.7M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-clash-v2ray-ss-ssr.htm" title="「9月23日」最高速度20.6M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接">「9月23日」最高速度20.6M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-high-speed-nodes.htm" title="「12月2日」最高速度21.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「12月2日」最高速度21.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-node-subscribe-links.htm" title="「11月19日」最高速度22.1M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「11月19日」最高速度22.1M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
