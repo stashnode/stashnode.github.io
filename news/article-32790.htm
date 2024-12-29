@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-32790.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>linux搭建NFS网络文件共享服务</title>
+        <meta name="description" content="一、概念 NFS是Network File System的缩写，它的主要功能是通过网络将不同的主机系统之间可以彼此共享文件或者目录。NFS客户端可以通过挂载的方式将NFS服务端共享的数据文件目录挂载到" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                                <a href="/"><span>Stash Node</span></a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>linux搭建NFS网络文件共享服务</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3><a id="_0" rel="nofollow"></a>一、概念</h3> <p>NFS是Network File System的缩写，它的主要功能是通过网络将不同的主机系统之间可以彼此共享文件或者目录。NFS客户端可以通过挂载的方式将NFS服务端共享的数据文件目录挂载到NFS客户端本地系统的一个挂载点下。</p> <h3><a id="NFS_2" rel="nofollow"></a>二、NFS服务搭建</h3> <p><strong>1、环境：</strong></p> <table> <thead> <tr> <th>服务器系统</th> <th>角色</th> <th>ip地址</th> </tr> </thead> <tbody> <tr> <td>CentOS 7.9</td> <td>NFS服务端</td> <td>192.168.119.20</td> </tr> <tr> <td>CentOS 7.9</td> <td>NFS客户端</td> <td>192.168.119.21</td> </tr> </tbody> </table> <p><strong>2、关闭防火墙</strong></p> <pre><code class="prism language-powershell">systemctl stop firewalld<span class="token comment"># 临时关闭</span> systemctl disable firewalld<span class="token comment"># 永久关闭</span></code></pre> <p><strong>3、NFS软件安装</strong></p> <p><strong>部署nfs服务需要下边安装包</strong></p> <ul> <li>nfs-utils</li> <li>portmap(centos5.x)/rpcbind(centos6.x)</li> </ul> <p><strong>NFS Server 安装</strong></p> <pre><code class="prism language-powershell"><span class="token comment">#先查看机器上是否存在NFS和RPC安装包</span> rpm<span class="token operator">-</span>qa nfs<span class="token operator">-</span>utils portmap rpcbind<span class="token comment">#如果没安装通过yum进行安装</span>  yum install nfs<span class="token operator">-</span>utils rpcbind<span class="token operator">-</span>y</code></pre> <p><strong>NFS Client安装</strong></p> <pre><code class="prism language-powershell"><span class="token comment">#先查看机器上是否存在NFS和RPC安装包</span>  rpm<span class="token operator">-</span>qa portmap rpcbind  yum install nfs<span class="token operator">-</span>utils rpcbind<span class="token operator">-</span>y</code></pre> <h3><a id="NFS_37" rel="nofollow"></a>三、NFS服务启动</h3> <p><strong>1、启动NFS服务（server、client端同时执行）</strong></p> <pre><code class="prism language-powershell">service nfs<span class="token function">start</span></code></pre> <p><strong>2、查看NFS状态（server、client端同时执行）</strong></p> <pre><code class="prism language-powershell">service nfs status</code></pre> <p><strong>3、查看NFS服务端口注册信息（server、client端同时执行）</strong></p> <pre><code class="prism language-powershell">rpcinfo<span class="token operator">-</span>p localhost</code></pre> <h3><a id="NFS_53" rel="nofollow"></a>四、NFS服务端挂载配置</h3> <p>NFS服务端的配置文件是/etc/exports，可以在该文件中进行配置参数，比如，连接的客户端限制等</p> <pre><code class="prism language-powershell">vim<span class="token operator">/</span>etc<span class="token operator">/</span>exports</code></pre> <p>添加配置，添加完执行<code>cat /etc/exports</code>，信息如下图所示：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/8aa84eb80af0916c54419ef09c638988.jpg" alt="linux搭建NFS网络文件共享服务"><br /> 其中括号后面的rw是客户端的权限，允许对共享目录中进行读写，sync同步到本地磁盘中。<br /> 重新加载NFS服务</p> <pre><code class="prism language-powershell">service nfs reload</code></pre> <p>查看配置生效挂载情况：</p> <pre><code class="prism language-powershell">showmount<span class="token operator">-</span>e localhost</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/6522b39cfb4a3a24a179c9c50d2cf92e.jpg" alt="linux搭建NFS网络文件共享服务"></p> <h3><a id="NFS_73" rel="nofollow"></a>五、NFS客户端挂载配置</h3> <p>通过客户端查看共享目录：</p> <pre><code class="prism language-powershell">showmount<span class="token operator">-</span>e 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>35<span class="token punctuation">.</span>9</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/31669b02557a27e73a9a7893e165689a.jpg" alt="linux搭建NFS网络文件共享服务"><br /> 将共享目录挂载到客户端上：</p> <pre><code class="prism language-powershell"><span class="token function">mount</span><span class="token operator">-</span>t nfs 192<span class="token punctuation">.</span>168<span class="token punctuation">.</span>119<span class="token punctuation">.</span>20:<span class="token operator">/</span><span class="token keyword">data</span><span class="token operator">/</span><span class="token keyword">data</span></code></pre> <p>挂载后<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/bbfb3d24c2484d558e910be11f9d56d1.jpg" alt="linux搭建NFS网络文件共享服务"></p> <h3><a id="_91" rel="nofollow"></a>六、测试</h3> <p><strong>NFS服务器创建文件测试</strong><br /> NFS服务端<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/8afd248f6b5cb23c243ecf163fd731ea.jpg" alt="linux搭建NFS网络文件共享服务"><br /> NFS客户端<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221113/5096188bcd93feaf4c590df579dca6cb.jpg" alt="linux搭建NFS网络文件共享服务"><br /><strong>NFS客户端文件更改权限修改</strong><br /> NFS客户端创建文件</p> <pre><code class="prism language-powershell">touch test<span class="token punctuation">.</span>txt</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/6c0dae3c11aa262f49111505441e949b.jpg" alt="linux搭建NFS网络文件共享服务"></p> <p>可以看到出现权限不足的情况。在上面的/data目录中的文件对其他用户无写的权限。</p> <p>这里可以设置nfs的默认用户属组，所以只要找到nfs的默认用户设置属组即可。</p> <pre><code class="prism language-powershell"><span class="token comment">#更改目录属组、用户</span><span class="token namespace">[root@nfs-server /]</span><span class="token comment"># chown -R nfsnobody:nfsnobody /data</span></code></pre> <h3><a id="_115" rel="nofollow"></a>七、设置开机自启</h3> <pre><code class="prism language-powershell"><span class="token comment">#nfs服务端</span> systemctl enable rpcbind systemctl enable nfs<span class="token comment">#nfs客户端启动</span> systemctl enable rpcbind systemctl enable nfs<span class="token comment">#nfs客户端执行挂载</span><span class="token function">echo</span><span class="token string">"mount -t nfs 192.168.119.20:/data /data"</span> &gt;&gt;<span class="token operator">/</span>etc<span class="token operator">/</span>rc<span class="token punctuation">.</span>local</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-32323.htm">宠物领养app下载苹果版安装（宠物领养app下载苹果版安装最新）</a></p>
+                                        <p>下一个：<a href="/news/article-32791.htm">JDK内置锁深入探究</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-29919.htm" title="三国杀登场特效（三国杀出牌特效）">三国杀登场特效（三国杀出牌特效）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-node-share-links.htm" title="「12月3日」最高速度20.7M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接">「12月3日」最高速度20.7M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-clash-v2ray-ss-ssr.htm" title="「11月10日」最高速度18.1M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅链接">「11月10日」最高速度18.1M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-19-free-node-subscribe-links.htm" title="「8月19日」最高速度23M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接">「8月19日」最高速度23M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25263.htm" title="聊下 git remote prune origin">聊下 git remote prune origin</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-9-node-share-links.htm" title="「10月9日」最高速度18.9M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接">「10月9日」最高速度18.9M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-shadowrocket-node.htm" title="「11月18日」最高速度22M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接">「11月18日」最高速度22M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-node-share-links.htm" title="「9月10日」最高速度18.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接">「9月10日」最高速度18.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19742.htm" title="最便宜的宠物猫多少钱?（最便宜的一只猫多少钱）">最便宜的宠物猫多少钱?（最便宜的一只猫多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-free-ssr-subscribe.htm" title="「8月17日」最高速度22.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接">「8月17日」最高速度22.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
