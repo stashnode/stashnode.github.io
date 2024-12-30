@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-33257.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Pillow模块如何将文件移到.py文件上面做到文件处理</title>
+        <meta name="description" content="Pillow模块如何将文件  前言 例子   效果   开始操作   准备阶段 代码编写   提醒 结语    Pillow模块如何将图片文件移到Python文件上面，然后做到文件自动化处理  现在，" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                                <a href="/"><span>Stash Node</span></a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Pillow模块如何将文件移到.py文件上面做到文件处理</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>Pillow模块如何将文件</h3> <ul> <li><a href="#_1" rel="nofollow">前言</a></li> <li><a href="#_3" rel="nofollow">例子</a></li> <li> <ul> <li><a href="#_5" rel="nofollow">效果</a></li> </ul> </li> <li><a href="#_7" rel="nofollow">开始操作</a></li> <li> <ul> <li><a href="#_8" rel="nofollow">准备阶段</a></li> <li><a href="#_15" rel="nofollow">代码编写</a></li> </ul> </li> <li><a href="#_32" rel="nofollow">提醒</a></li> <li><a href="#_34" rel="nofollow">结语</a></li> </ul> </div> </h1> <p>Pillow模块如何将图片文件移到Python文件上面，然后做到文件自动化处理</p> </h1> <p>现在，我们做一个<mark>将图片拖到Python文件上面，做到图片自动处理尺寸为150*150</mark>的工具</p> <h2> <a id="_5" rel="nofollow"></a>效果</h2> <p>现在桌面上创建一个名为1.jpg的图片文件</p> </h1> <h2> <a id="_8" rel="nofollow"></a>准备阶段</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230210/ef724ce532b8474e6901f7b5adc19258.jpg" alt="Pillow模块如何将文件移到.py文件上面做到文件处理"><br /> 再在桌面创建一个名为1.py的文件<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230210/b883605b61c92afd806737375b196dce.jpg" alt="Pillow模块如何将文件移到.py文件上面做到文件处理"><br /> 最后创建一个名为after的文件夹，用来接受我们处理完的图片文件<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230210/3b29a8738982c36d38e5fbadf8871b7b.jpg" alt="Pillow模块如何将文件移到.py文件上面做到文件处理"></p> <h2> <a id="_15" rel="nofollow"></a>代码编写</h2> <p>打开我们创建的<mark>1.py</mark>文件</p> <pre><code class="prism language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image <span class="token keyword">import</span> sys   <span class="token keyword">for</span> arg <span class="token keyword">in</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">:</span>     a <span class="token operator">=</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token comment"># 获取图片文件的绝对路径</span>  img <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> resize <span class="token operator">=</span> <span class="token number">150</span><span class="token punctuation">,</span><span class="token number">150</span> img_resize <span class="token operator">=</span> img<span class="token punctuation">.</span>resize<span class="token punctuation">(</span>resize<span class="token punctuation">)</span> <span class="token comment"># 图片转换</span> img_resize<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">"C:/Users/Adminisrator/Desktop/1/after/a.png"</span><span class="token punctuation">)</span><span class="token comment"># 图片保存</span> </code></pre> <p>代码写好之后，保存<br /> 此时不要运行，因为会<mark>报错</mark><br /> 这时将图片文件拖到代码文件上面，此时你就会发现图片会自动处理了</p> </h1> <p>在将图片文件拖到代码文件上面时，先将Pillow模块安装一下，否则会报错。</p> </h1> <p>现在，这节课就结束了，如果你觉得这节课对你有帮助的话，请给我点一个关注吧，之后我还会制作关于此类的文章</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-32791.htm">JDK内置锁深入探究</a></p>
+                                        <p>下一个：<a href="/news/article-33258.htm">开宠物店怎样打广告（宠物店开业宣传广告）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-subscribe-node.htm" title="「12月12日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接">「12月12日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-31-node-share.htm" title="「8月31日」最高速度19.6M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接">「8月31日」最高速度19.6M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe-links.htm" title="「11月17日」最高速度22.1M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接">「11月17日」最高速度22.1M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-clash-v2ray-ss-ssr.htm" title="「12月11日」最高速度18.5M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接">「12月11日」最高速度18.5M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-17-clash-v2ray-ss-ssr.htm" title="「9月17日」最高速度19.5M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「9月17日」最高速度19.5M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-free-ssr-subscribe.htm" title="「8月17日」最高速度22.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接">「8月17日」最高速度22.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-shadowrocket-node.htm" title="「11月29日」最高速度18.8M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接">「11月29日」最高速度18.8M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22947.htm" title="Spring Boot的依赖配置文件的解析">Spring Boot的依赖配置文件的解析</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-shadowrocket-node.htm" title="「8月22日」最高速度22M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「8月22日」最高速度22M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-node-subscribe-links.htm" title="「11月30日」最高速度22.8M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接">「11月30日」最高速度22.8M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
