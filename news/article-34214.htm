@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-34214.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>时间复杂度与空间复杂度</title>
+        <meta name="description" content="复杂度分析在我看来是数据结构与算法学习入门知识，尤为重要。 为什么复杂度分析重要？ 数据结构与算法的出现本就是为了花更少的时间和空间（储存）来解决问题。复杂度分析就是为解决如何“花更少的时间和空间（储" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                                <a href="/"><span>Stash Node</span></a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>时间复杂度与空间复杂度</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <p>复杂度分析在我看来是数据结构与算法学习入门知识，尤为重要。</p> <p>为什么复杂度分析重要？</p> <p>数据结构与算法的出现本就是为了花更少的时间和空间（储存）来解决问题。复杂度分析就是为解决如何“花更少的时间和空间（储存）”的问题。</p> <p>现在各种编译工具，代码跑完就能显示用了多少时间，占了多少内存。但是这些数据都是在完成代码编写之后才能得到的，这是事后统计方法。</p> <p>事后统计法得到的结果会因计算机性能和测试数据规模不同而有较大差异。这并不能体现出代码本身的效率、优劣程度，而且很可能写出的代码本身就不太行。。。</p> <p>而复杂度分析不依赖软硬件性能、数据规模等就能直接估算算法的效率、优劣，这就是其重要性。</p> <h2>时间复杂度</h2> <p>时间复杂度即算法的运行时间。</p> <p>用运行时间去描述算法的效率时，算法的执行总步数越多算法越慢，总步数越少则越快。</p> <p>假设每一行代码运行时间都为X，则<strong>算法的总运行时间等于运行的总代码行数。</strong></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 128, 1)">1</span><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> sum(n):</span><span style="color: rgba(0, 128, 128, 1)">2</span>     sum =<span style="color: rgba(0, 0, 0, 1)"> 0</span><span style="color: rgba(0, 128, 128, 1)">3</span><span style="color: rgba(0, 128, 128, 1)">4</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):</span><span style="color: rgba(0, 128, 128, 1)">5</span>         sum +=<span style="color: rgba(0, 0, 0, 1)"> i</span><span style="color: rgba(0, 128, 128, 1)">6</span><span style="color: rgba(0, 0, 255, 1)">return</span> sum</pre> </div> <p>在上面代码中，假设运行一行需要 1t，则第二行运行时间为 1t，第四行、第五行执行了n遍，每行运行时间为 nt，则运行总时间就是（1+2n）t</p> <p>用函数来表示就是 T(n) = (1+2n) t，可以看出T(n)和总步数成正比关系。</p> <p>用 大O表示法 就是 T(n) = O(f(n))，f(n)为执行总步数。</p> <p>n可以是1到+∞，当其非常大的时候，一些相对于n来说小的部分就可以忽略了。</p> <p>拿前面的 1+2n 来说，当n = 100000时，1+2n = 2000001，n持续变大，常数1和系数2对结果影响就很微小了，直接忽略，最终变成了 T(n) = O(n)。</p> <hr/> <p>下面例子作为练习：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 128, 1)">1</span><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> sum(n):</span><span style="color: rgba(0, 128, 128, 1)">2</span>     sum =<span style="color: rgba(0, 0, 0, 1)"> 0</span><span style="color: rgba(0, 128, 128, 1)">3</span><span style="color: rgba(0, 128, 128, 1)">4</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):</span><span style="color: rgba(0, 128, 128, 1)">5</span><span style="color: rgba(0, 0, 255, 1)">for</span> j<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):</span><span style="color: rgba(0, 128, 128, 1)">6</span>             sum += i +<span style="color: rgba(0, 0, 0, 1)"> j</span><span style="color: rgba(0, 128, 128, 1)">7</span><span style="color: rgba(0, 0, 255, 1)">return</span> sum</pre> </div> <p>其中有个嵌套for循环，第四行执行1次，第五行、第六行执行n次<span style="font-size: 11.6667px"><br /></span></p> <p>第二行需要运行1次，第四行运行n次，第五行、第六行执行n<sup>2</sup>次，总步数 f(n) = 1 +n +2n<sup>2</sup></p> <p>当n非常大的时候，对运算结果有影响的是n<sup>2</sup>，常数1、n、系数2都可以忽略，则&nbsp;f(n) = n<sup>2</sup>，代码运行时间 T(n) = O(n<sup>2</sup>)。</p> <h3>常见时间复杂度</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4b430bcc4d227c6a14d2dacaf46508e7.jpg" alt="时间复杂度与空间复杂度"></p> <h2>最好情况、最坏情况和平均情况时间复杂度</h2> <p>一段代码中，数据的具体情况也会影响运行时间</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> test(list, num):      index</span>= -1<span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(len(list)):</span><span style="color: rgba(0, 0, 255, 1)">if</span> list[i] ==<span style="color: rgba(0, 0, 0, 1)"> num:             index</span>=<span style="color: rgba(0, 0, 0, 1)"> i</span><span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 255, 1)">return</span> index</pre> </div> <p>这段代码是求 变量num 在上列表 list 中的索引</p> <p>假设输入的 list = [1,2,3,4,5]</p> <p>当 num = 1 时，自第一次执行时就在list中找到了，后面不再遍历，此时时间复杂度为 O(1)。</p> <p>当 num = 5 时，全部遍历完才找到，此时时间复杂度为 O(n)。</p> <p>当 num = 6 时，全部遍历完也没找到，此时时间复杂度也为 O(n)。</p> <p>这就是数据情况不同，时间复杂度不同。</p> <p>这样就出现 最好情况、最坏情况时间复杂度。</p> <p>最好情况时间复杂度就是最理想情况下代码复杂度，对应上面例子最好时间复杂度就是O(1)；</p> <p>最坏情况时间复杂度就是最不理想情况下代码复杂度，对应上面例子最好时间复杂度就是O(n)；</p> <p>平均时间复杂度根据加权平均值求得。拿上面例子来说就是 O((3n+1)/4) = O(n)</p> <p>像最好情况时间复杂度，平均时间复杂度并没有太大参考价值，一般都是拿最坏时间复杂度当时间复杂度，因为不会有比最坏的情况再坏的了，可以说最坏时间复杂度就是一个底线。</p> <h2>空间复杂度</h2> <p>空间复杂度反应的是代码运行过程中临时变量占用的内存空间。</p> <p>代码运行所占空间分为三种：1、代码本身所占空间；2、输入数据所占空间；3、临时变量所占空间</p> <p>1和2与代码性能无关，所以空间复杂度只考虑运行过程临时占用空间</p> <p>空间复杂度记作S(n)，表示形式同样为O(f(n))</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> sum(list):     sum</span>=<span style="color: rgba(0, 0, 0, 1)"> 0</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(len(list)):         sum</span>+=<span style="color: rgba(0, 0, 0, 1)"> list[i]</span><span style="color: rgba(0, 0, 255, 1)">return</span> sum</pre> </div> <p>该代码求输入列表list中所有元素的和。</p> <p>其中，输入的list空间不计，sum存储和，i存储元素索引，都是常数，其所占空间与n没有关系，所以该代码空间复杂度S(n) = O(1)</p> <h3>常见空间复杂度</h3> <p>O(n):</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> createList(n):     list</span>=<span style="color: rgba(0, 0, 0, 1)"> []</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):         list.append(i)</span><span style="color: rgba(0, 0, 255, 1)">return</span> list</pre> </div> <p>其中临时变量有 list和i</p> <p>list为空列表，所占用空间根据for循环次数增加，最大为n，所以list的空间复杂度为O(n)，i为常数阶，与n无关，则整个代码空间复杂度为O(n)</p> <p>O(n<sup>2</sup>):</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> createList(n):     list1</span>=<span style="color: rgba(0, 0, 0, 1)"> []</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):         list2</span>=<span style="color: rgba(0, 0, 0, 1)"> []</span><span style="color: rgba(0, 0, 255, 1)">for</span> j<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):             list2.append(j)         list1.append(list2)</span><span style="color: rgba(0, 0, 255, 1)">return</span> list1</pre> </div> <p>这段代码比上面那个多了一层嵌套for循环，list1的空间占用为n，list2的空间占用为n<sup>2</sup>，则整个代码空间复杂度为O(n<sup>2</sup>)</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33741.htm">进程通信&#8212;-共享内存以及mmap函数实现共享内存</a></p>
+                                        <p>下一个：<a href="/news/article-34215.htm">成都宠物领养平台微博（成都宠物论坛领养）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-5-free-node-subscribe-links.htm" title="「9月5日」最高速度18.3M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接">「9月5日」最高速度18.3M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-ssr-subscribe.htm" title="「10月12日」最高速度22.4M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接">「10月12日」最高速度22.4M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-node-share-links.htm" title="「8月12日」最高速度21.3M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「8月12日」最高速度21.3M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33258.htm" title="开宠物店怎样打广告（宠物店开业宣传广告）">开宠物店怎样打广告（宠物店开业宣传广告）</a></li>
+                        <li class="py-2"><a href="/news/article-22490.htm" title="宠物寄养流程图（宠物寄养流程图片大全）">宠物寄养流程图（宠物寄养流程图片大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-node-share-links.htm" title="「9月26日」最高速度21.3M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅链接">「9月26日」最高速度21.3M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-free-node-subscribe-links.htm" title="「12月29日」最高速度20.3M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅地址分享">「12月29日」最高速度20.3M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-shadowrocket-node.htm" title="「11月21日」最高速度19.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接">「11月21日」最高速度19.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-3-free-node-subscribe-links.htm" title="「9月3日」最高速度22.7M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接">「9月3日」最高速度22.7M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29443.htm" title="美联众合动物医院地址 美联众合动物医院地址在哪里">美联众合动物医院地址 美联众合动物医院地址在哪里</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
