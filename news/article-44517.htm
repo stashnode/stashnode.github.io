@@ -2,22 +2,22 @@
 <html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://stashnode.github.io/news/article-44042.htm" />
+        <link rel="canonical" href="https://stashnode.github.io/news/article-44517.htm" />
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>taro跳转到tabBar报错问题</title>
-        <meta name="description" content="{errMsg: “redirectTo:fail can not redirectTo a tabbar page”} 改用解决 Taro.switchTab(option) 跳转到 tabBar " />
+    <title>递归调用</title>
+        <meta name="description" content="今天cf遇见了一点问题，是自己学过却不怎么熟悉的递归调用。 &nbsp; &nbsp; 递归定义使人们能够用有限的语句描述一个无穷的集合。C++语言允许一个函数体中出现调用自身的语句，成为直接递归调用" />
         <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
 
     <meta name="author" content="StashNode免费订阅官网">
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://stashnode.github.io/news/article-44042.htm" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-44517.htm" />
     <meta property="og:site_name" content="StashNode免费订阅官网" />
-    <meta property="og:title" content="taro跳转到tabBar报错问题" />
-    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/d770e6f2394b1c712258e89ac389ec77.webp" />
-        <meta property="og:release_date" content="2025-01-21T09:50:28" />
-    <meta property="og:updated_time" content="2025-01-21T09:50:28" />
-        <meta property="og:description" content="{errMsg: “redirectTo:fail can not redirectTo a tabbar page”} 改用解决 Taro.switchTab(option) 跳转到 tabBar " />
+    <meta property="og:title" content="递归调用" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/22a32241e80299978c31787f6dd4741a.webp" />
+        <meta property="og:release_date" content="2025-01-22T10:13:22" />
+    <meta property="og:updated_time" content="2025-01-22T10:13:22" />
+        <meta property="og:description" content="今天cf遇见了一点问题，是自己学过却不怎么熟悉的递归调用。 &nbsp; &nbsp; 递归定义使人们能够用有限的语句描述一个无穷的集合。C++语言允许一个函数体中出现调用自身的语句，成为直接递归调用" />
     
     <meta name="applicable-device" content="pc,mobile" />
     <meta name="renderer" content="webkit" />
@@ -26,7 +26,7 @@
     <meta name="robots" content="max-image-preview:large" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="taro跳转到tabBar报错问题">
+    <meta name="apple-mobile-web-app-title" content="递归调用">
     <meta name="format-detection" content="telephone=no">
 
     <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
@@ -85,7 +85,7 @@
         <section class="breadcrumbs">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h1>taro跳转到tabBar报错问题</h1>
+                    <h1>递归调用</h1>
                     <ol>
                         <li><a href="/">首页</a></li>
                         <li><a href="/news/">新闻资讯</a></li>
@@ -100,10 +100,10 @@
                 <div class="row">
                     <div class="col-md-9">
                                         <input type="hidden" id="share-website-info" data-name="" data-url="">
-                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <blockquote> <p>{errMsg: “redirectTo:fail can not redirectTo a tabbar page”}<br /> 改用解决<br /> Taro.switchTab(option)<br /> 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</p> </blockquote> <pre><code class="prism language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">30000</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         Taro<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>           title<span class="token operator">:</span> <span class="token string">"登录成功"</span><span class="token punctuation">,</span>           icon<span class="token operator">:</span> <span class="token string">"success"</span><span class="token punctuation">,</span>         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         Taro<span class="token punctuation">.</span><span class="token function">switchTab</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>           url<span class="token operator">:</span> <span class="token string">"../message/index"</span><span class="token punctuation">,</span>         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{<!-- --></span>         Taro<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>           title<span class="token operator">:</span> <span class="token string">"登录失败"</span><span class="token punctuation">,</span>           icon<span class="token operator">:</span> <span class="token string">"none"</span><span class="token punctuation">,</span>         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>今天cf遇见了一点问题，是自己学过却不怎么熟悉的递归调用。</p> <p>&nbsp; &nbsp; 递归定义使人们能够用有限的语句描述一个无穷的集合。C++语言允许一个函数体中出现调用自身的语句，成为直接递归调用。也允许被调用的另一个函数反过来调用原函数，策划功能为间接递归调用。这种功能为递归结构问题提供了求解的实现手段，使程序语言的描述与问题的自然描述完全一直，因而使程序易于理解、易于维护。</p> <p>&nbsp; &nbsp; 通过简单的例子说明递归函数的构成规律和执行过程。</p> <p>&nbsp; &nbsp; 使用递归函数编程序求n！</p> <p>&nbsp; &nbsp; 当n&gt;=0时，阶乘可以用循环迭代（非递归）计算：</p> <pre><code class="language-cpp">fact=1; for(int k=n;k&gt;=1;k--) fact*=k;</code></pre> <p></p> <p>也可以用另一种递归形式定义阶乘：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230207/173b878cd2c44c637ddbd608e3272ed2.jpg" alt="递归调用"></p> <p>&nbsp; &nbsp; 阶乘的递归定义把问题分为两部分，一部分用已知的参数n作为被乘数，另一部分使用原来的阶乘定义作为参数。不过，乘数n*（n-1）的规模变小了，以此类推，问题的规模进一步缩小，从而产生越来越小的问题，最后归结到基本情况，0！=1。C++函数调用能够识别并处理这种基本情况，向前一个函数调用并返回结果，并回溯一系列的中间结果，直到把最终结果返回给调用函数。</p> <p>&nbsp; &nbsp; 以下程序在main函数中调用求阶乘的递归函数。</p> <pre><code class="language-cpp">#include&lt;iostream&gt; using namespace std; long fact(int n) { 	if (n == 0) 		return 1; 	else 		return n*fact(n - 1); } int main() { 	int n; 	cout &lt;&lt; "Enter n(n&gt;=0):"; 	cin &gt;&gt; n; 	cout &lt;&lt; n &lt;&lt; "!="&lt;&lt;fact(n) &lt;&lt; endl; 	return 0; }</code></pre> <p> &nbsp; &nbsp; 递归函数执行由递推和回归两个过程完成。递归函数之所以能够实现，关键是系统使用堆栈来保存函数调用中的传值参数、局部变量和函数调用后的返回地址。函数自身调用进行递推：系统把有关参数和地址压进堆栈，一直递推到满足终止条件，找到问题的最基本模式为止。然后进行回归：系统从堆栈中逐层弹出有关参数和地址，执行地址所指向的代码，一直到栈空为止，得到问题的解。</p> <p>&nbsp; &nbsp; 递归调用与一般函数调用，堆栈管理的操作过程是一致的。不同的是，函数的自身调用就像是产生多个正在运行（等待结束）的相同函数副本。如果这种调用不能终止并产生副本，将是程序十分严重的错误。</p> <p>&nbsp; &nbsp; 构成递归函数有两个基本要素：</p> <p>&nbsp; &nbsp; 描述问题规模逐步缩小的递归算法；</p> <p>&nbsp; &nbsp; 描述基本情况的递归 终止条件。</p> <p>&nbsp; &nbsp; &nbsp;在fact函数中，递归调用的语句为：</p> <pre><code class="language-cpp">    t=n*fact(n - 1);</code></pre> <p>由调用参数n-1，使问题规模逐渐缩小，直至到达递归带哦用终止条件：</p> <pre><code class="language-cpp">    n==0</code></pre> <p>&nbsp; &nbsp; 返回基本情况值1.</p> <p>&nbsp; &nbsp; 在程序中，递归算法和递归条件通常用条件语句表达。递归调用可以出现在语句中，也可以出现在判断表达式中。</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-43524.htm">上海宠物领养平台电话号码查询地址（上海地区宠物领养）</a></p>
-                                        <p>下一个：<a href="/news/article-44043.htm">Android 暗黑模式适配</a></p>
+                                        <p>上一个：<a href="/news/article-44043.htm">Android 暗黑模式适配</a></p>
+                                        <p>下一个：<a href="/news/article-44518.htm">前端发送复杂JSON数据，后端使用@RequestBody接收</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -113,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-20659.htm" title="宠物粮品牌推荐大全及价格（宠物粮品牌排行榜）">宠物粮品牌推荐大全及价格（宠物粮品牌排行榜）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share.htm" title="「12月13日」最高速度18.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接">「12月13日」最高速度18.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21574.htm" title="动物医院有公立的吗还是私立的好呢 动物医院有公立的吗还是私立的好呢知乎">动物医院有公立的吗还是私立的好呢 动物医院有公立的吗还是私立的好呢知乎</a></li>
-                        <li class="py-2"><a href="/news/article-33258.htm" title="开宠物店怎样打广告（宠物店开业宣传广告）">开宠物店怎样打广告（宠物店开业宣传广告）</a></li>
-                        <li class="py-2"><a href="/news/article-43037.htm" title="建议穷人养的10种狗50元（建议穷人养的10种狗50元以上）">建议穷人养的10种狗50元（建议穷人养的10种狗50元以上）</a></li>
-                        <li class="py-2"><a href="/news/article-23421.htm" title="宠爱国际动物医院电话（宠爱国际动物诊疗中心）">宠爱国际动物医院电话（宠爱国际动物诊疗中心）</a></li>
-                        <li class="py-2"><a href="/news/article-38562.htm" title="塞尔达海拉鲁大陆神庙（塞尔达传说海拉鲁神庙在哪）">塞尔达海拉鲁大陆神庙（塞尔达传说海拉鲁神庙在哪）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-16-node-share.htm" title="「1月16日」最高速度20.4M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费节点订阅地址分享">「1月16日」最高速度20.4M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-16-shadowrocket-node.htm" title="「11月16日」最高速度22.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「11月16日」最高速度22.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-16-clash-v2ray-ss-ssr.htm" title="「10月16日」最高速度19.4M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费节点订阅链接">「10月16日」最高速度19.4M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25263.htm" title="聊下 git remote prune origin">聊下 git remote prune origin</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-clash-v2ray-ss-ssr.htm" title="「11月8日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接">「11月8日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-ssr-subscribe.htm" title="「1月17日」最高速度20.1M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享">「1月17日」最高速度20.1M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-20199.htm" title="国内兽药公司排名（国内兽药公司排名前十）">国内兽药公司排名（国内兽药公司排名前十）</a></li>
+                        <li class="py-2"><a href="/news/article-30404.htm" title="附近免费领养狗猫咪的地方在哪里（附近有没有免费的狗狗领）">附近免费领养狗猫咪的地方在哪里（附近有没有免费的狗狗领）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-node-share.htm" title="「11月6日」最高速度22.2M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接">「11月6日」最高速度22.2M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-shadowrocket-node.htm" title="「12月10日」最高速度19.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接">「12月10日」最高速度19.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-node-share-links.htm" title="「12月18日」最高速度20.9M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接">「12月18日」最高速度20.9M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-42040.htm" title="猫三联一次性打几针（猫三联每一针间隔多久）">猫三联一次性打几针（猫三联每一针间隔多久）</a></li>
+                        <li class="py-2"><a href="/news/article-27121.htm" title="动物疫苗市场规模排名（动物疫苗行业排名）">动物疫苗市场规模排名（动物疫苗行业排名）</a></li>
                     </ul>
     </div>
 </div>
