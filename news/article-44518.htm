@@ -103,6 +103,7 @@
                   				  				  				<div id="content_views" class="htmledit_views"> <pre class="has"><code class="language-html"> * JSON属性如下  * loginName: "jay"  * password : "3333"  * roles    : { id : 4 }  * user     : { name:"username" , officeName : "java"}  * ---------------------------------------------------------  * Java实体如下  * MyEntity   * String loginName  * String password  * RoleEntity roles   RoleEntity中有一个id属性接收  * UserEntity user    UserEntity中有name 、 officeName 属性接收  *  */</code></pre> <p>什么意思呢？</p> <p>前端发送的JSON数据，除了普通的键值对，还有<span style="color: #f33b45;">键--对象</span>， 比如 roles : { id : 4}。</p> <p>那么，对应的后台Java实体，其属性应该持有一个，叫roles的对象引用，比如 private RoleEntity roles ;</p> <p>这个RoleEntity对象，应该有id属性，从而接收 id:4这组键值对。</p> <p>同理，后台Java实体，也应该有一个 UserEntity 来 接收 JSON数据中&nbsp;{ name:"username" , officeName : "java"}。</p> <p>伪代码如下</p> <pre class="has"><code class="language-java">   //后台Java实体类名 &nbsp; &nbsp;class MyEntity {  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private String loginName;  //映射Json的loginName属性  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private String password;   //映射Json的password属性  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private RoleEntity roles;  //映射Json的roles对象 , 引用要与JSON属性一致！   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private UserEntity user;   //映射Json的user对象  ，引用要与JSON属性一致！  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;class&nbsp; RoleEntity{  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private Long id;    &nbsp; &nbsp; &nbsp; &nbsp;  }   &nbsp; &nbsp; &nbsp; &nbsp; class UserEntity{  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;private String name;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  private String officeName;  &nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp;  &nbsp; }     Controller中      @RequestMapping(value="url")   public JsonResponse  handerSomething(@RequestBody MyEntity ref)</code></pre> </h1> </h1> <p><img fetchpriority="high" decoding="async" src="http://img.555519.xyz/uploads3/20220905/4f40afd7521a78c9664e1a5357af81f4.jpg" alt="前端发送复杂JSON数据，后端使用@RequestBody接收"></p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-44517.htm">递归调用</a></p>
+                                        <p>下一个：<a href="/news/article-45020.htm">宠物医院经营许可证申领流程（宠物医院经营许可证申领流程图）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -112,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-16-clash-v2ray-ss-ssr.htm" title="「10月16日」最高速度19.4M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费节点订阅链接">「10月16日」最高速度19.4M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27121.htm" title="动物疫苗市场规模排名（动物疫苗行业排名）">动物疫苗市场规模排名（动物疫苗行业排名）</a></li>
-                        <li class="py-2"><a href="/news/article-31849.htm" title="ASP.NET和ASP.NETCore多环境配置对比">ASP.NET和ASP.NETCore多环境配置对比</a></li>
-                        <li class="py-2"><a href="/news/article-21571.htm" title="动物打疫苗需要什么 动物打疫苗需要什么证件">动物打疫苗需要什么 动物打疫苗需要什么证件</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-2-free-high-speed-nodes.htm" title="「1月2日」最高速度19.8M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅地址分享">「1月2日」最高速度19.8M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-shadowrocket-node.htm" title="「11月7日」最高速度18.1M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接">「11月7日」最高速度18.1M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-8-clash-v2ray-ss-ssr.htm" title="「11月8日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接">「11月8日」最高速度19.6M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21118.htm" title="动物注射法（动物注射治疗技术实验报告）">动物注射法（动物注射治疗技术实验报告）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-high-speed-nodes.htm" title="「10月31日」最高速度22.5M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「10月31日」最高速度22.5M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-24802.htm" title="使用 Docker 搭建 Confluence">使用 Docker 搭建 Confluence</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-free-node-subscribe-links.htm" title="「12月16日」最高速度22.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接">「12月16日」最高速度22.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45021.htm" title="宠物领养协议书怎么生效（宠物领养协议免费下载）">宠物领养协议书怎么生效（宠物领养协议免费下载）</a></li>
+                        <li class="py-2"><a href="/news/article-27590.htm" title="上海地区宠物领养中心电话地址（上海宠物领养中心免费领养狗狗）">上海地区宠物领养中心电话地址（上海宠物领养中心免费领养狗狗）</a></li>
+                        <li class="py-2"><a href="/news/article-26173.htm" title="springboot项目 Feign调用时，@RequestBody 接受字符串(String),json字符串多出引号">springboot项目 Feign调用时，@RequestBody 接受字符串(String),json字符串多出引号</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-node-share.htm" title="「12月4日」最高速度19.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接">「12月4日」最高速度19.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-subscribe-node.htm" title="「11月23日」最高速度21.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「11月23日」最高速度21.8M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24803.htm" title="使用maven构建SpringBoot打包成war包，步骤，超级详细">使用maven构建SpringBoot打包成war包，步骤，超级详细</a></li>
+                        <li class="py-2"><a href="/news/article-43521.htm" title="知名宠物品牌有哪些（宠物品牌哪个好）">知名宠物品牌有哪些（宠物品牌哪个好）</a></li>
+                        <li class="py-2"><a href="/news/article-41055.htm" title="页面搭建系统的那些事儿_在线工具">页面搭建系统的那些事儿_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-19743.htm" title="宠物粮食怎么销售的 宠物粮食怎么销售的呢">宠物粮食怎么销售的 宠物粮食怎么销售的呢</a></li>
                     </ul>
     </div>
 </div>
@@ -133,7 +134,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
