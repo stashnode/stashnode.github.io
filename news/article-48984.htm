@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-48984.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>NodeJS中Express框架实现用户登录，注册，及接口token授权验证</title>
+        <meta name="description" content="后端开发中，用户登录，注册，及其他接口的token验证是必需的，以前开发时会在用户登录时存一个session，但是现在token验证的方式更多也更好。这篇文章教大家实现密码加密保存及解密验证，还有to" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-48984.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="NodeJS中Express框架实现用户登录，注册，及接口token授权验证" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/c4be5d071e34b33f245732fe2f13835a.webp" />
+        <meta property="og:release_date" content="2025-01-31T07:18:54" />
+    <meta property="og:updated_time" content="2025-01-31T07:18:54" />
+        <meta property="og:description" content="后端开发中，用户登录，注册，及其他接口的token验证是必需的，以前开发时会在用户登录时存一个session，但是现在token验证的方式更多也更好。这篇文章教大家实现密码加密保存及解密验证，还有to" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="NodeJS中Express框架实现用户登录，注册，及接口token授权验证">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                                <a href="/"><span>Stash Node</span></a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>NodeJS中Express框架实现用户登录，注册，及接口token授权验证</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>后端开发中，用户登录，注册，及其他接口的token验证是必需的，以前开发时会在用户登录时存一个session，但是现在token验证的方式更多也更好。这篇文章教大家实现密码加密保存及解密验证，还有token生成及验证。</p> </blockquote> <p>安装所需依赖模块</p> <pre><code>npm i bcrypt jsonwebtoken </code></pre> <h3> <a id="1_tokentoken_8" rel="nofollow"></a>1. 登录时token的生成及其他接口调取时token的验证工具函数定义</h3> <p>在util文件创建个jwt.js文件</p> <pre><code>const jwt = require('jsonwebtoken')  const jwtKey = 'junkaicool' // token生成的密匙，根据自己需求定义  const jwtSign = (data) =&gt; { // token生成函数，有效时间为一个小时   const token = jwt.sign(data, jwtKey, {expiresIn: 60 * 60})   return token }  const jwtCheck = (req, res, next) =&gt; { // token验证函数   const token = req.headers.token   jwt.verify(token, jwtKey, (err, data) =&gt; {     if (err) {       res.send({         code: '999999',         msg: 'token无效'       })     } else {       req.jwtInfo = data       next()     }   }) }  module.exports = {   jwtSign,   jwtCheck } </code></pre> <h3> <a id="2_41" rel="nofollow"></a>2.注册接口密码加密</h3> <p>在定义用户注册接口时使用<strong>bcrypt</strong>对密码进行加密.</p> <ol> <li>引入bcrypt</li> </ol> <pre><code>const bcrypt = require('bcrypt') </code></pre> <ol start="2"> <li>在注册接口中使用bcrypt加密</li> </ol> <pre><code>router.post('/reg', (req, res) =&gt; {   const {username, password} = req.body   if (username &amp;&amp; password) {     const hashPwd = bcrypt.hashSync(password, 10) // 使用bcrypt.hashSync方法生成密文密码     userModel.create({       username, password: hashPwd     }, (err, data) =&gt; {       if (err) {         res.send({           code: '111112',           msg: '注册失败'         })       } else {         res.send({           code: '000000',           msg: '注册成功'         })       }     })   } else {     res.send({       code: '111111',       msg: '参数错误'     })   } }) </code></pre> <h3> <a id="3token_78" rel="nofollow"></a>3.登录接口密码解密,并获取token</h3> <ol> <li>引入bcrypt和jwtSign函数</li> </ol> <pre><code>const bcrypt = require('bcrypt') const {jwtSign} = require('../util/jwt') </code></pre> <ol start="2"> <li>在登录接口中使用bcrypt解密</li> </ol> <pre><code>router.post('/login', (req, res) =&gt; {   const {username, password} = req.body   if (username &amp;&amp; password) {     userModel.find({username}, (err, data) =&gt; {       if (err || !data.length) {         res.send({           code: '111112',           msg: '登录失败'         })       } else {         const isPwdValid = bcrypt.compareSync(password, data[0].password) // 使用bcrypt.compareSync方法验证密码         if (isPwdValid) {           const token = jwtSign({_id: data[0]._id}) // 用引入的jwtSign方法生成token并返回           res.send({             code: '000000',             msg: '登录成功',             data: {               token             }           })         } else {           res.send({             code: '111113',             msg: '密码错误'           })         }       }     })   } else {     res.send({       code: '111111',       msg: '参数错误'     })   } }) </code></pre> <h3> <a id="4jwtCheck__124" rel="nofollow"></a>4.在需要用户登录验证的接口引入jwtCheck ，在并接口中间件验证</h3> <ol> <li>引入jwtCheck函数</li> </ol> <pre><code>const {jwtCheck} = require('../util/jwt') </code></pre> <p>在接口中间件使用验证函数，实例如下</p> <pre><code>router.get('/list', jwtCheck, (req, res) =&gt; {   res.send({     code: '000000',     msg: '验证成功'   }) }) </code></pre> <p>到此我们就实现了用户登录，注册，及token的生成和验证</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48983.htm">MySQL如何将没有定界符的数字和字符串解释为日期？</a></p>
+                                        <p>下一个：<a href="/news/article-49472.htm">动物疫苗扎到手里怎么办图片真实（动物打疫苗后的不良反应）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-33741.htm" title="进程通信&#8212;-共享内存以及mmap函数实现共享内存">进程通信&#8212;-共享内存以及mmap函数实现共享内存</a></li>
+                        <li class="py-2"><a href="/news/article-44042.htm" title="taro跳转到tabBar报错问题">taro跳转到tabBar报错问题</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-node-share.htm" title="「10月10日」最高速度21M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「10月10日」最高速度21M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22948.htm" title="动物医院布局分析（动物医院面积）">动物医院布局分析（动物医院面积）</a></li>
+                        <li class="py-2"><a href="/news/article-49473.htm" title="公务员国考报名时间2021年省考（公务员国考报名截止时间）">公务员国考报名时间2021年省考（公务员国考报名截止时间）</a></li>
+                        <li class="py-2"><a href="/news/article-24323.htm" title="开宠物医院需要什么条件（开一个宠物医院大概需要多少钱）">开宠物医院需要什么条件（开一个宠物医院大概需要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-34694.htm" title="宠物疫苗多少钱一针猫咪能打的（宠物猫疫苗多少钱打一次）">宠物疫苗多少钱一针猫咪能打的（宠物猫疫苗多少钱打一次）</a></li>
+                        <li class="py-2"><a href="/news/article-49992.htm" title="Celery教程&#8212;&#8212;&#8212;&#8212;-以守护进程方式运行worker">Celery教程&#8212;&#8212;&#8212;&#8212;-以守护进程方式运行worker</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-shadowrocket-node.htm" title="「2月1日」最高速度18.4M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅地址分享">「2月1日」最高速度18.4M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-19286.htm" title="狗粮颗粒机器价格表及图片（狗粮颗粒机器价格表及图片大全集）">狗粮颗粒机器价格表及图片（狗粮颗粒机器价格表及图片大全集）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
