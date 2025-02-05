@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://stashnode.github.io/news/article-32791.htm" />
@@ -8,15 +8,43 @@
     <title>JDK内置锁深入探究</title>
         <meta name="description" content="一、序言 本文讲述仅针对 JVM 层次的内置锁，不涉及分布式锁。 锁有多种分类形式，比如公平锁与非公平锁、可重入锁与非重入锁、独享锁与共享锁、乐观锁与悲观锁、互斥锁与读写锁、自旋锁、分段锁和偏向锁/轻" />
         <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-32791.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="JDK内置锁深入探究" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/4cb2fe534dafa7dd23c654c3fbec1df9.webp" />
+        <meta property="og:release_date" content="2024-12-29T05:24:37" />
+    <meta property="og:updated_time" content="2024-12-29T05:24:37" />
+        <meta property="og:description" content="一、序言 本文讲述仅针对 JVM 层次的内置锁，不涉及分布式锁。 锁有多种分类形式，比如公平锁与非公平锁、可重入锁与非重入锁、独享锁与共享锁、乐观锁与悲观锁、互斥锁与读写锁、自旋锁、分段锁和偏向锁/轻" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JDK内置锁深入探究">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -85,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-high-speed-nodes.htm" title="「12月2日」最高速度21.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接">「12月2日」最高速度21.4M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-12-node-share.htm" title="「9月12日」最高速度21.5M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接">「9月12日」最高速度21.5M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-17-free-ssr-subscribe.htm" title="「8月17日」最高速度22.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接">「8月17日」最高速度22.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-15-node-share.htm" title="「9月15日」最高速度18.8M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接">「9月15日」最高速度18.8M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21118.htm" title="动物注射法（动物注射治疗技术实验报告）">动物注射法（动物注射治疗技术实验报告）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-high-speed-nodes.htm" title="「11月13日」最高速度21M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「11月13日」最高速度21M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-7-node-share-links.htm" title="「9月7日」最高速度20.5M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接">「9月7日」最高速度20.5M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-30405.htm" title="动物疫苗公司上海地址（上海动物防疫站打疫苗）">动物疫苗公司上海地址（上海动物防疫站打疫苗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-28-clash-v2ray-ss-ssr.htm" title="「12月28日」最高速度20.4M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅地址分享">「12月28日」最高速度20.4M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/news/article-25265.htm" title="猫的跳蚤怎么去除（猫猫的跳蚤有什么办法治?）">猫的跳蚤怎么去除（猫猫的跳蚤有什么办法治?）</a></li>
+                        <li class="py-2"><a href="/news/article-34214.htm" title="时间复杂度与空间复杂度">时间复杂度与空间复杂度</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-subscribe-node.htm" title="「12月12日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接">「12月12日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-node-subscribe-links.htm" title="「12月9日」最高速度21.5M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「12月9日」最高速度21.5M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-ssr-node.htm" title="「11月26日」最高速度22.4M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接">「11月26日」最高速度22.4M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-subscribe-node.htm" title="「12月8日」最高速度22.4M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接">「12月8日」最高速度22.4M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46017.htm" title="mysql datetime详解_Mysql 之Date,DateTime,TimeStamp三种种类的详解">mysql datetime详解_Mysql 之Date,DateTime,TimeStamp三种种类的详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-free-subscribe-node.htm" title="「2月2日」最高速度21.9M/S，2025年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅地址分享">「2月2日」最高速度21.9M/S，2025年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-45507.htm" title="动物医院诊室图片大全集（动物医院布局）">动物医院诊室图片大全集（动物医院布局）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-shadowrocket-node.htm" title="「1月22日」最高速度18M/S，2025年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅地址分享">「1月22日」最高速度18M/S，2025年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-high-speed-nodes.htm" title="「12月19日」最高速度18.1M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接">「12月19日」最高速度18.1M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -106,22 +134,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

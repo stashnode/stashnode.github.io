@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://stashnode.github.io/news/article-36065.htm" />
@@ -8,15 +8,43 @@
     <title>jdbc中PreparedStatment通用增删改查</title>
         <meta name="description" content="package loey.DBUtil;  import org.junit.Test;  import java.io.IOException; import java.io.InputStream" />
         <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-36065.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="jdbc中PreparedStatment通用增删改查" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/4ac43e9eebddc1f92e8189ed974d2125.webp" />
+        <meta property="og:release_date" content="2025-01-05T09:44:56" />
+    <meta property="og:updated_time" content="2025-01-05T09:44:56" />
+        <meta property="og:description" content="package loey.DBUtil;  import org.junit.Test;  import java.io.IOException; import java.io.InputStream" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="jdbc中PreparedStatment通用增删改查">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -85,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-14-node-share.htm" title="「10月14日」最高速度20.3M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「10月14日」最高速度20.3M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share.htm" title="「12月13日」最高速度18.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接">「12月13日」最高速度18.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-node-subscribe-links.htm" title="「1月5日」最高速度22.1M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享">「1月5日」最高速度22.1M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/news/article-24803.htm" title="使用maven构建SpringBoot打包成war包，步骤，超级详细">使用maven构建SpringBoot打包成war包，步骤，超级详细</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-shadowrocket-node.htm" title="「12月15日」最高速度22.2M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接">「12月15日」最高速度22.2M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27120.htm" title="动物疫苗合格证明在哪办理的 动物疫苗合格证明在哪办理的呢">动物疫苗合格证明在哪办理的 动物疫苗合格证明在哪办理的呢</a></li>
-                        <li class="py-2"><a href="/news/article-33740.htm" title="Spring Boot框架下实现Excel服务端导入导出">Spring Boot框架下实现Excel服务端导入导出</a></li>
+                        <li class="py-2"><a href="/news/article-40549.htm" title="公务员省考2024报名时间（公务员省考报名时间2021年下半年）">公务员省考2024报名时间（公务员省考报名时间2021年下半年）</a></li>
+                        <li class="py-2"><a href="/news/article-19286.htm" title="狗粮颗粒机器价格表及图片（狗粮颗粒机器价格表及图片大全集）">狗粮颗粒机器价格表及图片（狗粮颗粒机器价格表及图片大全集）</a></li>
+                        <li class="py-2"><a href="/news/article-48984.htm" title="NodeJS中Express框架实现用户登录，注册，及接口token授权验证">NodeJS中Express框架实现用户登录，注册，及接口token授权验证</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-high-speed-nodes.htm" title="「12月19日」最高速度18.1M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接">「12月19日」最高速度18.1M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-47011.htm" title="宠物粮食公司人员及组织结构 宠物粮食公司人员及组织结构图">宠物粮食公司人员及组织结构 宠物粮食公司人员及组织结构图</a></li>
                         <li class="py-2"><a href="/news/article-21118.htm" title="动物注射法（动物注射治疗技术实验报告）">动物注射法（动物注射治疗技术实验报告）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-16-shadowrocket-node.htm" title="「11月16日」最高速度22.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「11月16日」最高速度22.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-27-node-share.htm" title="「11月27日」最高速度19.8M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接">「11月27日」最高速度19.8M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29443.htm" title="美联众合动物医院地址 美联众合动物医院地址在哪里">美联众合动物医院地址 美联众合动物医院地址在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-32322.htm" title="宠物医院美团好评回复优美语句 宠物医院美团好评回复优美语句怎么写">宠物医院美团好评回复优美语句 宠物医院美团好评回复优美语句怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-36065.htm" title="jdbc中PreparedStatment通用增删改查">jdbc中PreparedStatment通用增删改查</a></li>
                     </ul>
     </div>
 </div>
@@ -106,16 +134,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-51050.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Android jetpack room+ViewModel+liveData 数据自动更新</title>
+        <meta name="description" content="Android jetpack room的使用_安果移不动的博客-CSDN博客 接上篇博客 我们用google推荐的这种方式  &nbsp; 修改： StudentDao package com.an" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-51050.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="Android jetpack room+ViewModel+liveData 数据自动更新" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/7867b0c39686e321cccfc09a0609ba0b.webp" />
+        <meta property="og:release_date" content="2025-02-04T00:29:10" />
+    <meta property="og:updated_time" content="2025-02-04T00:29:10" />
+        <meta property="og:description" content="Android jetpack room的使用_安果移不动的博客-CSDN博客 接上篇博客 我们用google推荐的这种方式  &nbsp; 修改： StudentDao package com.an" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Android jetpack room+ViewModel+liveData 数据自动更新">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Android jetpack room+ViewModel+liveData 数据自动更新</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/mp624183768/article/details/124906086?spm=1001.2014.3001.5501"  title="Android jetpack room的使用_安果移不动的博客-CSDN博客" rel="nofollow">Android jetpack room的使用_安果移不动的博客-CSDN博客</a></p> <p>接上篇博客</p> <p>我们用google推荐的这种方式</p> <p><img fetchpriority="high" decoding="async" alt="" height="533" src="http://img.555519.xyz/uploads/20230206/ca45df90b8878856870266aba3044d52.jpg"></p> <p>&nbsp;<img decoding="async" alt="" height="222" src="http://img.555519.xyz/uploads/20230206/712357897fed007287e0def43837c8b6.jpg"></p> <p>修改：</p> <pre>StudentDao</pre> <pre><code>package com.anguomob.jecpack.dao  import androidx.lifecycle.LiveData import androidx.room.* import com.anguomob.jecpack.bean.Student  @Dao interface StudentDao {     @Insert     fun insertStudent(vararg student: Student)      @Delete     fun deleteStudent(vararg student: Student)      @Query("DELETE FROM student")     fun deleteAllStudent()      @Update     fun updateStudent(vararg student: Student)       @Query("SELECT * FROM student")     fun queryAllStudent(): LiveData&lt;List&lt;Student&gt;&gt;      @Query("SELECT * FROM student where id = :id")     fun getStudentById(id: Int): List&lt;Student&gt; }</code></pre> <p>&nbsp;</p> <p>新增&nbsp;</p> <pre>StudentRepository类</pre> <pre><code>package com.anguomob.jecpack.repository  import android.content.Context import android.os.AsyncTask import androidx.lifecycle.LiveData import com.anguomob.jecpack.bean.Student import com.anguomob.jecpack.dao.StudentDao import com.anguomob.jecpack.database.MyDataBase  class StudentRepository(var context: Context) {     private lateinit var studentDao: StudentDao      init {         val dataBase = MyDataBase.getSingle(context)         this.studentDao = dataBase.getStudentDao();     }      fun insertStudent(vararg student: Student) {         InsertStudentTask(studentDao).execute(*student)     }      fun deleteStudent(vararg student: Student) {         DeleteStudentTask(studentDao).execute(*student)     }      fun updateStudent(vararg student: Student) {         UpdateStudentTask(studentDao).execute(*student)     }      fun queryAllStudent():LiveData&lt;List&lt;Student&gt;&gt; {        return  studentDao.queryAllStudent()     }      fun deleteAllStudent() {         DeleteAllStudentTask().execute()     }      inner class InsertStudentTask(var studentDao: StudentDao) : AsyncTask&lt;Student, Any, Any&gt;() {         override fun doInBackground(vararg p0: Student) {             studentDao.insertStudent(*p0)         }     }       inner class UpdateStudentTask(var studentDao: StudentDao) : AsyncTask&lt;Student, Any, Any&gt;() {         override fun doInBackground(vararg p0: Student) {             studentDao.updateStudent(*p0)         }     }      inner class DeleteStudentTask(var studentDao: StudentDao) : AsyncTask&lt;Student, Any, Any&gt;() {         override fun doInBackground(vararg p0: Student) {             studentDao.deleteStudent(*p0)         }     }     inner class DeleteAllStudentTask() : AsyncTask&lt;Any, Any, Any&gt;() {         override fun doInBackground(vararg p0: Any) {             studentDao.deleteAllStudent()         }     }  }</code></pre> <p>新增</p> <pre>StudentViewModel</pre> <pre><code>package com.anguomob.jecpack.viewmodel  import android.app.Application import androidx.lifecycle.AndroidViewModel import androidx.lifecycle.LiveData import com.anguomob.jecpack.bean.Student import com.anguomob.jecpack.repository.StudentRepository  class StudentViewModel(application: Application) : AndroidViewModel(application) {     private lateinit var repository: StudentRepository      init {         repository = StudentRepository(application)     }      fun insertStudent(vararg student: Student) {         repository.insertStudent(*student)     }      fun deleteStudent(vararg student: Student) {         repository.deleteStudent(*student)     }      fun updateStudent(vararg student: Student) {         repository.updateStudent(*student)     }      fun queryAllStudent(): LiveData&lt;List&lt;Student&gt;&gt; {         return repository.queryAllStudent()     }      fun deleteAllStudent() {         repository.deleteAllStudent()     } }</code></pre> <p>修改页面代码</p> <pre><code>package com.anguomob.jecpack.activity  import android.annotation.SuppressLint import android.os.AsyncTask import androidx.appcompat.app.AppCompatActivity import android.os.Bundle import android.view.View import androidx.lifecycle.ViewModelProvider import androidx.recyclerview.widget.LinearLayoutManager import com.anguomob.jecpack.R import com.anguomob.jecpack.adapter.RoomAdapter import com.anguomob.jecpack.bean.Student import com.anguomob.jecpack.dao.StudentDao import com.anguomob.jecpack.database.MyDataBase import com.anguomob.jecpack.databinding.ActivityRoomBinding import com.anguomob.jecpack.repository.StudentRepository import com.anguomob.jecpack.viewmodel.StudentViewModel  class RoomActivity : AppCompatActivity() {     private lateinit var binding: ActivityRoomBinding     private lateinit var adapter: RoomAdapter     private lateinit var viewModel: StudentViewModel      @SuppressLint("NotifyDataSetChanged")     override fun onCreate(savedInstanceState: Bundle?) {         super.onCreate(savedInstanceState)         binding = ActivityRoomBinding.inflate(layoutInflater)         setContentView(binding.root)         binding.rv.layoutManager = LinearLayoutManager(this)         adapter = RoomAdapter()         binding.rv.adapter = adapter;         viewModel =             ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory(application)).get(                 StudentViewModel::class.java             );         viewModel.queryAllStudent().observe(this) { data -&gt;             adapter.setData(data)             adapter.notifyDataSetChanged();         }      }      fun insert(view: View) {          val s1 = Student("Jack", 20)         val s2 = Student("Jack2", 21)         viewModel.insertStudent(s1, s2)      }      fun change(view: View) {         val s1 = Student(15, "LiuAn", 27)         val s2 = Student(16, "LiuAN2", 18)         viewModel.updateStudent(s1, s2)      }      fun delete(view: View) {         val s1 = Student(20)         viewModel.deleteStudent(s1)     }      fun clear(view: View) {         viewModel.deleteAllStudent()     }   }</code></pre> <p>布局文件把查询替换为了清空</p> <pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt; &lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"     xmlns:app="http://schemas.android.com/apk/res-auto"     xmlns:tools="http://schemas.android.com/tools"     android:layout_width="match_parent"     android:layout_height="match_parent"     tools:context=".activity.RoomActivity"&gt;      &lt;androidx.constraintlayout.widget.Guideline         android:id="@+id/guideline5"         android:layout_width="wrap_content"         android:layout_height="wrap_content"         android:orientation="horizontal"         app:layout_constraintGuide_percent="0.09165527" /&gt;      &lt;androidx.constraintlayout.widget.Guideline         android:id="@+id/guideline7"         android:layout_width="wrap_content"         android:layout_height="wrap_content"         android:orientation="horizontal"         app:layout_constraintGuide_percent="0.19015048" /&gt;      &lt;androidx.constraintlayout.widget.Guideline         android:id="@+id/guideline8"         android:layout_width="wrap_content"         android:layout_height="wrap_content"         android:orientation="vertical"         app:layout_constraintGuide_percent="0.5" /&gt;      &lt;Button         android:id="@+id/button5"         android:layout_width="wrap_content"         android:layout_height="wrap_content"         android:onClick="insert"         android:text="增加"         app:layout_constraintBottom_toTopOf="@+id/guideline5"         app:layout_constraintEnd_toStartOf="@+id/guideline8"         app:layout_constraintStart_toStartOf="parent"         app:layout_constraintTop_toTopOf="parent" /&gt;      &lt;Button         android:id="@+id/button6"         android:layout_width="wrap_content"         android:layout_height="wrap_content"         android:onClick="change"         android:text="修改"         app:layout_constraintBottom_toTopOf="@+id/guideline5"         app:layout_constraintEnd_toEndOf="parent"         app:layout_constraintStart_toStartOf="@+id/guideline8"         app:layout_constraintTop_toTopOf="parent" /&gt;      &lt;Button         android:id="@+id/button7"         android:layout_width="wrap_content"         android:layout_height="wrap_content"         android:onClick="delete"         android:text="删除"         app:layout_constraintBottom_toTopOf="@+id/guideline7"         app:layout_constraintEnd_toStartOf="@+id/guideline8"         app:layout_constraintStart_toStartOf="parent"         app:layout_constraintTop_toTopOf="@+id/guideline5" /&gt;      &lt;Button         android:id="@+id/button8"         android:layout_width="wrap_content"         android:layout_height="wrap_content"         android:onClick="clear"         android:text="清空"         app:layout_constraintBottom_toTopOf="@+id/guideline7"         app:layout_constraintEnd_toEndOf="parent"         app:layout_constraintStart_toStartOf="@+id/guideline8"         app:layout_constraintTop_toTopOf="@+id/guideline5" /&gt;      &lt;androidx.recyclerview.widget.RecyclerView         android:id="@+id/rv"         android:layout_width="0dp"         android:layout_height="0dp"         app:layout_constraintBottom_toBottomOf="parent"         app:layout_constraintEnd_toEndOf="parent"         app:layout_constraintStart_toStartOf="parent"         app:layout_constraintTop_toTopOf="@+id/guideline7" /&gt; &lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre> <p><img decoding="async" alt="" height="386" src="http://img.555519.xyz/uploads/20230206/b17f6a40f9a053ed38eee748bc77bb22.jpg"></p> <p>&nbsp;这种做法可以让数据自己展示出来。从而达到更加方便不用每次操作后手动去查询</p> <p>非常的时尚</p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50512.htm">动物疫苗价格表图片高清大全及价格 动物疫苗价格表图片高清大全及价格图</a></p>
+                                        <p>下一个：<a href="/news/article-51051.htm">寄养宠物合同怎么写（宠物寄养合同有没有法律效应）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-28515.htm" title="哪有免费领养宠物的附近 哪有免费领养宠物的附近地方">哪有免费领养宠物的附近 哪有免费领养宠物的附近地方</a></li>
+                        <li class="py-2"><a href="/news/article-49994.htm" title="豉油豆干的做法大全">豉油豆干的做法大全</a></li>
+                        <li class="py-2"><a href="/news/article-35715.htm" title="动物疫苗价格一览表图 动物疫苗价格一览表图片">动物疫苗价格一览表图 动物疫苗价格一览表图片</a></li>
+                        <li class="py-2"><a href="/news/article-49992.htm" title="Celery教程&#8212;&#8212;&#8212;&#8212;-以守护进程方式运行worker">Celery教程&#8212;&#8212;&#8212;&#8212;-以守护进程方式运行worker</a></li>
+                        <li class="py-2"><a href="/news/article-25265.htm" title="猫的跳蚤怎么去除（猫猫的跳蚤有什么办法治?）">猫的跳蚤怎么去除（猫猫的跳蚤有什么办法治?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-high-speed-nodes.htm" title="「12月19日」最高速度18.1M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接">「12月19日」最高速度18.1M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-node-share-links.htm" title="「12月27日」最高速度21.9M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅地址分享">「12月27日」最高速度21.9M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-30882.htm" title="动物防疫疫苗管理办法最新 动物防疫疫苗管理办法最新版">动物防疫疫苗管理办法最新 动物防疫疫苗管理办法最新版</a></li>
+                        <li class="py-2"><a href="/news/article-24803.htm" title="使用maven构建SpringBoot打包成war包，步骤，超级详细">使用maven构建SpringBoot打包成war包，步骤，超级详细</a></li>
+                        <li class="py-2"><a href="/news/article-45507.htm" title="动物医院诊室图片大全集（动物医院布局）">动物医院诊室图片大全集（动物医院布局）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
