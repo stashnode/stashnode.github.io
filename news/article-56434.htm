@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-56434.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>用js写一个超级炫酷的环形时钟效果</title>
+        <meta name="description" content="&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;t" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-56434.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="用js写一个超级炫酷的环形时钟效果" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/4cb2fe534dafa7dd23c654c3fbec1df9.webp" />
+        <meta property="og:release_date" content="2025-02-14T10:02:26" />
+    <meta property="og:updated_time" content="2025-02-14T10:02:26" />
+        <meta property="og:description" content="&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;t" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="用js写一个超级炫酷的环形时钟效果">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>用js写一个超级炫酷的环形时钟效果</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <pre><code> &lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;title&gt;Title&lt;/title&gt;     &lt;style&gt;         html{             background: #000;             color: #666;             font-size: 12px;             overflow:hidden;         }         *{             margin: 0;             padding: 0;         }         span{             display: block;             float: left;         }         .on{             color: #fff;         }         .wrapper{             width: 200px;             height: 200px;             position: absolute;             left:50%;             top:50%;             margin-top: -100px;             margin-left: -100px;         }         .wrapper .timebox{             position: absolute;             width: 200px;             height: 200px;             top: 0;             left:0;             border-radius: 100%;             transition: all 0.5s;         }         .timebox span{             transition: all 0.5s;             float: left;         }         .wrapper  .timebox span{             position: absolute;             left:50%;             top:50%;             width: 40px;             height: 18px;             margin-top: -9px;             margin-left: -20px;             text-align: right;         }       &lt;/style&gt; &lt;/head&gt; &lt;body&gt;   &lt;div id="wrapper"&gt;     &lt;div class="timebox yuebox" id="yueBox"&gt;&lt;/div&gt;     &lt;div class="timebox riqiBox" id="riqiBox"&gt;&lt;/div&gt;     &lt;div class="timebox hourbox" id="hourbox"&gt;&lt;/div&gt;     &lt;div class="timebox minutebox" id="minutebox"&gt;&lt;/div&gt;     &lt;div class="timebox secondbox" id="secondbox"&gt;&lt;/div&gt; &lt;/div&gt;     &lt;script&gt; 	     let wrapper = document.getElementById("wrapper");     let yueBox = document.getElementById("yueBox");     let riqiBox = document.getElementById("riqiBox");     let hourbox = document.getElementById("hourbox");     let minutebox = document.getElementById("minutebox");     let secondbox = document.getElementById("secondbox");       /*     * 找所有的东西标签函数     * */     let findSiblings = function( tag ){         let parent = tag.parentNode;         let childs = parent.children;         let sb = [];         for(let i=0 ; i &lt;= childs.length-1 ; i++){             if( childs[i]!==tag){                 sb[sb.length] = childs[i];             }         }         return  sb ;     };       /*     * 去掉所有兄弟的类     * */     let removeSiblingClass =function( tag ){         let sb = findSiblings( tag );         for(let i=0 ;  i &lt;= sb.length-1 ; i++){             sb[i].className = "";         }     };       /*     * 初始化月份函数     * */     let initMonth = function(){       for(let i=1; i&lt;=12; i++){             let span = document.createElement("span");             span.innerHTML = i+"月";             yueBox.appendChild( span );       }     };       // 初始化日期     let initDate = function(){         for(let i=1; i&lt;=31; i++){             let span = document.createElement("span");             span.innerHTML = i+"日";             riqiBox.appendChild( span );         }     };       // 初始化小时，分钟，秒     let initHour = function(){         for(let i=0; i&lt;=23; i++){             let h = i ;             let span = document.createElement("span");             if( h&lt;10){                 h="0"+h;             }             span.innerHTML = h +"点";             hourbox.appendChild( span );         }     };     let initMinute = function(){         for(let i=0; i&lt;=59; i++){             let  f = i ;             let span = document.createElement("span");             if( f&lt;10){                 f="0"+f;             }             span.innerHTML = f +"分";             minutebox.appendChild( span );         }     };     let initSecond = function(){         for(let i=0; i&lt;=59; i++){             let  miao = i ;             let span = document.createElement("span");             if( miao&lt;10){                 miao="0"+miao;             }             span.innerHTML = miao +"秒";             secondbox.appendChild( span );         }     };       // 时间文字样式切换函数     let changeTime = function(tag){         tag.className = "on";         removeSiblingClass( tag );     };       /*     * 初始化日历函数     * */     let initRili = function(){         initMonth(); // 初始化月份         initDate(); // 初始化日期         initHour(); // 小时         initMinute();         initSecond();     };       /*     * 展示当前时间     * 参数：mydate 时间对象     * */     let  showNow = function( mydate ){           let yue = mydate.getMonth() ;         let riqi = mydate.getDate();         let hour = mydate.getHours()  ;         let minute = mydate.getMinutes();         let second = mydate.getSeconds();         // 时间文字样式切换函数         changeTime( yueBox.children[yue] );         changeTime( riqiBox.children[riqi-1] );         changeTime( hourbox.children[hour] );         changeTime( minutebox.children[minute] );         changeTime( secondbox.children[second] );       };       // 展示时间圆圈函数     // tag：目标     // num：数字数量     // dis：圆圈半径     let textRound = function(tag,num,dis){         let span = tag.children ;         for(let i=0 ; i&lt;=span.length-1; i++){             span[i].style.transform="rotate("+ (360/span.length)*i+"deg)  translateX("+dis+"px)" ;         }     };     /*     * 旋转指定“圆圈”指定度数     * */     let rotateTag = function(tag , deg){         tag.style.transform = "rotate("+deg+"deg)";     };       let main = function(){         initRili(); // 初始化日历           setInterval(function(){             let mydate = new Date();             showNow( mydate ); // 展示当前时间         },1000);           //  n秒后，摆出圆形         setTimeout(function(){             wrapper.className = "wrapper";             textRound(yueBox,12,40);             textRound(riqiBox,31,80);             textRound(hourbox,24,120);             textRound(minutebox,60,160);             textRound(secondbox,60,200);             setInterval(function(){                 let mydate = new Date();                 rotateTag( yueBox , -30*mydate.getMonth());                 rotateTag( riqiBox , -360/31*(mydate.getDate()-1) );                 rotateTag( hourbox , -360/24*mydate.getHours());                 rotateTag( minutebox , -6*mydate.getMinutes());                 rotateTag( secondbox , -6*mydate.getSeconds());             },1000)         },1000)       };     main();     &lt;/script&gt;   &lt;/body&gt; &lt;/html&gt; </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-55890.htm">宠物医生资格证和兽医证（宠物医生证和执业兽医证的差别?）</a></p>
+                                        <p>下一个：<a href="/news/article-56435.htm">动物疫苗的使用方法及注意事项有哪些呢视频教学（动物疫苗知识）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-node-subscribe-links.htm" title="「2月13日」最高速度22.2M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅地址分享">「2月13日」最高速度22.2M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-30882.htm" title="动物防疫疫苗管理办法最新 动物防疫疫苗管理办法最新版">动物防疫疫苗管理办法最新 动物防疫疫苗管理办法最新版</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-clash-v2ray-ss-ssr.htm" title="「2月7日」最高速度20.2M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅地址分享">「2月7日」最高速度20.2M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-clash-v2ray-ss-ssr.htm" title="「12月6日」最高速度22.4M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接">「12月6日」最高速度22.4M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-node-subscribe.htm" title="「1月27日」最高速度19.3M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅地址分享">「1月27日」最高速度19.3M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-node-share.htm" title="「11月6日」最高速度22.2M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接">「11月6日」最高速度22.2M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22490.htm" title="宠物寄养流程图（宠物寄养流程图片大全）">宠物寄养流程图（宠物寄养流程图片大全）</a></li>
+                        <li class="py-2"><a href="/news/article-46489.htm" title="德众联合动物医院收费标准（众联中心动物医院怎么样）">德众联合动物医院收费标准（众联中心动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-23422.htm" title="小孩吃果冻哪个牌子好一点(小孩吃果冻哪个牌子好吃)">小孩吃果冻哪个牌子好一点(小孩吃果冻哪个牌子好吃)</a></li>
+                        <li class="py-2"><a href="/news/article-24323.htm" title="开宠物医院需要什么条件（开一个宠物医院大概需要多少钱）">开宠物医院需要什么条件（开一个宠物医院大概需要多少钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
