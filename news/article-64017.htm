@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-64017.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>vue2 自定义指令 实现全屏 、对话框拖拽</title>
+        <meta name="description" content="模块下载 用于全屏 npm i screenfull@5.1.0 -S   新建文件 新建directives.js文件，复制下面代码 import Vue from "vue";  // 全屏 im" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-64017.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="vue2 自定义指令 实现全屏 、对话框拖拽" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/d3f6b0708bc0acb7bd39d806a21f593e.webp" />
+        <meta property="og:release_date" content="2025-02-27T05:56:40" />
+    <meta property="og:updated_time" content="2025-02-27T05:56:40" />
+        <meta property="og:description" content="模块下载 用于全屏 npm i screenfull@5.1.0 -S   新建文件 新建directives.js文件，复制下面代码 import Vue from "vue";  // 全屏 im" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue2 自定义指令 实现全屏 、对话框拖拽">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>vue2 自定义指令 实现全屏 、对话框拖拽</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3> <a id="_0" rel="nofollow"></a>模块下载</h3> <p>用于全屏</p> <pre><code>npm i screenfull@5.1.0 -S </code></pre> <h3> <a id="_6" rel="nofollow"></a>新建文件</h3> <p>新建<code>directives.js</code>文件，复制下面代码</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">"vue"</span><span class="token punctuation">;</span>  <span class="token comment">// 全屏</span> <span class="token keyword">import</span> screenfull <span class="token keyword">from</span> <span class="token string">"screenfull"</span><span class="token punctuation">;</span> Vue<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">"screenfull"</span><span class="token punctuation">,</span> <span class="token punctuation">{<!-- --></span>   <span class="token function">bind</span><span class="token punctuation">(</span><span class="token parameter">el<span class="token punctuation">,</span> binding</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span> <span class="token punctuation">(</span>binding<span class="token punctuation">.</span>modifiers<span class="token punctuation">.</span>icon<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>       <span class="token keyword">if</span> <span class="token punctuation">(</span>el<span class="token punctuation">.</span>hasIcon<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>       <span class="token comment">// 创建全屏图标</span>       <span class="token keyword">const</span> iconElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"i"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       iconElement<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"class"</span><span class="token punctuation">,</span> <span class="token string">"el-icon-full-screen"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       iconElement<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"style"</span><span class="token punctuation">,</span> <span class="token string">"margin-left:5px"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       el<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>iconElement<span class="token punctuation">)</span><span class="token punctuation">;</span>       el<span class="token punctuation">.</span>hasIcon <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cursor <span class="token operator">=</span> el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cursor <span class="token operator">||</span> <span class="token string">"pointer"</span><span class="token punctuation">;</span>     <span class="token comment">// 监听点击全屏事件</span>     el<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{<!-- --></span>       <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>screenfull<span class="token punctuation">.</span>isEnabled<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"浏览器不支持全屏"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span>       screenfull<span class="token punctuation">.</span><span class="token function">toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Dialog对话框拖拽</span> Vue<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">"drag"</span><span class="token punctuation">,</span> <span class="token punctuation">{<!-- --></span>   <span class="token function">bind</span><span class="token punctuation">(</span><span class="token parameter">el<span class="token punctuation">,</span> binding<span class="token punctuation">,</span> vnode</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">const</span> dialogHeaderEl <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">".el-dialog__header"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">const</span> dragDom <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">".el-dialog"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     dialogHeaderEl<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">+=</span> <span class="token string">";cursor:move;"</span><span class="token punctuation">;</span>     dragDom<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">+=</span> <span class="token string">";top:0px;"</span><span class="token punctuation">;</span>      <span class="token comment">// 获取原有属性 ie dom元素.currentStyle 火狐谷歌 window.getComputedStyle(dom元素, null);</span>     <span class="token keyword">const</span> getStyle <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>       <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>document<span class="token punctuation">.</span>currentStyle<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token parameter">dom<span class="token punctuation">,</span> attr</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> dom<span class="token punctuation">.</span>currentStyle<span class="token punctuation">[</span>attr<span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token parameter">dom<span class="token punctuation">,</span> attr</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">getComputedStyle</span><span class="token punctuation">(</span>dom<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">[</span>attr<span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span>     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      dialogHeaderEl<span class="token punctuation">.</span><span class="token function-variable function">onmousedown</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{<!-- --></span>       <span class="token comment">// 鼠标按下，计算当前元素距离可视区的距离</span>       <span class="token keyword">const</span> disX <span class="token operator">=</span> e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> dialogHeaderEl<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>       <span class="token keyword">const</span> disY <span class="token operator">=</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> dialogHeaderEl<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>        <span class="token keyword">const</span> dragDomWidth <span class="token operator">=</span> dragDom<span class="token punctuation">.</span>offsetWidth<span class="token punctuation">;</span>       <span class="token keyword">const</span> dragDomHeight <span class="token operator">=</span> dragDom<span class="token punctuation">.</span>offsetHeight<span class="token punctuation">;</span>        <span class="token keyword">const</span> screenWidth <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientWidth<span class="token punctuation">;</span>       <span class="token keyword">const</span> screenHeight <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight<span class="token punctuation">;</span>        <span class="token keyword">const</span> minDragDomLeft <span class="token operator">=</span> dragDom<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>       <span class="token keyword">const</span> maxDragDomLeft <span class="token operator">=</span> screenWidth <span class="token operator">-</span> dragDom<span class="token punctuation">.</span>offsetLeft <span class="token operator">-</span> dragDomWidth<span class="token punctuation">;</span>        <span class="token keyword">const</span> minDragDomTop <span class="token operator">=</span> dragDom<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>       <span class="token keyword">const</span> maxDragDomTop <span class="token operator">=</span> screenHeight <span class="token operator">-</span> dragDom<span class="token punctuation">.</span>offsetTop <span class="token operator">-</span> dragDomHeight<span class="token punctuation">;</span>        <span class="token comment">// 获取到的值带px 正则匹配替换</span>       <span class="token keyword">let</span> styL <span class="token operator">=</span> <span class="token function">getStyle</span><span class="token punctuation">(</span>dragDom<span class="token punctuation">,</span> <span class="token string">"left"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token keyword">let</span> styT <span class="token operator">=</span> <span class="token function">getStyle</span><span class="token punctuation">(</span>dragDom<span class="token punctuation">,</span> <span class="token string">"top"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">if</span> <span class="token punctuation">(</span>styL<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">"%"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         styL <span class="token operator">=</span> <span class="token operator">+</span>document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientWidth <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">+</span>styL<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">%</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         styT <span class="token operator">=</span> <span class="token operator">+</span>document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token operator">+</span>styT<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">%</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{<!-- --></span>         styL <span class="token operator">=</span> <span class="token operator">+</span>styL<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\px</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         styT <span class="token operator">=</span> <span class="token operator">+</span>styT<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\px</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span>        document<span class="token punctuation">.</span><span class="token function-variable function">onmousemove</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">// 通过事件委托，计算移动的距离</span>         <span class="token keyword">let</span> left <span class="token operator">=</span> e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> disX<span class="token punctuation">;</span>         <span class="token keyword">let</span> top <span class="token operator">=</span> e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> disY<span class="token punctuation">;</span>          <span class="token comment">// 边界处理</span>         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">-</span>left <span class="token operator">&gt;</span> minDragDomLeft<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>           left <span class="token operator">=</span> <span class="token operator">-</span>minDragDomLeft<span class="token punctuation">;</span>         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>left <span class="token operator">&gt;</span> maxDragDomLeft<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>           left <span class="token operator">=</span> maxDragDomLeft<span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">-</span>top <span class="token operator">&gt;</span> minDragDomTop<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>           top <span class="token operator">=</span> <span class="token operator">-</span>minDragDomTop<span class="token punctuation">;</span>         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>top <span class="token operator">&gt;</span> maxDragDomTop<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>           top <span class="token operator">=</span> maxDragDomTop<span class="token punctuation">;</span>         <span class="token punctuation">}</span>          <span class="token comment">// 移动当前元素</span>         dragDom<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">;left:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span>left <span class="token operator">+</span> styL<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px;top:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span>top <span class="token operator">+</span> styT<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>          <span class="token comment">// emit onDrag event</span>         vnode<span class="token punctuation">.</span>child<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"dragDialog"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span><span class="token punctuation">;</span>        document<span class="token punctuation">.</span><span class="token function-variable function">onmouseup</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         document<span class="token punctuation">.</span>onmousemove <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>         document<span class="token punctuation">.</span>onmouseup <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span><span class="token punctuation">;</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  </code></pre> <h3> <a id="_117" rel="nofollow"></a>全局引入</h3> <p>在<code>main.js</code>中引入文件<code>import "@/src/utils/directives";</code></p> <h2> <a id="_120" rel="nofollow"></a>使用</h2> <h4> <a id="_121" rel="nofollow"></a>全屏</h4> <p>加上<code>v-screenfull</code><br /> 示例：</p> <pre><code>&lt;i class="el-icon-full-screen" v-screenfull&gt;&lt;/i&gt; </code></pre> <h4> <a id="dialog_127" rel="nofollow"></a>dialog对话框拖拽</h4> <p>加上<code>v-drag</code><br /> 示例：</p> <pre><code class="prism language-javascript"> <span class="token operator">&lt;</span>el<span class="token operator">-</span>dialog    v<span class="token operator">-</span>drag    title<span class="token operator">=</span><span class="token string">"标题"</span>    <span class="token operator">:</span>visible<span class="token punctuation">.</span>sync<span class="token operator">=</span><span class="token string">"dialogVisible"</span>    width<span class="token operator">=</span><span class="token string">"30%"</span>    <span class="token operator">:</span>before<span class="token operator">-</span>close<span class="token operator">=</span><span class="token string">"handleClose"</span>  <span class="token operator">&gt;</span>  <span class="token operator">&lt;</span>el<span class="token operator">-</span>dialog<span class="token operator">&gt;</span></code></pre> <div class="csdn-video-box"> </div> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-63392.htm">动物疫苗使用前的注意事项有哪些（动物疫苗注射工作注意事项）</a></p>
+                                        <p>下一个：<a href="/news/article-64018.htm">猫的疫苗三针隔多久（猫咪三针疫苗间隔多久）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-28053.htm" title="兽用疫苗可以放家用冰箱里吗安全吗视频（兽用疫苗常温下能放多久）">兽用疫苗可以放家用冰箱里吗安全吗视频（兽用疫苗常温下能放多久）</a></li>
+                        <li class="py-2"><a href="/news/article-21574.htm" title="动物医院有公立的吗还是私立的好呢 动物医院有公立的吗还是私立的好呢知乎">动物医院有公立的吗还是私立的好呢 动物医院有公立的吗还是私立的好呢知乎</a></li>
+                        <li class="py-2"><a href="/news/article-47011.htm" title="宠物粮食公司人员及组织结构 宠物粮食公司人员及组织结构图">宠物粮食公司人员及组织结构 宠物粮食公司人员及组织结构图</a></li>
+                        <li class="py-2"><a href="/news/article-21571.htm" title="动物打疫苗需要什么 动物打疫苗需要什么证件">动物打疫苗需要什么 动物打疫苗需要什么证件</a></li>
+                        <li class="py-2"><a href="/news/article-55322.htm" title="Hyperledger Fabric的test-network启动过程Bash源码详解">Hyperledger Fabric的test-network启动过程Bash源码详解</a></li>
+                        <li class="py-2"><a href="/news/article-22489.htm" title="3.	Springmvc架构">3.	Springmvc架构</a></li>
+                        <li class="py-2"><a href="/news/article-57575.htm" title="动物医院英语怎么说读 动物医院英语怎么说读">动物医院英语怎么说读 动物医院英语怎么说读</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-subscribe-node.htm" title="「12月12日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接">「12月12日」最高速度22.9M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-47010.htm" title="瑞鹏宠物医院官网招聘信息（瑞鹏宠物医院官网招聘信息最新）">瑞鹏宠物医院官网招聘信息（瑞鹏宠物医院官网招聘信息最新）</a></li>
+                        <li class="py-2"><a href="/news/article-48984.htm" title="NodeJS中Express框架实现用户登录，注册，及接口token授权验证">NodeJS中Express框架实现用户登录，注册，及接口token授权验证</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
