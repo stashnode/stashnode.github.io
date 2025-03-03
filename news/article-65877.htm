@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-65877.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>css文本垂直居中详解</title>
+        <meta name="description" content="文本垂直居中，分为“单行”与“多行”文本两种情况，多行又分为“固定”与“不固定”高度两种情况，看下图效果。  文本垂直居中   height 搭配 line-height 仅可实现单行文本垂直居中，不" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-65877.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="css文本垂直居中详解" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/fa2be3a0f39e07de3c250ca6f96d041e.webp" />
+        <meta property="og:release_date" content="2025-03-02T09:37:53" />
+    <meta property="og:updated_time" content="2025-03-02T09:37:53" />
+        <meta property="og:description" content="文本垂直居中，分为“单行”与“多行”文本两种情况，多行又分为“固定”与“不固定”高度两种情况，看下图效果。  文本垂直居中   height 搭配 line-height 仅可实现单行文本垂直居中，不" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="css文本垂直居中详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>css文本垂直居中详解</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>文本垂直居中，分为“单行”与“多行”文本两种情况，多行又分为“固定”与“不固定”高度两种情况，看下图效果。</p> <div class="pgc-img"><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/1566d27dc9767f11484515a4866d7ba0.jpg" alt="css文本垂直居中详解"></p> <p class="pgc-img-caption">文本垂直居中</p> </div> </h1> <p>height 搭配 line-height 仅可实现单行文本垂直居中，不可用于多行文本。</p> <p>适用：单行文本</p> <pre class="has"><code>.text1 {  width: 200px;  height: 100px;  line-height: 100px;  background: rgb(0, 151, 246);  color: #fff;  text-align: center;}</code></pre> </h1> <p>如果元素高度不固定，可采用 padding-top 与 padding-bottom 同值以实现垂直居中。</p> <p>适用：单行与多行文本。</p> <pre class="has"><code>.text2 {  padding: 20px;  width: 200px;  background: rgb(0, 151, 246);  color: #fff;}</code></pre> </h1> <p>display: table-cell 与 vertical-align: middle 搭配。</p> <p>适用：单行与多行文本。</p> <p>注意：此种情况 margin 不起作用，因为 margin 对 display: table* 情况是无效的。</p> <pre class="has"><code>.text3 {  width: 200px;  height: 100px;  background: rgb(0, 151, 246);  color: #fff;  text-align: center;  display: table-cell;  vertical-align: middle;  border: 1px solid #000;}</code></pre> </h1> <p>利用 flex 布局搭配 align-items: center</p> <p>适用：单行与多行文本。</p> <p>注意：flex 需要兼容写法。</p> <pre class="has"><code>.text4 {  display: flex;  justify-content: center;  align-items: center;  margin-top: 20px;  padding: 0 20px;  width: 200px;  height: 100px;  background: rgb(0, 151, 246);  color: #fff;}</code></pre> </h1> <p>利用 grid 布局(grid or inline-grid)搭配 align-items: center。</p> <p>适用：单行与多行文本。</p> <p>注意：除了 IE，其他大部分浏览器均已支持。</p> <pre class="has"><code>.text5 {  display: grid;  align-items: center;  padding: 0 20px;  width: 200px;  height: 100px;  background: rgb(0, 151, 246);  color: #fff;}</code></pre> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-65876.htm">springboot的定时任务</a></p>
+                                        <p>下一个：<a href="/news/article-66474.htm">TensorFlow tensor的类型和形状转化</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-35054.htm" title="2021年公务员考试国考报名时间是多少（国考公务员2021年报名时间表）">2021年公务员考试国考报名时间是多少（国考公务员2021年报名时间表）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-node-subscribe-links.htm" title="「12月9日」最高速度21.5M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接">「12月9日」最高速度21.5M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-subscribe-node.htm" title="「3月2日」最高速度19.9M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅地址分享">「3月2日」最高速度19.9M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-node-share.htm" title="「1月13日」最高速度21.3M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享">「1月13日」最高速度21.3M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-46491.htm" title="打过疫苗的猫抓伤了需要打疫苗吗（打过疫苗的猫抓伤了要打狂犬疫苗吗）">打过疫苗的猫抓伤了需要打疫苗吗（打过疫苗的猫抓伤了要打狂犬疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-24322.htm" title="妙三多三针有什么区别（妙三多是几针）">妙三多三针有什么区别（妙三多是几针）</a></li>
+                        <li class="py-2"><a href="/news/article-27588.htm" title="动物疫苗排名前十名品种 动物疫苗排名前十名品种有哪些">动物疫苗排名前十名品种 动物疫苗排名前十名品种有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-38565.htm" title="动物疫苗上市公司排名前十（动物疫苗上市企业）">动物疫苗上市公司排名前十（动物疫苗上市企业）</a></li>
+                        <li class="py-2"><a href="/news/article-42041.htm" title="宠物医院经营许可证申领流程（宠物医院经营许可证申领流程图）">宠物医院经营许可证申领流程（宠物医院经营许可证申领流程图）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-shadowrocket-node.htm" title="「2月18日」最高速度22.4M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅地址分享">「2月18日」最高速度22.4M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
