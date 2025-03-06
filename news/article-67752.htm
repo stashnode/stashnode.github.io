@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-67752.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>springMvc+spring security 注解方式实现权限控制</title>
+        <meta name="description" content="一个项目，权限自然是少不了的，在我来公司一段时间后发现公司后台的管理系统既然没有权限模块，所有人都都是超级管理员，更让人嗤之以鼻的是，整个系统也没有任何操作日志记录，这怎么得了，数据是的何等重要，岂是" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-67752.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="springMvc+spring security 注解方式实现权限控制" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/c4be5d071e34b33f245732fe2f13835a.webp" />
+        <meta property="og:release_date" content="2025-03-05T11:11:55" />
+    <meta property="og:updated_time" content="2025-03-05T11:11:55" />
+        <meta property="og:description" content="一个项目，权限自然是少不了的，在我来公司一段时间后发现公司后台的管理系统既然没有权限模块，所有人都都是超级管理员，更让人嗤之以鼻的是，整个系统也没有任何操作日志记录，这怎么得了，数据是的何等重要，岂是" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springMvc+spring security 注解方式实现权限控制">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>springMvc+spring security 注解方式实现权限控制</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>一个项目，权限自然是少不了的，在我来公司一段时间后发现公司后台的管理系统既然没有权限模块，所有人都都是超级管理员，更让人嗤之以鼻的是，整个系统也没有任何操作日志记录，这怎么得了，数据是的何等重要，岂是任谁都能操作的，且不说大家都很正常的使用，万一随便谁有个失误，那可是大事情，没有任何的操作记录，除了问题谁负责呢。所以来公司不久忙里偷闲先将权限搞定，接下来就是操作日志了。但是本人刚入行不是很久，对于权限的实现还是很懵逼的状态，没办法，谁让我很有责任心呢（得意的表情），说干就干，那就先找从喝地方入手了。第一步，当然是技术选型了，目前对于权限的实现有很多种方式喝技术，我了解的只有shrio与spring security了，之前有接触过shrio，不知为何，对shrio没啥好感（有时候女生的感觉还真没啥理由哈），那就security了。因为对security真的只是基于听过的层面，这一路走来真的就是磕磕绊绊，幸好最后完整的实现了，虽然遇到很多问题，现在也依然不完美。但能很有效的使用，此处为自己的一次成长鼓个掌。好了，废话不多说，接下来这篇文章简单介绍下与springMvc整合的配置，以及在jsp，js中如何控制按钮权限。</p> <p style="margin-left:0cm;">pom.xml添加</p> <p style="margin-left:0cm;"><img fetchpriority="high" decoding="async" alt="" class="has" height="274" src="http://img.555519.xyz/uploads3/20220723/2d5c6e88cd81b9ff6ae42c70fdf4ae06.jpg"></p> <p style="margin-left:0cm;">与springMvc 整合</p> <p style="margin-left:0cm;">在web.xml中加入security的过滤器</p> <p style="margin-left:0cm;"><img decoding="async" alt="" class="has" height="197" src="http://img.555519.xyz/uploads3/20220723/3f1db2501cf37da93c23da8efe3c023a.jpg"></p> <p style="margin-left:0cm;">初始化WebSecurity，加载WebSecurityConfigurers</p> <p style="margin-left:0cm;"><img decoding="async" alt="" class="has" height="115" src="http://img.555519.xyz/uploads3/20220723/24b3c8c575e2fe15e6283b84ee8c733a.jpg"></p> <p style="margin-left:0cm;"><span style="color:#4f4f4f;">WebSecurityConfig</span><span style="color:#4f4f4f;">上加入注解</span><span style="color:#4f4f4f;">@EnableWebSecurity</span><span style="color:#4f4f4f;">，该注解将</span><span style="color:#4f4f4f;">WebSecurityConfiguration</span><span style="color:#4f4f4f;">类引入；</span><span style="color:#4f4f4f;">同时自己也被</span><span style="color:#4f4f4f;">Configuration</span><span style="color:#4f4f4f;">所注解，</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="249" src="http://img.555519.xyz/uploads3/20220723/a2c9081720e3db8bb44028bf3848e4f6.jpg"></p> <p style="margin-left:0cm;"><span style="color:#4f4f4f;">WebSecurityConfiguration</span><span style="color:#4f4f4f;">创建了</span><span style="color:#4f4f4f;">WebSecurity</span><span style="color:#4f4f4f;">对象，并且通过</span><span style="color:#4f4f4f;">WebSecurity</span><span style="color:#4f4f4f;">对象创建了</span><span style="color:#4f4f4f;">springSecurityFilterChain</span><span style="color:#4f4f4f;">的</span><span style="color:#4f4f4f;">Filter</span><span style="color:#4f4f4f;">加注解后再继承自</span><span style="color:#4f4f4f;">WebSecurityConfigurerAdapter</span><span style="color:#4f4f4f;">类</span><span style="color:#4f4f4f;">，继承该类后，将会自动添加如表单登录、记住用户名密码等十来个个</span><span style="color:#4f4f4f;">Filter</span><span style="color:#4f4f4f;">，这些</span><span style="color:#4f4f4f;">Filter</span><span style="color:#4f4f4f;">是在</span><span style="color:#4f4f4f;">HttpSecurity</span><span style="color:#4f4f4f;">中定义的；</span><span style="color:#4f4f4f;">而</span><span style="color:#4f4f4f;">HttpSecurity</span><span style="color:#4f4f4f;">又是在</span><span style="color:#4f4f4f;">WebSecurityConfigurerAdapter</span><span style="color:#4f4f4f;">中创建的使用的</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="97" src="http://img.555519.xyz/uploads3/20220723/07fdea6ebb0927b1037a9d77b4af1925.jpg"></p> <p style="margin-left:0cm;"><span style="color:#4f4f4f;">HttpSecurity</span><span style="color:#4f4f4f;">用于提供一系列的</span><span style="color:#4f4f4f;">Security</span><span style="color:#4f4f4f;">默认的</span><span style="color:#4f4f4f;">Filter</span><span style="color:#4f4f4f;">，这个过程中一是生成默认的</span><span style="color:#4f4f4f;">FilterConfigurer</span><span style="color:#4f4f4f;">对象并添加到其</span><span style="color:#4f4f4f;">filters</span><span style="color:#4f4f4f;">属性中存储</span><span style="color:#4f4f4f;">；二是调用其</span><span style="color:#4f4f4f;">performBuild</span><span style="color:#4f4f4f;">方法生成</span><span style="color:#4f4f4f;">DefaultSecurityFilterChain</span><span style="color:#4f4f4f;">对象；在</span><span style="color:#4f4f4f;">WebSecurityConfig</span><span style="color:#4f4f4f;">中重载了</span><span style="color:#4f4f4f;">WebSecurityConfigurerAdapter</span><span style="color:#4f4f4f;">的</span><span style="color:#4f4f4f;">configure</span><span style="color:#4f4f4f;">方法，利用</span><span style="color:#4f4f4f;">HttpSercurity</span><span style="color:#4f4f4f;">对象提供的一些</span><span style="color:#4f4f4f;">filter</span><span style="color:#4f4f4f;">去实现我们自己的业务。</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="428" src="http://img.555519.xyz/uploads3/20220723/a01dcfdde6f4112613bcf1d02e01b3fb.jpg"></p> <p style="margin-left:0cm;">如图中所示，MySecurityFilter是自己定义的一个过滤器，继承自AbstractSecurityInterceptor。也就是在使用我们我们自定义的过滤器之前使用HttpFilter去过滤我们的登录等不需要使用权限的资源。</p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="80" src="http://img.555519.xyz/uploads3/20220723/40bc2f97d478b41ea416e9ec80ddc067.jpg"></p> <p style="margin-left:0cm;">该过滤器的主要作用是通过spring的Ioc生成securityMetadataSource，</p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="122" src="http://img.555519.xyz/uploads3/20220723/dbb22ca8a6edcf967cbb50f99df1df14.jpg"></p> <p style="margin-left:0cm;"> <p style="margin-left:0cm;"><span style="color:#333333;">登陆后，每次访问资源都会被这个拦截器拦截，会执行</span><span style="color:#333333;">doFilter</span><span style="color:#333333;">这个方法，这个方法调用了</span><span style="color:#333333;">invoke</span><span style="color:#333333;">方法</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="483" src="http://img.555519.xyz/uploads3/20220723/c49d5f4527618ce17ef84e34460a9e28.jpg"></p> <p style="margin-left:0cm;"><span style="color:#333333;">Invoke</span><span style="color:#333333;">中调用的</span><span style="color:#333333;">beforeInvocation</span><span style="color:#333333;">这个方法，它首先会调用</span><span style="color:#333333;">MyInvocationSecurityMetadataSource</span><span style="color:#333333;">类的</span><span style="color:#333333;">getAttributes</span><span style="color:#333333;">方法获取被拦截</span><span style="color:#333333;">url</span><span style="color:#333333;">所需的权限，在调用</span><span style="color:#333333;">MyAccessDecisionManager</span><span style="color:#333333;">类</span><span style="color:#333333;">decide</span><span style="color:#333333;">方法判断用户是否够权限。弄完这一切就会执行下一个拦截器。</span></p> <p style="margin-left:0cm;">在这个过滤器中配置了三个处理类。</p> <p style="margin-left:0cm;">（1）这个MyInvocationSecurityMetadaSourceService的作用是从数据库中提取权限资源，供Spring security使用，用于权限校验。</p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="183" src="http://img.555519.xyz/uploads3/20220723/7c2afde082e4e32ced95b3c96268fbcd.jpg"></p> <p style="margin-left:0cm;">在初始化时，取到所有我们定义的Url资源，以及对应的角色。将Url资源与角色对应的数据封装到一个map中，格式为：{url : [ role1 , role2 ，…]} ,一般规定url为key，权限为value(即以ROLE_为前缀的角色)，一个资源可以由多个权限来访问。</p> <p style="margin-left:0cm;"><span style="color:#333333;">该类中的</span><span style="color:#333333;">loadResourceDefine</span><span style="color:#333333;">只是加载所有的资源与权限的对应关系存到</span><span style="color:#333333;">map</span><span style="color:#333333;">中，避免每次获取权限都访问数据库（提高性能），然后</span><span style="color:#333333;">getAttributes</span><span style="color:#333333;">根据参数（被拦截</span><span style="color:#333333;">url</span><span style="color:#333333;">）返回权限集合。</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="747" src="http://img.555519.xyz/uploads3/20220723/7ba62d1975f1623bf4c1e3e523d6ffbe.jpg"></p> <p style="margin-left:0cm;"><span style="color:#4f4f4f;">（</span><span style="color:#4f4f4f;">2</span><span style="color:#4f4f4f;">）</span><span style="color:#000000;">authenticationManager</span><span style="color:#000000;">这个是处理验证用的，作用是为了拿到用户的验证信息，在登录时调用，这个类实际上是</span><span style="color:#333333;">AuthenticationProcessingFilter</span><span style="color:#333333;">拦截器调用的。</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="87" src="http://img.555519.xyz/uploads3/20220723/9c684f7a59e6d56fd80211e91d379ff8.jpg"></p> <p style="margin-left:0cm;"><span style="color:#333333;">该类可以有许多</span><span style="color:#333333;">provider</span><span style="color:#333333;">（提供者）提供用户验证信息，这里自己写了一个类</span><span style="color:#333333;">myUserDetailService</span><span style="color:#333333;">来获取用户信息。</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="175" src="http://img.555519.xyz/uploads3/20220723/3e8bfcee963f1fdb7b989bac8e7ce7d0.jpg"></p> <p style="margin-left:0cm;"><span style="color:#333333;">通过</span><span style="color:#333333;">MyUserDetailService</span><span style="color:#333333;">拿到用户信息后，</span><span style="color:#333333;">authenticationManager</span><span style="color:#333333;">对比用户的密码（即验证用户），然后这个</span><span style="color:#333333;">AuthenticationProcessingFilter</span><span style="color:#333333;">拦截器就过滤。</span></p> <p style="margin-left:0cm;"><span style="color:#333333;">这个类中只有一个方法</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="726" src="http://img.555519.xyz/uploads3/20220723/6b5689d7599ce3ea04ae2783b9904acf.jpg"></p> <p style="margin-left:0cm;"><span style="color:#333333;">而返回的</span><span style="color:#333333;">UserDtails</span><span style="color:#333333;">对象中返回了登录用户所拥有的角色</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="225" src="http://img.555519.xyz/uploads3/20220723/c0cd768cd7929a50b48d73439ddfc0ff.jpg"></p> <p style="margin-left:0cm;"><span style="color:#4f4f4f;">（</span><span style="color:#4f4f4f;">3</span><span style="color:#4f4f4f;">）</span><span style="color:#333333;">accessDecisionManager</span><span style="color:#333333;">这个也称为授权器，通过登录用户的权限信息、资源、获取资源所需的权限来根据不同的授权策略来判断用户是否有权限访问资源。</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="714" src="http://img.555519.xyz/uploads3/20220723/6dff5b3257af4d1f0ad5a8171b0360fb.jpg"></p> <p style="margin-left:0cm;"><span style="color:#333333;">decide</span><span style="color:#333333;">方法里面写的就是授权策略了，没有明说需要权限的（即没有对应的权限的资源，例如某个请求地址并没有加入到授权地址资源中）可以访问，用户具有其中一个或多个以上的权限的可以访问。</span></p> <p style="margin-left:0cm;"><span style="color:#333333;">在</span><span style="color:#333333;">JSP</span><span style="color:#333333;">中，使用的是</span><span style="color:#333333;">security</span><span style="color:#333333;">的标签库，结合自定义标签属性实现权限。</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="71" src="http://img.555519.xyz/uploads3/20220723/79cefc39a1323df6de7dd16943012b59.jpg"></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="88" src="http://img.555519.xyz/uploads3/20220723/3ede99504bbe2ebc9b44885fea37e520.jpg"></p> <p style="margin-left:0cm;"> <p style="margin-left:0cm;">AuthorizeTag为自定义标签类，</p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="222" src="http://img.555519.xyz/uploads3/20220723/f53672fdeba53f22427917f910406ebf.jpg"></p> <p style="margin-left:0cm;">该类只有一个方法，继承自TagSupport, doStartTag()方法，遇到标签开始时会呼叫的方法，结合返回值控制是否显示被标签标记得按钮。</p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="619" src="http://img.555519.xyz/uploads3/20220723/fd668a908718cfe14fa1b7691223788d.jpg"></p> <p style="margin-left:0cm;">在js中实现按钮控制权限</p> <p style="margin-left:0cm;">&nbsp;getBackList方法返回的是当前登录用户无权限的授权地址,此处将无权限的授权地址作为返回值的目的是因为对某个地址<span style="color:#333333;">没有明说需要权限的情况下允许访问。</span></p> <p style="margin-left:0cm;"><img loading="lazy" decoding="async" alt="" class="has" height="353" src="http://img.555519.xyz/uploads3/20220723/71560399ef7ed6e59b3ce3fddca3fea0.jpg"></p> <p style="margin-left:0cm;">AppendBtn方法为具体的使用方法，authUrl为该按钮操作的授权地址，控制按钮是否显示。</p> <p style="margin-left:0cm;">以上就简单记录下自己在使用过程中的配置，关于security的原理以及执行流程下篇文章自会为大家意义解析，本文为一个小菜鸟的原创，有问题请大家多多交流、指教。感谢阅读，祝步步高升！</p> <p style="margin-left:0cm;"> <p style="margin-left:0cm;"> <p style="margin-left:0cm;"> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-67749.htm">零宽断言正则表达式替换方案</a></p>
+                                        <p>下一个：<a href="/news/article-68394.htm">合肥宠物领养救助站在哪里啊（合肥宠物领养合肥宠物赠送）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-node-share.htm" title="「2月21日」最高速度22.9M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅地址分享">「2月21日」最高速度22.9M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-44043.htm" title="Android 暗黑模式适配">Android 暗黑模式适配</a></li>
+                        <li class="py-2"><a href="/news/article-42041.htm" title="宠物医院经营许可证申领流程（宠物医院经营许可证申领流程图）">宠物医院经营许可证申领流程（宠物医院经营许可证申领流程图）</a></li>
+                        <li class="py-2"><a href="/news/article-40064.htm" title="芭比堂宠物医院投诉电话（芭比堂宠物医院电话是多少）">芭比堂宠物医院投诉电话（芭比堂宠物医院电话是多少）</a></li>
+                        <li class="py-2"><a href="/news/article-35716.htm" title="动物疫苗接种方法有哪几种呢图片（动物疫苗接种方法有哪几种呢图片及价格）">动物疫苗接种方法有哪几种呢图片（动物疫苗接种方法有哪几种呢图片及价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-node-subscribe-links.htm" title="「2月23日」最高速度20.9M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享">「2月23日」最高速度20.9M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-37089.htm" title="动物医院主管部门是什么 动物医院主管部门是什么部门">动物医院主管部门是什么 动物医院主管部门是什么部门</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-5-shadowrocket-node.htm" title="「2月5日」最高速度19.9M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅地址分享">「2月5日」最高速度19.9M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-41536.htm" title="兽用疫苗稀释后多久过期不能用（兽用疫苗稀释液的说明书）">兽用疫苗稀释后多久过期不能用（兽用疫苗稀释液的说明书）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-shadowrocket-node.htm" title="「1月26日」最高速度22.5M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅地址分享">「1月26日」最高速度22.5M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
