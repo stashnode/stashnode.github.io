@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-72321.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>springboot mysql date时间的处理</title>
+        <meta name="description" content="文章目录  在数据库中创建时间戳字段 注解的使用 时间戳格式的转换    ··· sql CREATE TABLEmytest (text varchar(255) DEFAULT ‘’ COMMEN" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-72321.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="springboot mysql date时间的处理" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/4910b473dbe21927fe770f20f2ae8adf.webp" />
+        <meta property="og:release_date" content="2025-03-12T06:08:44" />
+    <meta property="og:updated_time" content="2025-03-12T06:08:44" />
+        <meta property="og:description" content="文章目录  在数据库中创建时间戳字段 注解的使用 时间戳格式的转换    ··· sql CREATE TABLEmytest (text varchar(255) DEFAULT ‘’ COMMEN" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot mysql date时间的处理">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>springboot mysql date时间的处理</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#_1" rel="nofollow">在数据库中创建时间戳字段</a></li> <li><a href="#_15" rel="nofollow">注解的使用</a></li> <li><a href="#_31" rel="nofollow">时间戳格式的转换</a></li> </ul> </div> </h1> <p>··· sql<br /> CREATE TABLE<code>mytest</code> (<br /><code>text</code> varchar(255) DEFAULT ‘’ COMMENT ‘内容’,<br /><code>create_time</code> timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’,<br /><code>update_time</code> timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT ‘更新时间’<br /> ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<br /> ···<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/48fd4ead41293994e651b67870e48202.jpg" alt="springboot mysql date时间的处理"></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/acm-bingzi/p/mysql-current-timestamp.html"  rel="nofollow">参考：MySql的CURRENT_TIMESTAMP</a></p> </h1> <p>因为mysql中的数据是timestamp类型的，因此如果你用map映射的话，就必须添加上格式的注解。</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@DateTimeFormat</span><span class="token punctuation">(</span>pattern<span class="token operator">=</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>pattern<span class="token operator">=</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token keyword">private</span> Date update_time<span class="token punctuation">;</span><span class="token comment">//更新时间</span><span class="token annotation punctuation">@DateTimeFormat</span><span class="token punctuation">(</span>pattern<span class="token operator">=</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>pattern<span class="token operator">=</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span class="token keyword">private</span> Date create_time<span class="token punctuation">;</span><span class="token comment">//创建时间</span></code></pre> <p>这里没有加上时区</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/cyunann/article/details/104903914"  rel="nofollow">参考:springboot关于mysql数据库date时间的坑</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jianshu.com/p/ca185e2b19fe"  rel="nofollow">参考：SpringBoot + MySQL</a></p> </h1> <pre><code>//获取时间戳，从1970-01-01起的毫秒数             long t_longValue = create_time.getTime(); // 得到:1604671436000</code></pre> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_43161811/article/details/88672414"  rel="nofollow">参考：java实现Date和Timestamp的相互转换</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71659.htm">Quartz高可用定时任务快速上手</a></p>
+                                        <p>下一个：<a href="/news/article-72322.htm">动物诊所英文（动物医院的英文单词）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-free-shadowrocket-node.htm" title="「3月12日」最高速度18.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅地址分享">「3月12日」最高速度18.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-node-subscribe.htm" title="「3月11日」最高速度18.5M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享">「3月11日」最高速度18.5M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-53155.htm" title="动物打完疫苗多久可以测抗体呢 动物打完疫苗多久可以测抗体呢">动物打完疫苗多久可以测抗体呢 动物打完疫苗多久可以测抗体呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-free-ssr-node.htm" title="「2月10日」最高速度19.7M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅地址分享">「2月10日」最高速度19.7M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-40064.htm" title="芭比堂宠物医院投诉电话（芭比堂宠物医院电话是多少）">芭比堂宠物医院投诉电话（芭比堂宠物医院电话是多少）</a></li>
+                        <li class="py-2"><a href="/news/article-61033.htm" title="在vue项目中配置使用svg">在vue项目中配置使用svg</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-subscribe-node.htm" title="「3月2日」最高速度19.9M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅地址分享">「3月2日」最高速度19.9M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-67749.htm" title="零宽断言正则表达式替换方案">零宽断言正则表达式替换方案</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-24-free-shadowrocket-node.htm" title="「2月24日」最高速度18.6M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅地址分享">「2月24日」最高速度18.6M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-62804.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
