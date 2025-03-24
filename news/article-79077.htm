@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-79077.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志</title>
+        <meta name="description" content="1、概述 最近因项目需要统计服务的负载情况及机器的负载情况，但是项目里面却没有相关统计而服务所在的机器也没有相关的监控，因为工期原因就选择了相对轻量级的prometheus方案。其中windows_e" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-79077.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/3913cab4f75460b81dcaea5def545c30.webp" />
+        <meta property="og:release_date" content="2025-03-22T08:48:48" />
+    <meta property="og:updated_time" content="2025-03-22T08:48:48" />
+        <meta property="og:description" content="1、概述 最近因项目需要统计服务的负载情况及机器的负载情况，但是项目里面却没有相关统计而服务所在的机器也没有相关的监控，因为工期原因就选择了相对轻量级的prometheus方案。其中windows_e" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p><span style="font-size: 18px"><strong>1、概述</strong></span></p> <p>最近因项目需要统计服务的负载情况及机器的负载情况，但是项目里面却没有相关统计而服务所在的机器也没有相关的监控，因为工期原因就选择了相对轻量级的prometheus方案。其中windows_exporter用来采集机器的负载情况，如CPU、内存、磁盘io、网络等基础信息，使用mtail来采集应用日志统计服务情况（需要业务系统有基础的日志，如请求发起，是否正常结束等，或者通过nginx等中间件的日志来统计也行），如QPS、TPS、请求数、成功率、异常率等，使用prometheus来统计分析相应的指标及设置报警规则等，如通过请求总数来计算QPS等。</p> <p><strong><span style="font-size: 18px">2、windows_exporter配置启动</span></strong></p> <p>建议下载最新版本，最新版本<span style="color: rgba(255, 0, 0, 1)"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/prometheus-community/windows_exporter/releases"  target="_blank" rel="nofollow"><span style="color: rgba(255, 0, 0, 1)">下载地址</span></a></span><br />，我下载的版本为windows_exporter-0.18.1-386.exe，将其解压到任意目录下，进入将其在后台启动：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/1b642253293f593d7bc56f64f7633b05.jpg" alt="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志"></p> <p>其中链接Metrics为采集到的指标（metrics）如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3d7d34bef5b6c85fad6cafd32492911f.jpg" alt="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志"></p> <p><strong><span style="font-size: 18px">3.mtail配置启动</span></strong></p> <p>mtail是谷歌基于golang开发的一款日志收集工具，用于从应用程序日志中提取白盒监视数据以收集在时间序列数据库中。<br />建议下载最新版本，最新版下载地址<span style="color: rgba(255, 0, 0, 1)"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/google/mtail/releases"  target="_blank" rel="nofollow"><span style="color: rgba(255, 0, 0, 1)">请戳此处</span></a></span>，我下载的版本为mtail_3.0.0-rc48_Linux_arm64.tar.gz，此版本是可执行二进制文件，移动至/usr/local/sbin下即可使用。</p> <p><em>查看mtail版本（验证matail命令是否可用）：<br /></em></p> <div class="cnblogs_code"> <pre>mtail -version</pre> </div> <p>输出如下：</p> <div class="cnblogs_code"> <pre>mtail version<span style="color: rgba(128, 0, 128, 1)">3.0</span>.<span style="color: rgba(128, 0, 128, 1)">0</span>-rc48 git revision e19766e45ca2dedf34794fea51444c7963a7c3d6 go version go1.<span style="color: rgba(128, 0, 128, 1)">17.5</span> go arch<span style="color: rgba(128, 0, 128, 1)">386</span> go os linux</pre> </div> <p>mtail启动命令如下：</p> <div class="cnblogs_code"> <pre>nohup mtail -port<span style="color: rgba(128, 0, 128, 1)">8080</span> -logtostderr -progs /etc/mtail/access.mtail -logs /xxx/xxx.log &amp;<span style="color: rgba(0, 0, 0, 1)">  #8080端口可以自定义，也可同时启动多个mtail监控多个日志文件。</span></pre> </div> <p>-progs参数需要以.mtail结尾，脚本内容为需要从日志中提取的指标，具体格式脚本写法及例子请参考<span style="color: rgba(255, 0, 0, 1)"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/google/mtail/tree/master/examples"  target="_blank" rel="nofollow"><span style="color: rgba(255, 0, 0, 1)">此链接</span></a></span>。<br />例子中access.mtail的内容如下：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">counter apache_http_requests_total by request_method, http_version, status_code counter apache_http_bytes_total by request_method, http_version, status_code gauge apache_http_response_time by remote_host, request_method, request_uri, status_code gauge apache_http_response_size by remote_host, request_method, request_uri, status_code   histogram apache_http_request_time_millseconds_bucket buckets</span><span style="color: rgba(128, 0, 128, 1)">0</span>,<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>,<span style="color: rgba(128, 0, 128, 1)">4</span>,<span style="color: rgba(128, 0, 128, 1)">8</span><span style="color: rgba(0, 0, 0, 1)"> by status_code</span>/^/ + /(?P&lt;remote_host&gt;[<span style="color: rgba(128, 0, 128, 1)">0</span>-9A-Za-z\.:-]+) / + # %<span style="color: rgba(0, 0, 0, 1)">h</span>/(?P&lt;remote_logname&gt;[<span style="color: rgba(128, 0, 128, 1)">0</span>-9A-Za-z-]+) / + # %<span style="color: rgba(0, 0, 0, 1)">l</span>/(?P&lt;remote_username&gt;[<span style="color: rgba(128, 0, 128, 1)">0</span>-9A-Za-z-]+) / + # %<span style="color: rgba(0, 0, 0, 1)">u</span>/\[(?P&lt;timestamp&gt;\d{<span style="color: rgba(128, 0, 128, 1)">2</span>}\/\<span style="color: rgba(0, 0, 255, 1)">w</span>{<span style="color: rgba(128, 0, 128, 1)">3</span>}\/\d{<span style="color: rgba(128, 0, 128, 1)">4</span>}:\d{<span style="color: rgba(128, 0, 128, 1)">2</span>}:\d{<span style="color: rgba(128, 0, 128, 1)">2</span>}:\d{<span style="color: rgba(128, 0, 128, 1)">2</span>} (\+|-)\d{<span style="color: rgba(128, 0, 128, 1)">4</span>})\] / + # %<span style="color: rgba(0, 0, 0, 1)">u</span>/<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">(?P&lt;request_method&gt;[A-Z]+) (?P&lt;request_uri&gt;\S+) (?P&lt;http_version&gt;HTTP\/[0-9\.]+)</span><span style="color: rgba(128, 0, 0, 1)">"</span> / + # \<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">%r\"</span> /(?P&lt;status_code&gt;\d{<span style="color: rgba(128, 0, 128, 1)">3</span>}) / + # %&gt;<span style="color: rgba(0, 0, 0, 1)">s</span>/((?P&lt;response_size&gt;\d+)|-) / + # %<span style="color: rgba(0, 0, 0, 1)">b</span>/(?P&lt;response_time&gt;\d+) / + # %<span style="color: rgba(0, 0, 0, 1)">D</span>/<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">(?P&lt;referer&gt;\S+)</span><span style="color: rgba(128, 0, 0, 1)">"</span> / + # \<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">%{Referer}i\"</span> /<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">(?P&lt;user_agent&gt;[[:print:]]+)</span><span style="color: rgba(128, 0, 0, 1)">"</span>/ + # \<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">%{User-agent}i\"</span> /$/<span style="color: rgba(0, 0, 0, 1)"> {   strptime($timestamp,</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">02/Jan/2006:15:04:05 -0700</span><span style="color: rgba(128, 0, 0, 1)">"</span>)<span style="color: rgba(0, 0, 0, 1)">     apache_http_requests_total[$request_method][$http_version][$status_code]</span>++<span style="color: rgba(0, 0, 0, 1)">   $response_size</span>&gt;<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> {       apache_http_bytes_total[$request_method][$http_version][$status_code]</span>+=<span style="color: rgba(0, 0, 0, 1)"> $response_size       apache_http_response_size[$remote_host][$request_method][$request_uri][$status_code]</span>+=<span style="color: rgba(0, 0, 0, 1)"> $response_size   }   apache_http_response_time[$remote_host][$request_method][$request_uri][$status_code]</span>=<span style="color: rgba(0, 0, 0, 1)"> $response_time</span><span style="color: rgba(0, 0, 0, 1)">   apache_http_request_time_millseconds_bucket[$status_code]</span>=<span style="color: rgba(0, 0, 0, 1)"> $response_time }   getfilename()</span>!~ /access_log.?log/<span style="color: rgba(0, 0, 0, 1)"> {   stop }</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">counter media_request_total</span>/receive http request path is/<span style="color: rgba(0, 0, 0, 1)"> {   media_request_total</span>++<span style="color: rgba(0, 0, 0, 1)"> }<br/><span style="color: rgba(255, 102, 0, 1)">#第一段代码是监控apache日志，第一阶段测试可用此段配置。</span></span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">counter app_http_requests_total by uri, request_method,http_status<span style="color: rgba(255, 102, 0, 1)">#该段代码为获取网关（geteway）日志代码</span> gauge app_http_requests_time by uri, request_method, http_status  histogram app_http_request_time_millseconds_bucket buckets</span><span style="color: rgba(128, 0, 128, 1)">0</span>,<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>,<span style="color: rgba(128, 0, 128, 1)">4</span>,<span style="color: rgba(128, 0, 128, 1)">8</span><span style="color: rgba(0, 0, 0, 1)"> by uri, request_method, http_status</span>/`<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">(?P&lt;request_method&gt;[A-Z]+) (?P&lt;uri&gt;[\/a-zA-Z0-9-_]+)(?:\??)(?:\S*) (?P&lt;http_version&gt;HTTP\/[0-9\.]+)</span><span style="color: rgba(128, 0, 0, 1)">"</span>/ + /`<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">(?P&lt;http_user_agent&gt;.+)</span><span style="color: rgba(128, 0, 0, 1)">"</span>/ + /`(?P&lt;http_status&gt;\d{<span style="color: rgba(128, 0, 128, 1)">3</span>})/ + /`(?P&lt;remote_addr&gt;/ + /\[((<span style="color: rgba(128, 0, 128, 1)">2</span>(<span style="color: rgba(128, 0, 128, 1)">5</span>[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">5</span>]|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">4</span>]\d))|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">1</span>]?\d{<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>})(\.((<span style="color: rgba(128, 0, 128, 1)">2</span>(<span style="color: rgba(128, 0, 128, 1)">5</span>[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">5</span>]|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">4</span>]\d))|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">1</span>]?\d{<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>})){<span style="color: rgba(128, 0, 128, 1)">3</span>}\])/ + /`(?P&lt;http_x_log_uid&gt;\W+)/ + /`<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">(?P&lt;http_referer&gt;\W+)</span><span style="color: rgba(128, 0, 0, 1)">"</span>/ + /`(?P&lt;request_time&gt;\d{<span style="color: rgba(128, 0, 128, 1)">1</span>,}\.\d{<span style="color: rgba(128, 0, 128, 1)">3</span>})/ + /`(?P&lt;body_bytes_sent&gt;\d+)`/ + /(?P&lt;http_x_forwarded_for&gt;\S+)/ + /`(?P&lt;http_host&gt;((<span style="color: rgba(128, 0, 128, 1)">2</span>(<span style="color: rgba(128, 0, 128, 1)">5</span>[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">5</span>]|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">4</span>]\d))|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">1</span>]?\d{<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>})(\.((<span style="color: rgba(128, 0, 128, 1)">2</span>(<span style="color: rgba(128, 0, 128, 1)">5</span>[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">5</span>]|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">4</span>]\d))|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">1</span>]?\d{<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>})){<span style="color: rgba(128, 0, 128, 1)">3</span>})/ + /`(?P&lt;domain&gt;.+)/ + /`(?P&lt;http_cookie&gt;.+)/ + /`(?P&lt;upstream_addr&gt;\[((<span style="color: rgba(128, 0, 128, 1)">2</span>(<span style="color: rgba(128, 0, 128, 1)">5</span>[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">5</span>]|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">4</span>]\d))|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">1</span>]?\d{<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>})(\.((<span style="color: rgba(128, 0, 128, 1)">2</span>(<span style="color: rgba(128, 0, 128, 1)">5</span>[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">5</span>]|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">4</span>]\d))|[<span style="color: rgba(128, 0, 128, 1)">0</span>-<span style="color: rgba(128, 0, 128, 1)">1</span>]?\d{<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>})){<span style="color: rgba(128, 0, 128, 1)">3</span>}:\d{<span style="color: rgba(128, 0, 128, 1)">4</span>}\])/ + /`(?P&lt;upstream_response_time&gt;(\d{<span style="color: rgba(128, 0, 128, 1)">1</span>,}\.\d{<span style="color: rgba(128, 0, 128, 1)">3</span>}))/ + /`xd$/<span style="color: rgba(0, 0, 0, 1)">{</span>/\/coco-server\/v1\/users\<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">{</span><span style="color: rgba(0, 0, 0, 1)">       }</span><span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {     app_http_requests_total[$uri][$request_method][$http_status]</span>++<span style="color: rgba(0, 0, 0, 1)">     app_http_requests_time[$uri][$request_method][$http_status]</span>=<span style="color: rgba(0, 0, 0, 1)"> $request_time     app_http_request_time_millseconds_bucket[$uri][$request_method][$http_status]</span>=<span style="color: rgba(0, 0, 0, 1)"> $request_time   } }</span></pre> </div> <p>查看mtail信息，访问http://ip:3903：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d2b9a2f95349dbf59db8dd286e28e9d7.jpg" alt="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志"></p> <p><span style="color: rgba(255, 102, 0, 1)"><strong>这里需要注意的是：若监控apache日志，需配置好第一段代码运行后触发apache（重启）产生新日志才能被监控到。</strong></span></p> <p><em></em></p> <p><strong><span style="font-size: 18px">4.prometheus配置启动</span></strong></p> <p><em>建议下载最新版本，最新版下载地址<span style="color: rgba(255, 0, 0, 1)"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://prometheus.io/download/"  target="_blank" rel="nofollow"><span style="color: rgba(255, 0, 0, 1)">请戳此处</span></a></span>，我下载的版本为</em>prometheus-2.34.0.windows-amd64.zip<em id="__mceDel">，将其解压到任意目录下，进入目录修改配置文件prometheus.yml添加windows_exporter和matail 的采集路径，prometheus.yml文件配置如下：</em></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)"># my global config global:   scrape_interval: 15s # Set the scrape interval to every</span><span style="color: rgba(128, 0, 128, 1)">15</span> seconds. Default is every<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> minute.   evaluation_interval: 15s # Evaluate rules every</span><span style="color: rgba(128, 0, 128, 1)">15</span> seconds. The default is every<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> minute.   # scrape_timeout is set to the global default (10s).  # Alertmanager configuration alerting:   alertmanagers:</span>-<span style="color: rgba(0, 0, 0, 1)"> static_configs:</span>-<span style="color: rgba(0, 0, 0, 1)"> targets:</span>- alertmanager:<span style="color: rgba(128, 0, 128, 1)">9093</span><span style="color: rgba(0, 0, 0, 1)">  # Load rules once and periodically evaluate them according to the global</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">evaluation_interval</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">. rule_files:</span>-<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">rules/*_rules.yml</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">      #告警规则yml文件   #</span>-<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">second_rules.yml</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">  # A scrape configuration containing exactly one endpoint to scrape: # Here it</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">s Prometheus itself.</span><span style="color: rgba(0, 0, 0, 1)">scrape_configs:   # The job name is added as a label `job</span>=&lt;job_name&gt;<span style="color: rgba(0, 0, 0, 1)">` to any timeseries scraped from this config.</span>- job_name:<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">prometheus</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">      # metrics_path defaults to</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">/metrics</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">     # scheme defaults to</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">http</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">.      static_configs:</span>- targets: [<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">localhost:9090</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">]</span>- job_name:<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">node_exporter</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">     scrape_interval: 5s       #每五秒检查一次应用进程     metrics_path:</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">/metrics</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">       #指标路径     static_configs:</span>- targets: [<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">localhost:9182</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">]</span>- job_name:<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">alertmanager</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">     scrape_interval: 5s      static_configs:</span>- targets: [<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">localhost:9093</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">]</span>- job_name:<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">mtail</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">     scrape_interval: 5s       static_configs:</span>- targets: [<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">xx.xx.xx.xx:8080</span><span style="color: rgba(128, 0, 0, 1)">"</span>]</pre> </div> <p>prometheus默认端口为9090，通过网页访问http://ip:9090/：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/feb11ef10883af7671c9573d165b8dda.jpg" alt="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志"></p> <p>&nbsp;如需配置告警，需在目录下新建rules文件夹，告警配置如下：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">groups</span><span style="color: rgba(0, 0, 0, 1)">:</span>- name: node-<span style="color: rgba(0, 0, 0, 1)">up     # 分组名称   rules:           # 规则设置</span>- alert: node-<span style="color: rgba(0, 0, 0, 1)">up     #告警名称</span><span style="color: rgba(0, 0, 255, 1)">expr</span>: up{job=<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">windows_exporter</span><span style="color: rgba(128, 0, 0, 1)">"</span>} ==<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">        # 表达式，查询式语句查询up的值是否等于0，如果等于则告警</span><span style="color: rgba(0, 0, 255, 1)">for</span><span style="color: rgba(0, 0, 0, 1)">: 15s        # 告警持续时间     labels:       severity:</span><span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">       team: node     annotations:    # 注解       summary:</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">{{ $labels.instance }} 已停止运行超过 15s！</span><span style="color: rgba(128, 0, 0, 1)">"</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e9ade018838406cf03a697b33cb66cec.jpg" alt="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志"></p> <p><strong><span style="font-size: 18px">5、alertmanager配置</span></strong></p> <p><em><em>建议下载最新版本，最新版下载地址<span style="color: rgba(255, 0, 0, 1)"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://prometheus.io/download/"  target="_blank" rel="nofollow"><span style="color: rgba(255, 0, 0, 1)">请戳此处</span></a></span>，</em>Alertmanager的配置有两个地方，一个是在Prometheus server端进行配置告警节点，指定匹配告警规则文件路径，以及监控alertmanager本身。另一个直接配置alertmanager自身的配置，在alertmanager.yml进行配置。<br /></em></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">global:   resolve_timeout: 5m   smtp_smarthost:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">smtp.qq.com:465</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">   smtp_from:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">xxxxxxxxx@qq.com</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">   smtp_auth_username:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">xxxxxxxxx@qq.com</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">   smtp_auth_password:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">xxxxxxxxx</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">    # 16位qq邮箱授权码作为密码   smtp_require_tls:</span><span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">  route:   group_by: [</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">alertname</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">]   group_wait: 10s   group_interval: 10s   repeat_interval: 1h   receiver:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">email</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">    # 选用邮箱告警发送  receivers:</span>- name:<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">email</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">   email_configs:</span>- to:<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">xxxxxxxxx@qq.com</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">  inhibit_rules:</span>-<span style="color: rgba(0, 0, 0, 1)"> source_match:       severity:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">critical</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">     target_match:       severity:</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">warning</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">     equal: [</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">alertname</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">dev</span><span style="color: rgba(128, 0, 0, 1)">'</span>,<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">instance</span><span style="color: rgba(128, 0, 0, 1)">'</span>]</pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/24587170b7ae817ec88f0d9ef34c94fa.jpg" alt="记-Windows环境下Prometheus+alertmanager+windows_exporter+mtail监控部署提起网关日志"></p> <p><strong><span style="font-size: 18px">6.总结</span></strong><br />此套监控的解决方案优点在于完全对业务系统解耦，并且对业务系统透明，唯一需要的就是业务系统的日志所在路径。<br />而此套系统的关键点在于mtail脚本编写和mtail采集到的数据最终使用promQL分析，mtail脚本需要知道业务系统的日志是否满足监控系统的需求，如果不满足还是需要改动业务代码添加相应的日志。而promQL则需要掌握相关的语法规则及内置函数，只要掌握了这两个关键点，整套系统就搞定了。</p> <p><em id="__mceDel"><em id="__mceDel"></em></em></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78400.htm">宠物粮食加工厂挣钱吗现在怎么样（小型宠物粮加工厂需要什么手续）</a></p>
+                                        <p>下一个：<a href="/news/article-79078.htm">北京农业大学动物医院电话地址是多少（北京农业大学动物医院电话地址是多少啊）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-69690.htm" title="深圳市宠物领养之家官网电话 深圳市宠物领养之家官网电话号码">深圳市宠物领养之家官网电话 深圳市宠物领养之家官网电话号码</a></li>
+                        <li class="py-2"><a href="/news/article-43524.htm" title="上海宠物领养平台电话号码查询地址（上海地区宠物领养）">上海宠物领养平台电话号码查询地址（上海地区宠物领养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-ssr-node.htm" title="「2月12日」最高速度18.9M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅地址分享">「2月12日」最高速度18.9M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-node-subscribe-links.htm" title="「1月5日」最高速度22.1M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享">「1月5日」最高速度22.1M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-77041.htm" title="动物园门票电话号码多少（动物园营业时间及门票）">动物园门票电话号码多少（动物园营业时间及门票）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-high-speed-nodes.htm" title="「1月24日」最高速度20.9M/S，2025年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅地址分享">「1月24日」最高速度20.9M/S，2025年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-46489.htm" title="德众联合动物医院收费标准（众联中心动物医院怎么样）">德众联合动物医院收费标准（众联中心动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-59857.htm" title="上海宠物救助中心电话（上海宠物救助中心电话24小时嘉定）">上海宠物救助中心电话（上海宠物救助中心电话24小时嘉定）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-free-ssr-subscribe.htm" title="「3月3日」最高速度18.4M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享">「3月3日」最高速度18.4M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-76368.htm" title="北京天照爱宠动物医院地址（天照爱宠动物医院怎么样）">北京天照爱宠动物医院地址（天照爱宠动物医院怎么样）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">71</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
