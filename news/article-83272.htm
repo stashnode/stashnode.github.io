@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-83272.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Springboot之请求映射</title>
+        <meta name="description" content="@GetMapping、@PostMapping、@PutMapping等：他们相当于RequestMapping(value = “/xxx” , method = RequestMethod.GE" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-83272.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="Springboot之请求映射" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/dc5bd30a81fcab1ed84497fc8c445ba8.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:55:05" />
+    <meta property="og:updated_time" content="2025-03-28T09:55:05" />
+        <meta property="og:description" content="@GetMapping、@PostMapping、@PutMapping等：他们相当于RequestMapping(value = “/xxx” , method = RequestMethod.GE" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Springboot之请求映射">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Springboot之请求映射</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>@GetMapping、@PostMapping、@PutMapping等：他们相当于RequestMapping(value = “/xxx” , method = RequestMethod.GET)或 RequestMapping(value = “/xxx” , method = RequestMethod.POST)，即限定请求方法的简写。</p> </h1> <p>什么是请求映射？<br /> 个人理解：首先在浏览器搜索一个URL会向程序发送请求，程序会对其进行处理，找到对应的页面。或 当提交表单时也会对程序发送post或get请求。</p> <ul> <li>来看看请求在Springboot中是怎么被处理的：</li> <li>SpringMVC功能分析都从 org.springframework.web.servlet.DispatcherServlet-》doDispatch（） （即最终由doDispatch函数处理）<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/71da6ea2a50168959741739f262caa49.jpg" alt="Springboot之请求映射"><br /> 在SpringBoot中，所有的请求都是会来到DispatcherServlet中，从此图可以看出继承树，是来到HttpServlet的，反正最终可以找到doDispatch方法。</li> </ul> <pre><code class="prism language-java"><span class="token keyword">protected</span><span class="token keyword">void</span><span class="token function">doDispatch</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> request<span class="token punctuation">,</span><span class="token class-name">HttpServletResponse</span> response<span class="token punctuation">)</span><span class="token keyword">throws</span><span class="token class-name">Exception</span><span class="token punctuation">{<!-- --></span><span class="token class-name">HttpServletRequest</span> processedRequest<span class="token operator">=</span> request<span class="token punctuation">;</span><span class="token class-name">HandlerExecutionChain</span> mappedHandler<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span><span class="token keyword">boolean</span> multipartRequestParsed<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token class-name">WebAsyncManager</span> asyncManager<span class="token operator">=</span><span class="token class-name">WebAsyncUtils</span><span class="token punctuation">.</span><span class="token function">getAsyncManager</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span><span class="token class-name">ModelAndView</span> mv<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span><span class="token class-name">Exception</span> dispatchException<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span> 				processedRequest<span class="token operator">=</span><span class="token function">checkMultipart</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span> 				multipartRequestParsed<span class="token operator">=</span><span class="token punctuation">(</span>processedRequest<span class="token operator">!=</span> request<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 找到当前请求使用哪个Handler（Controller的方法）处理</span> 				mappedHandler<span class="token operator">=</span><span class="token function">getHandler</span><span class="token punctuation">(</span>processedRequest<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//HandlerMapping：处理器映射。/xxx-&gt;&gt;xxxx</span><span class="token comment">// HandlerMapping意思是处理器映射，把一个URL指定到一个Controller上 HandlerMapping的作用就是解析请求链接，然后根据请求链接找到执行这个请求的类（HandlerMapping所说的handler，也就是我们写的Controller或是Action）</span></code></pre> <p>从上面的代码可以看到，最终将会通过getHandler方法，找到合适的Handler（Controller<strong>的</strong>方法）处理。就是看request有无对应的@RequestMapping相对应，有的话就返回这个@RequestMapping绑定的方法（handle）。如下图<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/03209249181df1c544a5f05f30545c4f.jpg" alt="Springboot之请求映射"><br /> 从下图可以看到handlerMapping中会有五个值：<br /><strong><img decoding="async" src="http://img.555519.xyz/uploads/20221201/22c1cfee640df3719b7727454f10ac03.jpg" alt="Springboot之请求映射"><br /> 其中排在第一的RequestMappingHandlerMapping：保存了所有Controller中的@RequestMapping 和handler的映射规则。从下图中可以看到左边的是@RequestMapping ， 右边是其在Controller绑定的对应的方法，即handel</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/686cf680d59cfa3257a925347a070c6b.jpg" alt="Springboot之请求映射"><br /> 所有的请求映射都在HandlerMapping中。</p> <ul> <li>SpringBoot自动配置欢迎页的<strong>WelcomePageHandlerMapping</strong> 。访问 /能访问到index.html；</li> <li>SpringBoot自动配置了默认 的 RequestMappingHandlerMapping</li> </ul> <p>首先， 请求进来，挨个尝试所有的HandlerMapping看是否有请求信息。如果有就找到这个请求对应的handler。如果没有就是下一个 HandlerMapping。</p> <p>欢迎页的原理：<br /> 你啥也没传，也就是"/"，那么在RequestMappingHandlerMapping中将不会找到合适的，然后他就会循环到下一个控制器WelcomePageHandlerMapping。而这个控制器就是专门处理"/"的，于是根据处理，转发到index.html中。</p> </h1> <ul> <li>以前：/getUser 获取用户 /deleteUser 删除用户 /editUser 修改用户 /saveUser 保存用户</li> <li>现在： /user GET-获取用户 DELETE-删除用户 PUT-修改用户 POST-保存用户。</li> </ul> <p>想要使用rest风格，需要在配置文件中手动开启（似乎新版本默认开启了）</p> <pre><code class="prism language-yaml"><span class="token key atrule">mvc</span><span class="token punctuation">:</span><span class="token key atrule">hiddenmethod</span><span class="token punctuation">:</span><span class="token key atrule">filter</span><span class="token punctuation">:</span><span class="token key atrule">enabled</span><span class="token punctuation">:</span><span class="token boolean important">true</span></code></pre> <p>核心Filter；HiddenHttpMethodFilter</p> <ul> <li>用法： 表单method=post，隐藏域 _method=put<br /> 表单只有get和post，使用rest风格，将put和delete请求作为post请求的隐藏请求。</li> </ul> <pre><code class="prism language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span><span class="token name">html</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span><span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span> 你好！！！！<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/user<span class="token punctuation">"</span></span><span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>get<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Rest_GET提交<span class="token punctuation">"</span></span><span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/user<span class="token punctuation">"</span></span><span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Rest_POST提交<span class="token punctuation">"</span></span><span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/user<span class="token punctuation">"</span></span><span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_method<span class="token punctuation">"</span></span><span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span><span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>delete<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Rest_delete提交<span class="token punctuation">"</span></span><span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/user<span class="token punctuation">"</span></span><span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_method<span class="token punctuation">"</span></span><span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hidden<span class="token punctuation">"</span></span><span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>PUT<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span><span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Rest_Put提交<span class="token punctuation">"</span></span><span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre> <pre><code class="prism language-java"><span class="token keyword">package</span><span class="token namespace">com<span class="token punctuation">.</span>atguigu<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>ccontroller</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span><span class="token comment">/**  * @author Juneluo  * @create 2021-08-15 20:52  */</span><span class="token annotation punctuation">@RestController</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">HelloController</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/user"</span><span class="token punctuation">)</span><span class="token comment">//    @RequestMapping(value = "/user",method = RequestMethod.GET)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token string">"GET-张三"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/user"</span><span class="token punctuation">)</span><span class="token comment">//    @RequestMapping(value = "/user",method = RequestMethod.POST)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">saveUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token string">"POST-张三"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@PutMapping</span><span class="token punctuation">(</span><span class="token string">"/user"</span><span class="token punctuation">)</span><span class="token comment">//    @RequestMapping(value = "/user",method = RequestMethod.PUT)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">putUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token string">"PUT-张三"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@DeleteMapping</span><span class="token punctuation">(</span><span class="token string">"/user"</span><span class="token punctuation">)</span><span class="token comment">//    @RequestMapping(value = "/user",method = RequestMethod.DELETE)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">deleteUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token string">"DELETE-张三"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82546.htm">养猫咪容易得什么病症（养猫咪容易得病吗）</a></p>
+                                        <p>下一个：<a href="/news/article-83273.htm">猫身上的跳蚤怎么去除最快方法（床上4个迹象说明跳蚤）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-74317.htm" title="女人养猫的十大坏处（不宜养猫的4个属相女人）">女人养猫的十大坏处（不宜养猫的4个属相女人）</a></li>
+                        <li class="py-2"><a href="/news/article-47969.htm" title="兰州哪里卖狗的多（兰州市最大的狗市场）">兰州哪里卖狗的多（兰州市最大的狗市场）</a></li>
+                        <li class="py-2"><a href="/news/article-45505.htm" title="Vue项目中 端口号、项目自动运行和`eslint`关闭 配置">Vue项目中 端口号、项目自动运行和`eslint`关闭 配置</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-node-share.htm" title="「3月19日」最高速度22.8M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅地址分享">「3月19日」最高速度22.8M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-74316.htm" title="Appium+Python+Android自动化のdesired_caps会话参数">Appium+Python+Android自动化のdesired_caps会话参数</a></li>
+                        <li class="py-2"><a href="/news/article-36602.htm" title="宠物医院好评的段子 宠物医院好评的段子文案">宠物医院好评的段子 宠物医院好评的段子文案</a></li>
+                        <li class="py-2"><a href="/news/article-38565.htm" title="动物疫苗上市公司排名前十（动物疫苗上市企业）">动物疫苗上市公司排名前十（动物疫苗上市企业）</a></li>
+                        <li class="py-2"><a href="/news/article-39543.htm" title="猫咪三针疫苗都是一样的吗怎么打（猫咪三针疫苗都是一样的吗怎么***）">猫咪三针疫苗都是一样的吗怎么打（猫咪三针疫苗都是一样的吗怎么***）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-24-free-shadowrocket-node.htm" title="「2月24日」最高速度18.6M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅地址分享">「2月24日」最高速度18.6M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-node-subscribe.htm" title="「3月11日」最高速度18.5M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享">「3月11日」最高速度18.5M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
