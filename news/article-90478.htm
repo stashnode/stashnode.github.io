@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-90478.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>EF Core 的 Code First 模式</title>
+        <meta name="description" content="0 前言 本文正文第一节，会对 Code First 进行基本的介绍，以及对相关名词进行说明，读者一开始可以不用在这里消耗过多时间，可以先操作一遍例子，再回过头理解。 第二节，以一个简单的例子，展示 " />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-90478.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="EF Core 的 Code First 模式" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/4de88bb2f4f0be64753bef1b1420557d.webp" />
+        <meta property="og:release_date" content="2025-04-07T09:02:35" />
+    <meta property="og:updated_time" content="2025-04-07T09:02:35" />
+        <meta property="og:description" content="0 前言 本文正文第一节，会对 Code First 进行基本的介绍，以及对相关名词进行说明，读者一开始可以不用在这里消耗过多时间，可以先操作一遍例子，再回过头理解。 第二节，以一个简单的例子，展示 " />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="EF Core 的 Code First 模式">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>EF Core 的 Code First 模式</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="0-前言">0 前言</h2> <p>本文正文第一节，会对 Code First 进行基本的介绍，以及对相关名词进行说明，读者一开始可以不用在这里消耗过多时间，可以先操作一遍例子，再回过头理解。</p> <p>第二节，以一个简单的例子，展示 EF Core 的 Code First 模式的操作流程。</p> <p>第三节，将 Code First 的其他指令例举出来，以便于日后翻查。</p> <p>第四节（未完成），将 Code First 其他一些操作，如：在迁移代码中添加 SQL 语句等。</p> <p>第五节，将 Code First 模式常见的问题列举出来，防止踩坑。</p> <p></p> <h2 id="1-相关介绍">1 相关介绍</h2> <h3 id="11-code-first-模式">1.1 Code First 模式</h3> <p>以 EF Core 模型为准，使用<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/ef/core/managing-schemas/migrations/"  target="_blank" rel="nofollow">迁移</a>的方式，将 EF Core 模型的变化以增量的方式更新到数据库。</p> <p>简单理解：以C#代码定义的数据实体，生成数据库的表结构。</p> <h3 id="12-相关名词">1.2 相关名词</h3> <p><strong>数据库上下文（DbContext）</strong>：继承自 DbContext，主要作用是连接数据库，跟踪数据实体状态（实体状态包括：added、modified、deleted 等），将数据库实体的状态写入数据库（持久化至数据库中）。</p> <p><strong>数据实体（Entity）</strong>：C#的实体类，与数据库的表对应</p> <p><strong>数据模型（Model）</strong>：暂且认为是数据库的表吧（因为官方文档的描述，感觉就像是）</p> <p><strong>约定（conventions）</strong>：主要是数据实体的类名、属性。</p> <p><strong>数据注释（data annotations）</strong>：应用于类上、属性的特性（如：<code>[Table("SysUser")]</code>），会被 Fluent API 的配置覆盖。</p> <p><strong>Fluent API</strong>：于自定义的 DbContext 中重写 OnModelCreating 方法中，对数据模型描述的配置，如：</p> <pre><code class="language-csharp"> protected override void OnModelCreating(ModelBuilder modelBuilder)  {      builder.Entity&lt;User&gt;().ToTable("SysUser");  }</code></pre> <p><strong>数据实体（Entity）、数据模型（Model）、约定（conventions）、数据注释（data annotations）、Fluent API 说明：</strong></p> <p>数据实体（Entity）的类名、属性等，称之为约定（conventions），约定主要是为了定义数据模型（Model）的形状。</p> <p>但是光靠约定可能不足以完整描述数据模型，有时我们的数据模型与我们的数据实体可能也有差异，这时，就可以通过数据注释（data annotations）和 Fluent API 补充。</p> <p></p> <h2 id="2-ef-core-的基础使用">2 EF Core 的基础使用</h2> <h3 id="21-新建-webapi-工程">2.1 新建 WebApi 工程</h3> <p>这里基于 VS Code 工具，使用命令行创建一个 WebApi 程序：</p> <pre><code class="language-bash">mkdir CodeFirstTest &amp; cd CodeFirstTest #新建文件夹DbFirstTest并切换至该目录下 dotnet new webapi --framework net6.0   #新建ASP.NET6.0 WebAPI程序</code></pre> <h3 id="22-引入-ef-core-相关-nuget-包">2.2 引入 EF Core 相关 Nuget 包</h3> <p>EF Core 部分 Nuget 包如下：</p> <pre><code class="language-bash">Microsoft.EntityFrameworkCore --&gt;&gt; 核心包 Microsoft.EntityFrameworkCore.Design --&gt;&gt; Design包：Code First 或 Db First 需要 Microsoft.EntityFrameworkCore.SqlServer --&gt;&gt; 微软官方 SQL Server 驱动 Pomelo.EntityFrameworkCore.MySql --&gt;&gt; 社区 MySql 驱动 MySql.EntityFrameworkCore --&gt;&gt; Oracle官方 MySql 驱动</code></pre> <p>其中核心包是必须的，另外还需配备对应数据库的驱动包，而 Design 包主要是在使用 Code First 或 Db First 需要的包。</p> <p>这里，我们向工程引入必须的 Nuget 包，SQL 驱动程序选择 SQL Server 的：</p> <pre><code class="language-bash">dotnet add package Microsoft.EntityFrameworkCore --version 6.0.4 dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.4 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 6.0.4 # dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.1</code></pre> <h3 id="23-准备配置信息">2.3 准备配置信息</h3> <p>在 appsettings.json 中增加一个节点，用于连接数据库时使用。</p> <pre><code class="language-json">"ConnectionStrings": {     "SqlServer": "server=localhost;database=efcore;uid=sa;pwd=Qwe123456;",     "MySql": "server=localhost;port=3306;database=efcore;user=root;password=123456;charset=utf8mb4;" }</code></pre> <h3 id="24-新建数据库上下文-dbcontext">2.4 新建数据库上下文 DbContext</h3> <p>新建一个自定义的数据库上下文 TestDbContext：</p> <pre><code class="language-csharp">using Microsoft.EntityFrameworkCore;  namespace CodeFirstTest;  public class TestContext : DbContext {     public TestContext(DbContextOptions&lt;TestContext&gt; options) : base(options) { }      protected override void OnConfiguring(DbContextOptionsBuilder options)     {         base.OnConfiguring(options);     }      protected override void OnModelCreating(ModelBuilder builder)     {         builder.Entity&lt;User&gt;();         base.OnModelCreating(builder);     }      public virtual DbSet&lt;User&gt; User { get; set; } }</code></pre> <h3 id="25-创建数据实体">2.5 创建数据实体</h3> <p>创建一个数据实体 User 如下：</p> <pre><code class="language-csharp">using System.ComponentModel.DataAnnotations; using System.ComponentModel.DataAnnotations.Schema; using Microsoft.EntityFrameworkCore;  namespace CodeFirstTest;  [Table("SysUser")] public class User {     [Key]     public Guid Id { get; set; } = new Guid();      [StringLength(128)]     [Comment("姓名")]     public string? Name { get; set; }      [StringLength(11)]     [Comment("手机号码")]     public string? Phone { get; set; } }</code></pre> <p><code>[Table("SysUser")]</code> 注释数据库中的表名为 SysUser。</p> <p><code>[StringLength(128)]</code> 注释字符串长度，<code>[Comment("姓名")]</code> 注释数据库中该字段含义。</p> <p>这些注释，称为“数据注释”，主要是对数据模型的补充描述（可以简单认为：对数据库的表结构的补充描述）。</p> <p>关于配置数据模型的详细内容，可以翻查<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/ef/core/modeling/"  target="_blank" rel="nofollow">EF Core官方文档：创建并配置模型</a>。</p> <h3 id="26-注册服务">2.6 注册服务</h3> <p>在 Program.cs 中注册服务，并配置数据库连接串。</p> <pre><code class="language-csharp">var configuration = builder.Configuration; builder.Services.AddDbContext&lt;TestContext&gt;(options =&gt; {     options.UseSqlServer(configuration["ConnectionStrings:SqlServer"]); });</code></pre> <h3 id="27-编译项目">2.7 编译项目</h3> <p>在生成迁移之前，需要先对工程进行编译，否则会报错。</p> <pre><code class="language-bash">dotnet build</code></pre> <h3 id="28-数据库迁移code-first-模式">2.8 数据库迁移（Code First 模式）</h3> <p>如果没有安装 EF 工具，需要先安装</p> <pre><code class="language-bash"># 安装全局工具 dotnet tool install --global dotnet-ef # 更新工具 dotnet tool update --global dotnet-ef</code></pre> <p>创建一个名为 Initial 的迁移，将会在项目根目录下生成一个 Migrations 的目录：</p> <pre><code class="language-bash">dotnet ef migrations add Initial</code></pre> <p>更新到数据库</p> <pre><code class="language-bash">dotnet ef database update</code></pre> <h3 id="29-增加测试控制器">2.9 增加测试控制器</h3> <p>增加一个 UserController 用于测试。</p> <pre><code class="language-csharp">using Microsoft.AspNetCore.Mvc;  namespace CodeFirstTest.Controllers;  [ApiController] [Route("[controller]")] public class UserController : ControllerBase {     private readonly TestContext _db;      public UserController(TestContext db)     {         _db = db;     }      [HttpGet]     public User? Get(Guid id)     {         return _db.User.Find(id);     }      [HttpPost]     public void Post(User user)     {         _db.User.Add(user);         _db.SaveChanges();     }      [HttpDelete]     public bool Delete(Guid id)     {         User? user = _db.User.Find(id) ?? null;         if (user == null) return false;         _db.User.Remove(user);         _db.SaveChanges();         return true;     } }</code></pre> <h3 id="210-运行项目">2.10 运行项目</h3> <pre><code class="language-bash">dotnet build dotnet run</code></pre> <p>访问：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://localhost:7232/swagger/index.html"  target="_blank" rel="nofollow">https://localhost:7232/swagger/index.html</a></p> <p>对接口进行操作，可以实现对 User 的增删查。</p> <h3 id="211-源码">2.11 源码</h3> <p>Gitee：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/lisheng741/testnetcore/tree/master/EFCore/CodeFirstTest"  target="_blank" rel="nofollow">https://gitee.com/lisheng741/testnetcore/tree/master/EFCore/CodeFirstTest</a></p> <p>Github：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/lisheng741/testnetcore/tree/master/EFCore/CodeFirstTest"  target="_blank" rel="nofollow">https://github.com/lisheng741/testnetcore/tree/master/EFCore/CodeFirstTest</a></p> <p></p> <h2 id="3-数据库迁移">3 数据库迁移</h2> <p>具体参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli"  target="_blank" rel="nofollow">EF Core官方文档：管理数据库架构：迁移</a>。</p> <h3 id="31-安装工具">3.1 安装工具</h3> <pre><code class="language-bash"># 安装全局工具 dotnet tool install --global dotnet-ef  # 更新工具 dotnet tool update --global dotnet-ef  # 验证安装 dotnet ef</code></pre> <h3 id="32-迁移">3.2 迁移</h3> <h4 id="321-管理迁移">3.2.1 管理迁移</h4> <p>创建一个名为 Migrations 的目录，并生成一些文件</p> <pre><code class="language-bash">dotnet ef migrations add InitialCreate</code></pre> <p>创建迁移时指定迁移目录</p> <pre><code class="language-bash">dotnet ef migrations add InitialCreate --output-dir [directory]</code></pre> <p>删除迁移</p> <pre><code class="language-bash">dotnet ef migrations remove</code></pre> <p>列出所有迁移</p> <pre><code class="language-bash">dotnet ef migrations list</code></pre> <h4 id="322-应用迁移">3.2.2 应用迁移</h4> <p>应用迁移主要有2种方式，一种是生成 SQL 脚本，一种是通过命令行工具执行命令进行迁移，具体请参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli"  target="_blank" rel="nofollow">EF Core 官方文档：应用迁移</a>。</p> <p>除了这两种迁移方式外，还有一种是在程序种迁移，即将迁移的代码写入程序中，由程序运行时触发。</p> <h5 id="1-命令行工具">1) 命令行工具</h5> <p>将迁移应用到数据库</p> <pre><code class="language-bash">dotnet ef database update</code></pre> <p>将迁移应用到数据库：指定迁移</p> <pre><code class="language-bash">dotnet ef database update AddNewTables</code></pre> <p>注意：使用该命令，也可以进行迁移回滚（回滚到之前的某个迁移）。</p> <h5 id="2-生成-sql-脚本">2) 生成 SQL 脚本</h5> <pre><code class="language-bash">dotnet ef migrations script</code></pre> <p>指定迁移起点（From）</p> <pre><code class="language-bash">dotnet ef migrations script AddNewTables</code></pre> <p>指定迁移起点（From）和结束点（To）</p> <pre><code class="language-bash">dotnet ef migrations script AddNewTables AddAuditTable</code></pre> <p>幂等 SQL 脚本（idempotent）：脚本将在内部检查已经应用哪些迁移（通过迁移历史记录表），并且只应用缺少的迁移。</p> <pre><code class="language-bash">dotnet ef migrations script --idempotent</code></pre> <h5 id="3在程序运行时进行迁移">3）在程序运行时进行迁移</h5> <p>请参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#apply-migrations-at-runtime"  target="_blank" rel="nofollow">EF Core 文档：应用迁移：在运行时应用迁移</a></p> <p></p> <h2 id="4-其他操作">4 其他操作</h2> <h3 id="41-迁移代码添加-sql">4.1 迁移代码添加 SQL</h3> <p>请参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/ef/core/managing-schemas/migrations/managing?tabs=dotnet-core-cli#adding-raw-sql"  target="_blank" rel="nofollow">EF Core 官方文档：管理迁移：添加原始 SQL</a></p> <p>下面的例子，用一个新的<code>FullName</code> 属性替换现有的<code>FirstName</code> 和<code>LastName</code> 属性，并将现存的数据转移到新的列上。</p> <pre><code class="language-csharp">migrationBuilder.AddColumn&lt;string&gt;(     name: "FullName",     table: "Customer",     nullable: true);  migrationBuilder.Sql("UPDATE Customer SET FullName = FirstName + ' ' + LastName;");  migrationBuilder.DropColumn(     name: "FirstName",     table: "Customer");  migrationBuilder.DropColumn(     name: "LastName",     table: "Customer");</code></pre> <h3 id="42-自定义迁移操作">4.2 自定义迁移操作</h3> <p>MigrationBuilder.Sql() 或 自定义 MigrationOperation 对象，可以对 MigrationBuilder 进行扩展。</p> <p>如：想要在迁移代码中使用如下代码（CreateUser 方法为自定义方法）</p> <pre><code class="language-csharp">migrationBuilder.CreateUser("SQLUser1", "Password");</code></pre> <h4 id="421-使用-migrationbuildersql">4.2.1 使用 MigrationBuilder.Sql()</h4> <p>CreateUser 自定义代码如下：</p> <pre><code class="language-csharp">public static OperationBuilder&lt;SqlOperation&gt; CreateUser(     this MigrationBuilder migrationBuilder,     string name,     string password)     =&gt; migrationBuilder.Sql($"CREATE USER {name} WITH PASSWORD '{password}';");</code></pre> <h4 id="422-自定义-migrationoperation-对象">4.2.2 自定义 MigrationOperation 对象</h4> <p>请参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/ef/core/managing-schemas/migrations/operations#using-a-migrationoperation"  target="_blank" rel="nofollow">EF Core 官方文档：自定义操作</a></p> <h3 id="创建和删除-apiensurecreated-和-ensuredeleted">创建和删除 API（EnsureCreated 和 EnsureDeleted）</h3> <p>在程序运行中可以调用的 API，用于管理数据库的创建和删除。</p> <p></p> <h2 id="5-code-first-模式常见问题">5 Code First 模式常见问题</h2> <h3 id="51-列重命名">5.1 列重命名</h3> <p>具体请查看<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/ef/core/managing-schemas/migrations/managing?tabs=dotnet-core-cli#column-renames"  target="_blank" rel="nofollow">EF Core 官方文档：管理迁移：列重命名</a>。</p> <p>官方举的例子：如果你将属性从<code>Name</code> 重命名为<code>FullName</code>，EF Core 将生成以下迁移：</p> <pre><code class="language-csharp">migrationBuilder.DropColumn(     name: "Name",     table: "Customers");  migrationBuilder.AddColumn&lt;string&gt;(     name: "FullName",     table: "Customers",     nullable: true);</code></pre> <p>该迁移代码将<code>Name</code> 列删除，然后添加新的列<code>FullName</code>，这样做，会导致<code>Name</code> 列原有的数据丢失。</p> <p>所以需要自行将该迁移代码修改如下：</p> <pre><code class="language-csharp">migrationBuilder.RenameColumn(     name: "Name",     table: "Customers",     newName: "FullName");</code></pre> <p></p> <h2 id="参考来源">参考来源</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/ef/core/"  target="_blank" rel="nofollow">EF Core 官方文档</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/161107452"  target="_blank" rel="nofollow">EF Core / 基础_从建库到增删改查</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/KobeNo_1/article/details/118195832"  target="_blank" rel="nofollow">EF Core的基本使用</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-89735.htm">太原免费领养宠物 太原免费领养宠物的地方</a></p>
+                                        <p>下一个：<a href="/news/article-90482.htm">宠物粮食代加工骗局曝光 宠物粮食代加工骗局曝光视频</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-73647.htm" title="2020年开宠物店怎么样（2020年开宠物店怎么样了）">2020年开宠物店怎么样（2020年开宠物店怎么样了）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-clash-v2ray-ss-ssr.htm" title="「3月24日」最高速度21.3M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享">「3月24日」最高速度21.3M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-90482.htm" title="宠物粮食代加工骗局曝光 宠物粮食代加工骗局曝光视频">宠物粮食代加工骗局曝光 宠物粮食代加工骗局曝光视频</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-shadowrocket-node.htm" title="「3月14日」最高速度22.1M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅地址分享">「3月14日」最高速度22.1M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-79078.htm" title="北京农业大学动物医院电话地址是多少（北京农业大学动物医院电话地址是多少啊）">北京农业大学动物医院电话地址是多少（北京农业大学动物医院电话地址是多少啊）</a></li>
+                        <li class="py-2"><a href="/news/article-70330.htm" title="宠物领养协议书范本（宠物领养协议书怎么写）">宠物领养协议书范本（宠物领养协议书怎么写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-free-shadowrocket-node.htm" title="「3月12日」最高速度18.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅地址分享">「3月12日」最高速度18.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-78400.htm" title="宠物粮食加工厂挣钱吗现在怎么样（小型宠物粮加工厂需要什么手续）">宠物粮食加工厂挣钱吗现在怎么样（小型宠物粮加工厂需要什么手续）</a></li>
+                        <li class="py-2"><a href="/news/article-77716.htm" title="宠物领养的文案短句（宠物领养的文案短句怎么写）">宠物领养的文案短句（宠物领养的文案短句怎么写）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-node-share.htm" title="「3月18日」最高速度18.2M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享">「3月18日」最高速度18.2M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
