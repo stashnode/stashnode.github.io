@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-95740.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Filebeat和logstash 使用过程中遇到的一些小问题记录</title>
+        <meta name="description" content="一、filebeat 收集软链文件日志 1.1、场景   由于我们新部署的Nginx 日志都是采用的软链的形式。 lrwxrwxrwx 1 root  root      72 Apr  6 00:0" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-95740.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="Filebeat和logstash 使用过程中遇到的一些小问题记录" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/fa2be3a0f39e07de3c250ca6f96d041e.webp" />
+        <meta property="og:release_date" content="2025-04-14T08:03:21" />
+    <meta property="og:updated_time" content="2025-04-14T08:03:21" />
+        <meta property="og:description" content="一、filebeat 收集软链文件日志 1.1、场景   由于我们新部署的Nginx 日志都是采用的软链的形式。 lrwxrwxrwx 1 root  root      72 Apr  6 00:0" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Filebeat和logstash 使用过程中遇到的一些小问题记录">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Filebeat和logstash 使用过程中遇到的一些小问题记录</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="一filebeat-收集软链文件日志">一、filebeat 收集软链文件日志</h2> <h3 id="11场景">1.1、场景</h3> <ol> <li> <p>由于我们新部署的<code>Nginx</code> 日志都是采用的软链的形式。</p> <pre><code>lrwxrwxrwx 1 root  root      72 Apr  6 00:00 jy.baidu.com-80-access.log -&gt; /usr/local/openresty/nginx/logs/jy.baidu.com-80-access.log.2022040600 -rw-r--r-- 1 nginx root 4502502 Apr  3 23:59 jy.baidu.com-80-access.log.2022040300 -rw-r--r-- 1 nginx root 5790629 Apr  5 00:00 jy.baidu.com-80-access.log.2022040400 -rw-r--r-- 1 nginx root 9166562 Apr  5 23:59 jy.baidu.com-80-access.log.2022040500 -rw-r--r-- 1 nginx root 2447936 Apr  6 09:31 jy.baidu.com-80-access.log.2022040600</code></pre> </li> <li> <p>我们收集日志的时候，通过配置<code>filebeat</code> 收集日志文件<code>jy.baidu.com-80-access.log</code>,  因为这个文件会一直软链到最新的日志文件。</p> </li> <li> <p>但是我们会发现在启动<code>filebeat</code> 后<code>filebeat</code> 并没有报错什么。 但是我们<code>logstash</code> 好像也没有往es 写日志。</p> </li> </ol> <h3 id="12问题排查">1.2、问题排查</h3> <ol> <li> <p>我们首先是通过开启<code>filebeat</code> 的 debug模式，就是看下<code>filebeat</code> 的详细日志，这一步理论上来说，我们应该先通过<code>kafka</code> 看下是否有日志写入<code>kafka</code>。 但是没有关系，我们通过看<code>filebeat</code> 的详细日志。 可以一步分析到位。</p> <pre><code>logging.level: debug</code></pre> </li> <li> <p>我们在日志中可以看到下面的信息</p> <pre><code>2022-04-03T19:48:21.675+0800        DEBUG        [monitoring]        memqueue/eventloop.go:228        handle ACK took: 54.938µs 2022-04-03T19:48:21.675+0800        DEBUG        [monitoring]        memqueue/ackloop.go:128        ackloop: return ack to broker loop:1 2022-04-03T19:48:21.675+0800        DEBUG        [monitoring]        memqueue/ackloop.go:131        ackloop:  done send ack 2022-04-03T19:48:23.443+0800        DEBUG        [input]        input/input.go:152        Run input 2022-04-03T19:48:23.443+0800        DEBUG        [input]        log/input.go:174        Start next scan 2022-04-03T19:48:23.443+0800        DEBUG        [input]        log/input.go:273        File /usr/local/openresty/nginx/logs/jy.baidu.com-80-access.log skipped as it is a symlink. 2022-04-03T19:48:23.443+0800        DEBUG        [input]        log/input.go:195        input states cleaned up. Before: 1, After: 1, Pending: 0 2022-04-03T19:48:26.443+0800        DEBUG        [input]        input/input.go:152        Run input 2022-04-03T19:48:26.444+0800        DEBUG        [input]        log/input.go:174        Start next scan</code></pre> <p>日志内容</p> <pre><code>File /usr/local/openresty/nginx/logs/jy.baidu.com-80-access.log skipped as it is a symlink.</code></pre> <p>我们可以看到文件因为是软链接所以被忽略了。</p> </li> <li> <p>我们查看官方文档，需要增加配置<code>symlinks: true</code></p> <pre><code>filebeat.inputs: - type: log   symlinks: true</code></pre> </li> <li> <p>然后我们重启<code>filebeat</code> 就可以看到有日志写入kafka了。</p> </li> </ol> <h2 id="二logstash">二、logstash</h2> <h3 id="21logstash-解析日志不写入es">2.1、logstash 解析日志不写入es</h3> <p>每个人的场景不一样。这里只提供大概思路。</p> <ol> <li> <p>kafka 是否有数据， 可以kafka consumer 进行订阅用不同的 group 来同一个 topic。 进行查看是否有kafka数据</p> </li> <li> <p>看<code>logstash</code>  启动是否有报错。</p> <pre><code>[2022-04-02T20:55:06,432][INFO ][logstash.runner          ] Starting Logstash {"logstash.version"=&gt;"6.8.0"} [2022-04-02T20:55:07,554][ERROR][logstash.agent           ] Failed to execute action {:action=&gt;LogStash::PipelineAction::Create/pipeline_id:main, :exception=&gt;"LogStash::ConfigurationError", :message=&gt;"Expected one of #, {, } at line 5, column 43 (byte 118) after input {\n  kafka {\n    group_id =&gt; \"hz-sg\"\n    topics =&gt; [\"hz-sg-nginxlog\"]\n    bootstrap_servers =&gt; \"10.59.4.50:9092\"", :backtrace=&gt;["/usr/share/logstash/logstash-core/lib/logstash/compiler.rb:41:in `compile_imperative'", "/usr/share/logstash/logstash-core/lib/logstash/compiler.rb:49:in `compile_graph'", "/usr/share/logstash/logstash-core/lib/logstash/compiler.rb:11:in `block in compile_sources'", "org/jruby/RubyArray.java:2577:in `map'", "/usr/share/logstash/logstash-core/lib/logstash/compiler.rb:10:in `compile_sources'", "org/logstash/execution/AbstractPipelineExt.java:151:in `initialize'", "/usr/share/logstash/logstash-core/lib/logstash/pipeline.rb:22:in `initialize'", "/usr/share/logstash/logstash-core/lib/logstash/pipeline.rb:90:in `initialize'", "/usr/share/logstash/logstash-core/lib/logstash/pipeline_action/create.rb:43:in `block in execute'", "/usr/share/logstash/logstash-core/lib/logstash/agent.rb:96:in `block in exclusive'", "org/jruby/ext/thread/Mutex.java:165:in `synchronize'", "/usr/share/logstash/logstash-core/lib/logstash/agent.rb:96:in `exclusive'", "/usr/share/logstash/logstash-core/lib/logstash/pipeline_action/create.rb:39:in `execute'", "/usr/share/logstash/logstash-core/lib/logstash/agent.rb:334:in `block in converge_state'"]} [2022-04-02T20:55:07,807][INFO ][logstash.agent           ] Successfully started Logstash API endpoint {:port=&gt;9600} [2022-04-02T20:55:12,703][INFO ][logstash.runner          ] Logstash shut down.</code></pre> <p>像这种就是配置文件格式可能存在一些问题。</p> <pre><code>[2022-04-02T20:36:04,433][ERROR][logstash.pipeline        ] Error registering plugin {:pipeline_id=&gt;"main", :plugin=&gt;"#&lt;LogStash::FilterDelegator:0x5fdbe919&gt;", :error=&gt;"pattern %{SERVICE:service} not defined", :thread=&gt;"#&lt;Thread:0x20114a64 run&gt;"}</code></pre> <p>这种报错就是我们没有定义变量的匹配规则。</p> </li> <li> <p>还有一种是我们最近遇到了的，就是我在 es 的 output 的时候，引用了一个变量<code>service</code> 。 但是前面没有定义这个。最后这个logstash 也没有报错，就是写不到 es 里面。</p> <pre><code>        elasticsearch {             hosts =&gt; ["10.60.4.50","10.60.4.51","10.60.4.52"]             index =&gt; "%{[service]-%{+YYYY.MM.dd}"             template =&gt; "/etc/logstash/template/nginx.json"             template_name =&gt; "nginx.json"             template_overwrite =&gt; true             user =&gt; "elastic"             password =&gt; "1111111"         }</code></pre> </li> <li> <p>开启日志debug.<code> /etc/logstash/logstash.yml</code></p> <pre><code>#log.level: debug</code></pre> </li> </ol> <h3 id="22logstash-配置多个后端">2.2、logstash 配置多个后端</h3> <ol> <li> <p><code>logstash -f  /opt/logstash/conf/conf.d/</code></p> <p>注意<code>/conf.d/</code> 后面不要加***** 这样会导致只匹配一个。</p> </li> <li> <p>使用多个配置文件里面的<strong>input、filter、output</strong> 不是互相独立的。</p> <p>logstash读取多个配置文件只是简单的将所有配置文件整合到了一起</p> <p>如果要彼此独立，需要自己加字段，然后在output 判断一下 ，通过字段进行区分。</p> </li> </ol> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-94995.htm">南京领养狗狗的平台叫什么（南京免费领养狗狗正规网站平台）</a></p>
+                                        <p>下一个：<a href="/news/article-95741.htm">动物防疫站打针免费吗多少钱啊（动物防疫站打狂犬疫苗免费吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-89734.htm" title="办理动物诊疗许可证要多少钱（动物诊疗许可证要钱吗）">办理动物诊疗许可证要多少钱（动物诊疗许可证要钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-free-high-speed-nodes.htm" title="「3月13日」最高速度21.5M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅地址分享">「3月13日」最高速度21.5M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-75001.htm" title="搭建vue3.0+Element Plus项目">搭建vue3.0+Element Plus项目</a></li>
+                        <li class="py-2"><a href="/news/article-80444.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-node-share-links.htm" title="「4月4日」最高速度21.9M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅地址分享">「4月4日」最高速度21.9M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-90478.htm" title="EF Core 的 Code First 模式">EF Core 的 Code First 模式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-free-node-subscribe.htm" title="「4月2日」最高速度22.8M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享">「4月2日」最高速度22.8M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-69043.htm" title="仓鼠皮癣怎么治（仓鼠皮癣会自愈吗）">仓鼠皮癣怎么治（仓鼠皮癣会自愈吗）</a></li>
+                        <li class="py-2"><a href="/news/article-87543.htm" title="宠物领养软件下载安装 宠物领养软件下载安装免费">宠物领养软件下载安装 宠物领养软件下载安装免费</a></li>
+                        <li class="py-2"><a href="/news/article-90904.htm" title="tensorflow学习笔记（二）：tensor 变换">tensorflow学习笔记（二）：tensor 变换</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

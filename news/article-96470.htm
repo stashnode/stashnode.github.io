@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-96470.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>根据第一个值分割数组-JavaScript</title>
+        <meta name="description" content="假设我们有一个数字数组，像这样- const&nbsp;arr&nbsp;=&nbsp;[[1,&nbsp;45],&nbsp;[1,&nbsp;34],&nbsp;[1,&nbsp;49],&nbs" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-96470.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="根据第一个值分割数组-JavaScript" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/fa2be3a0f39e07de3c250ca6f96d041e.webp" />
+        <meta property="og:release_date" content="2025-04-15T06:01:13" />
+    <meta property="og:updated_time" content="2025-04-15T06:01:13" />
+        <meta property="og:description" content="假设我们有一个数字数组，像这样- const&nbsp;arr&nbsp;=&nbsp;[[1,&nbsp;45],&nbsp;[1,&nbsp;34],&nbsp;[1,&nbsp;49],&nbs" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="根据第一个值分割数组-JavaScript">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>根据第一个值分割数组-JavaScript</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>假设我们有一个数字数组，像这样-</p> <pre>const&nbsp;arr&nbsp;=&nbsp;[[1,&nbsp;45],&nbsp;[1,&nbsp;34],&nbsp;[1,&nbsp;49],&nbsp;[2,&nbsp;34],&nbsp;[4,&nbsp;78],&nbsp;[2,&nbsp;67],&nbsp;[4,&nbsp;65]];</pre> <p>每个子数组必须严格包含两个元素。我们需要编写一个构造新数组的函数，在该函数中，具有相似第一值的子数组的所有第二个元素都被分组在一起。</p> <p>因此，对于上面的数组，输出应类似于-</p> <pre>const&nbsp;output&nbsp;=&nbsp;[ &nbsp;&nbsp;&nbsp;[45,&nbsp;34,&nbsp;49], &nbsp;&nbsp;&nbsp;[34,&nbsp;67], &nbsp;&nbsp;&nbsp;[78,&nbsp;65] ];</pre> <p>我们可以利用Array.prototype.reduce()方法来帮助<code>Map()</code>构建所需的数组。</p> <h2>示例</h2> <p>以下是代码-</p> <pre>const&nbsp;arr&nbsp;=&nbsp;[[1,&nbsp;45],&nbsp;[1,&nbsp;34],&nbsp;[1,&nbsp;49],&nbsp;[2,&nbsp;34],&nbsp;[4,&nbsp;78],&nbsp;[2,&nbsp;67],&nbsp;[4,&nbsp;65]]; const&nbsp;constructSimilarArray&nbsp;=&nbsp;(arr&nbsp;=&nbsp;[])&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;const&nbsp;creds&nbsp;=&nbsp;arr.reduce((acc,&nbsp;val)&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;{&nbsp;map,&nbsp;res&nbsp;}&nbsp;=&nbsp;acc; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(!map.has(val[0])){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map.set(val[0],&nbsp;res.push([val[1]])&nbsp;-&nbsp;1); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res[map.get(val[0])].push(val[1]); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;{&nbsp;map,&nbsp;res&nbsp;}; &nbsp;&nbsp;&nbsp;},&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map:&nbsp;new&nbsp;Map(), &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res:&nbsp;[] &nbsp;&nbsp;&nbsp;}); &nbsp;&nbsp;&nbsp;return&nbsp;creds.res; }; console.log(constructSimilarArray(arr));</pre> <p>输出结果</p> <p>这将在控制台中产生以下输出-</p> <pre>[&nbsp;[&nbsp;45,&nbsp;34,&nbsp;49&nbsp;],&nbsp;[&nbsp;34,&nbsp;67&nbsp;],&nbsp;[&nbsp;78,&nbsp;65&nbsp;]&nbsp;]</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-95741.htm">动物防疫站打针免费吗多少钱啊（动物防疫站打狂犬疫苗免费吗）</a></p>
+                                        <p>下一个：<a href="/news/article-96471.htm">如何将Python词典保存为CSV文件</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-free-ssr-node.htm" title="「3月21日」最高速度19.8M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享">「3月21日」最高速度19.8M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-free-subscribe-node.htm" title="「4月9日」最高速度18.5M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅地址分享">「4月9日」最高速度18.5M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-free-ssr-subscribe.htm" title="「4月6日」最高速度21.4M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅地址分享">「4月6日」最高速度21.4M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-79775.htm" title="打完动物疫苗注意事项（动物打疫苗后多久能杀了吃）">打完动物疫苗注意事项（动物打疫苗后多久能杀了吃）</a></li>
+                        <li class="py-2"><a href="/news/article-66474.htm" title="TensorFlow tensor的类型和形状转化">TensorFlow tensor的类型和形状转化</a></li>
+                        <li class="py-2"><a href="/news/article-80444.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/news/article-96471.htm" title="如何将Python词典保存为CSV文件">如何将Python词典保存为CSV文件</a></li>
+                        <li class="py-2"><a href="/news/article-86130.htm" title="免费领养动物的app（免费领养宠物的平台）">免费领养动物的app（免费领养宠物的平台）</a></li>
+                        <li class="py-2"><a href="/news/article-95740.htm" title="Filebeat和logstash 使用过程中遇到的一些小问题记录">Filebeat和logstash 使用过程中遇到的一些小问题记录</a></li>
+                        <li class="py-2"><a href="/news/article-69691.htm" title="动物注射疫苗前后注意事项有哪些 动物注射疫苗前后注意事项有哪些呢">动物注射疫苗前后注意事项有哪些 动物注射疫苗前后注意事项有哪些呢</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
