@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-106310.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>异步调用注解@Async不起作用</title>
+        <meta name="description" content="Springboot项目中用到异步发送邮件，部署线上后，邮件服务器异常，接口异常没有返回值，异步调用没起作用 检查发现是启动类上漏了注解@**EnableAsync 一般失效原因有下列几条： 1.@S" />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-106310.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="异步调用注解@Async不起作用" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/3913cab4f75460b81dcaea5def545c30.webp" />
+        <meta property="og:release_date" content="2025-04-28T09:45:31" />
+    <meta property="og:updated_time" content="2025-04-28T09:45:31" />
+        <meta property="og:description" content="Springboot项目中用到异步发送邮件，部署线上后，邮件服务器异常，接口异常没有返回值，异步调用没起作用 检查发现是启动类上漏了注解@**EnableAsync 一般失效原因有下列几条： 1.@S" />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="异步调用注解@Async不起作用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>异步调用注解@Async不起作用</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>Springboot项目中用到异步发送邮件，部署线上后，邮件服务器异常，接口异常没有返回值，异步调用没起作用<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/d1f6c142b5d9f6b30ded586450ca8a10.jpg" alt="异步调用注解@Async不起作用"><br /> 检查发现是启动类上漏了注解@**EnableAsync<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/8f75f88ecf764f21b5da32abfdb34969.jpg" alt="异步调用注解@Async不起作用"></p> <p>一般失效原因有下列几条：<br /> 1.@SpringBootApplication启动类当中没有添加**@EnableAsync**注解。<br /> 2.异步方法使用注解@Async的返回值只能为void或者Future。<br /> 3.没有走Spring的代理类。因为@Transactional和@Async注解的实现都是基于Spring的AOP，而AOP的实现是基于动态代理模式实现的。那么注解失效的原因就很明显了，有可能因为调用方法的是对象本身而不是代理对象，因为没有经过Spring容器管理。</p> <p>解决方法:<br /> 这里具体说一下第三种情况的解决方法。<br /> 1.注解的方法必须是public方法。<br /> 2.方法一定要从另一个类中调用，也就是从类的外部调用，类的内部调用是无效的。<br /> 3.如果需要从类的内部调用，需要先获取其代理类。</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-105489.htm">公务员国考报名是什么时间（2021年公务员国考报名是什么时间）</a></p>
+                                        <p>下一个：<a href="/news/article-106311.htm">动物疫苗过敏反应有哪些（动物疫苗过敏反应有哪些表现）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-96471.htm" title="如何将Python词典保存为CSV文件">如何将Python词典保存为CSV文件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-node-share.htm" title="「3月19日」最高速度22.8M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅地址分享">「3月19日」最高速度22.8M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-104795.htm" title="Pyspark读取hive表数据进行处理，将结果插入到hive及hbase">Pyspark读取hive表数据进行处理，将结果插入到hive及hbase</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-shadowrocket-node.htm" title="「4月24日」最高速度19.1M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅地址分享">「4月24日」最高速度19.1M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-23-node-share.htm" title="「4月23日」最高速度22.3M/S，2025年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅地址分享">「4月23日」最高速度22.3M/S，2025年Clash/Shadowrocket/SSR/V2ray每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-90904.htm" title="tensorflow学习笔记（二）：tensor 变换">tensorflow学习笔记（二）：tensor 变换</a></li>
+                        <li class="py-2"><a href="/news/article-99403.htm" title="可以自己买疫苗去宠物店打吗现在多少钱（自己买的疫苗去宠物店代打）">可以自己买疫苗去宠物店打吗现在多少钱（自己买的疫苗去宠物店代打）</a></li>
+                        <li class="py-2"><a href="/news/article-98607.htm" title="动物疫苗种类及类型图片及价格 动物疫苗种类及类型图片及价格表">动物疫苗种类及类型图片及价格 动物疫苗种类及类型图片及价格表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-free-node-subscribe.htm" title="「3月27日」最高速度22.4M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅地址分享">「3月27日」最高速度22.4M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-101561.htm" title="猫咪三联和狂犬疫苗价格（猫咪三联和狂犬疫苗价格一样吗）">猫咪三联和狂犬疫苗价格（猫咪三联和狂犬疫苗价格一样吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

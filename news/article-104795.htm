@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://stashnode.github.io/news/article-104795.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Pyspark读取hive表数据进行处理，将结果插入到hive及hbase</title>
+        <meta name="description" content="文章目录  前言 一、基本思路   1.创建参数初始化方法ReadConfig(); 2.创建一个数据处理类DataDeal()：   二、实现过程及说明   1.初始化sparksession 2." />
+        <link rel="icon" href="/assets/website/img/stashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="StashNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://stashnode.github.io/news/article-104795.htm" />
+    <meta property="og:site_name" content="StashNode免费订阅官网" />
+    <meta property="og:title" content="Pyspark读取hive表数据进行处理，将结果插入到hive及hbase" />
+    <meta property="og:image" content="https://stashnode.github.io/uploads/20240808-1/4de88bb2f4f0be64753bef1b1420557d.webp" />
+        <meta property="og:release_date" content="2025-04-26T07:39:58" />
+    <meta property="og:updated_time" content="2025-04-26T07:39:58" />
+        <meta property="og:description" content="文章目录  前言 一、基本思路   1.创建参数初始化方法ReadConfig(); 2.创建一个数据处理类DataDeal()：   二、实现过程及说明   1.初始化sparksession 2." />
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Pyspark读取hive表数据进行处理，将结果插入到hive及hbase">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/stashnode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/stashnode/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L8JHXE0T2M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L8JHXE0T2M');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div id="logo">
+                <a href="/">
+                                <span>Stash Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Pyspark读取hive表数据进行处理，将结果插入到hive及hbase</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark">                     <font color="#999AAA"> </font> </p> <div class="toc"> <h3>文章目录</h3> <ul> <li>前言</li> <li>一、基本思路</li> <li> <ul> <li>1.创建参数初始化方法ReadConfig();</li> <li>2.创建一个数据处理类DataDeal()：</li> </ul> </li> <li>二、实现过程及说明</li> <li> <ul> <li>1.初始化sparksession</li> <li>2.读取hive数据</li> <li>3.数据处理</li> <li>4.插入到hive</li> <li>5.插入到hbase</li> <li>主函数及参数处理</li> </ul> </li> <li>总结</li> </ul> </div> <hr color="#000000" size="1&quot;"/> </h1> <p> 项目需要使用pyspark将hive数据进行处理插入到hive表及hbase中，刚开始接触spark，记录了学习的过程帮助初学者。  </p> <hr color="#000000" size="1&quot;"/> <font color="#999AAA"> </font></p> </h1> <h2> 1.创建参数初始化方法ReadConfig();</h2> <p>读取key:value格式的配置文件，获取“表名”、“列名”、“日期”等相关的参数传递给数据处理类。<br /> 配置文件格式如下：<br /> source_table:test_a #源表<br /> target_table:test_b #目标表<br /> columns:A,B,C #列名<br /> base_hdfs_dir:/warehouse/tablespace/managed/hive/test.db/test_a/ #源表hdfs路径<br /> inner_tb_loc:/warehouse/tablespace/managed/hive/test.db/test_b/ #目标表hdfs路径</p> <h2> 2.创建一个数据处理类DataDeal()：</h2> <p>包括sparksession的初始化方法：CreateSparkSession(self,SessionName)；<br /> 包括hive数据读取方法：HiveExtenalRead(self)；<br /> 数据处理方法：InnerTbDeal(self,DataFrame)；<br /> 插入到hive方法：JsonToHive(self, DataFrame)；<br /> 插入到hbase方法：JsonToHbaseShc(self, DataFrame)；</p> </h1> <p>DataDeal类的初始化</p> <pre><code>    def __init__(self,source_tb,target_tb,data_dt,column,tb_loc):         self.source_tb = source_tb         self.target_tb = target_tb         self.data_dt = data_dt         self.column=column         self.tb_loc=tb_loc </code></pre> <h2> 1.初始化sparksession</h2> <pre><code>    def CreateSparkSession(self,SessionName):         spark = SparkSession.builder.appName(SessionName).config('spark.executor.memory',                                                              '10g').config('hive.exec.dynamic.partition.mode','nonstrict').config('hive.exec.dynamic.partition','true').enableHiveSupport().getOrCreate()         spark.sparkContext.setLogLevel("WARN")         return spark </code></pre> <h2> 2.读取hive数据</h2> <pre><code># 读取hive外部表，插入到hive内部表中，后续处理速度快     def HiveExtenalRead(self):         time_start = time.time()         sc = self.CreateSparkSession("HiveExtenalRead")         sql="select "+self.column+" from "+self.source_tb +' where data_dt='+self.data_dt         df=sc.sql(sql)         inner_tb=self.target_tb+"_inner"         #写入指定目录下         df.write.orc(self.tb_loc,'overwrite')         return df </code></pre> <h2> 3.数据处理</h2> <pre><code>def InnerTbDeal(self,DataFrame):         sc = self.CreateSparkSession("InnerTbDeal")         DataFrame.createOrReplaceTempView('InnerTbDeal')         col=DataFrame.columns         strcol = 'select A,B,C from InnerTbDeal'         dt=sc.sql(strcol)         df.show(20) 		return dt </code></pre> <h2> 4.插入到hive</h2> <pre><code>    def JsonToHive(self, DataFrame):         sc = self.CreateSparkSession("JsonToHive")         json_tb_loc=self.tb_loc         DataFrame.write.orc(json_tb_loc, 'overwrite')         return 0 </code></pre> <h2> 5.插入到hbase</h2> <p>使用开源shc框架，搜索shc框架下载一份复制到spark各节点就行了。</p> <pre><code># Shc框架写入到到hbase     def JsonToHbaseShc(self, DataFrame):         sc = self.CreateSparkSession("JsonToHbaseShc")         table = self.target_tb         cataconf="""{             "table":{"namespace":"名字空间", "name":\""""+表名+"""\"},             "rowkey":"key",             "columns":{                 "A":{"cf":"rowkey", "col":"key", "type":"string"},                 "B":{"cf":"jk_data", "col":"B", "type":"string"},                 "C":{"cf":"jk_data", "col":"C", "type":"string"}             }         }"""         catalog = ''.join(cataconf.split())         data_source_format = 'org.apache.spark.sql.execution.datasources.hbase'         DataFrame.write.options(catalog=catalog,newTable="5").format(data_source_format).save()         return 0 </code></pre> <h2> 主函数及参数处理</h2> <p>参数处理方法</p> <pre><code>def ReadConfig(TbName):     dict = {}     config_loc='./Config/'+TbName+'.ini'     config = open(config_loc, 'r')     for line in config:         if line.find(':') &gt; 0:             strs = line.replace('\n', '').split(':')             dict[strs[0]] = strs[1]     return dict </code></pre> <p>主函数</p> <pre><code>if __name__=='__main__':     #获取输入参数     prop = ReadConfig(sys.argv[1])     data_dt=sys.argv[2]     #内部表hdfs路径     tb_loc=prop['base_hdfs_dir']+prop['inner_tb_loc']+'data_dt='+data_dt     s1=DataDeal(prop['source_table'],prop['target_table'],data_dt,prop['columns'],tb_loc)     dt=s1.HiveExtenalRead()     dt2=s1.InnerTbDeal(dt)     s1.JsonToHive(dt2)     s1.JsonToHbaseShc(dt2) </code></pre> </h1> <p>结果是简单的，过程是复杂的。</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-103899.htm">动物疫苗的使用年限 动物疫苗的使用年限是多少年</a></p>
+                                        <p>下一个：<a href="/news/article-104796.htm">Axios封装和Vuex模块化</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-105488.htm" title="兽医站能给宠物打疫苗吗（兽医站可以给宠物狗打疫苗吗）">兽医站能给宠物打疫苗吗（兽医站可以给宠物狗打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-70327.htm" title="动物疫苗要打几针才有效果呀图片（动物疫苗一针多少钱）">动物疫苗要打几针才有效果呀图片（动物疫苗一针多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-75001.htm" title="搭建vue3.0+Element Plus项目">搭建vue3.0+Element Plus项目</a></li>
+                        <li class="py-2"><a href="/news/article-83962.htm" title="动物医院管理办法规定由谁制定（动物医院规章制度范本）">动物医院管理办法规定由谁制定（动物医院规章制度范本）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-free-ssr-node.htm" title="「3月9日」最高速度18.6M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费节点订阅地址分享">「3月9日」最高速度18.6M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-shadowrocket-node.htm" title="「4月24日」最高速度19.1M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅地址分享">「4月24日」最高速度19.1M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-node-subscribe.htm" title="「3月11日」最高速度18.5M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享">「3月11日」最高速度18.5M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-83272.htm" title="Springboot之请求映射">Springboot之请求映射</a></li>
+                        <li class="py-2"><a href="/news/article-90482.htm" title="宠物粮食代加工骗局曝光 宠物粮食代加工骗局曝光视频">宠物粮食代加工骗局曝光 宠物粮食代加工骗局曝光视频</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-free-high-speed-nodes.htm" title="「3月13日」最高速度21.5M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅地址分享">「3月13日」最高速度21.5M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费节点订阅地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                StashNode免费订阅官网 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/stashnode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/stashnode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/stashnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
