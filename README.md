@@ -1,4 +1,4 @@
-# 「9月21日」最高速度21.1M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅地址分享  更新时间 2025-09-21 21:32:19
+# 「9月25日」最高速度19.4M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅地址分享  更新时间 2025-09-25 10:24:56
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://stashnode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://stashnode.github.io/uploads/2025/09/0-20250921.yaml
-- https://stashnode.github.io/uploads/2025/09/1-20250921.yaml
-- https://stashnode.github.io/uploads/2025/09/2-20250921.yaml
-- https://stashnode.github.io/uploads/2025/09/3-20250921.yaml
-- https://stashnode.github.io/uploads/2025/09/4-20250921.yaml
+- https://stashnode.github.io/uploads/2025/09/0-20250925.yaml
+- https://stashnode.github.io/uploads/2025/09/1-20250925.yaml
+- https://stashnode.github.io/uploads/2025/09/2-20250925.yaml
+- https://stashnode.github.io/uploads/2025/09/3-20250925.yaml
+- https://stashnode.github.io/uploads/2025/09/4-20250925.yaml
 
 ### V2ray订阅链接
 
-- https://stashnode.github.io/uploads/2025/09/0-20250921.txt
-- https://stashnode.github.io/uploads/2025/09/1-20250921.txt
-- https://stashnode.github.io/uploads/2025/09/2-20250921.txt
-- https://stashnode.github.io/uploads/2025/09/3-20250921.txt
-- https://stashnode.github.io/uploads/2025/09/4-20250921.txt
+- https://stashnode.github.io/uploads/2025/09/0-20250925.txt
+- https://stashnode.github.io/uploads/2025/09/1-20250925.txt
+- https://stashnode.github.io/uploads/2025/09/2-20250925.txt
+- https://stashnode.github.io/uploads/2025/09/3-20250925.txt
+- https://stashnode.github.io/uploads/2025/09/4-20250925.txt
 
 ### Sing-box订阅链接
 
-- https://stashnode.github.io/uploads/2025/09/20250921.json
+- https://stashnode.github.io/uploads/2025/09/20250925.json
 
 ## 更多clash节点订阅 ：
 
