@@ -1,4 +1,4 @@
-# 「10月1日」最高速度19.7M/S，2025年Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点每天更新免费节点订阅地址分享  更新时间 2025-10-01 09:13:39
+# 「10月7日」最高速度22.7M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享  更新时间 2025-10-07 09:06:32
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://stashnode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://stashnode.github.io/uploads/2025/10/0-20251001.yaml
-- https://stashnode.github.io/uploads/2025/10/1-20251001.yaml
-- https://stashnode.github.io/uploads/2025/10/2-20251001.yaml
-- https://stashnode.github.io/uploads/2025/10/3-20251001.yaml
-- https://stashnode.github.io/uploads/2025/10/4-20251001.yaml
+- https://stashnode.github.io/uploads/2025/10/0-20251007.yaml
+- https://stashnode.github.io/uploads/2025/10/1-20251007.yaml
+- https://stashnode.github.io/uploads/2025/10/2-20251007.yaml
+- https://stashnode.github.io/uploads/2025/10/3-20251007.yaml
+- https://stashnode.github.io/uploads/2025/10/4-20251007.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://stashnode.github.io/uploads/2025/10/0-20251001.txt
-- https://stashnode.github.io/uploads/2025/10/1-20251001.txt
-- https://stashnode.github.io/uploads/2025/10/2-20251001.txt
-- https://stashnode.github.io/uploads/2025/10/3-20251001.txt
-- https://stashnode.github.io/uploads/2025/10/4-20251001.txt
+- https://stashnode.github.io/uploads/2025/10/0-20251007.txt
+- https://stashnode.github.io/uploads/2025/10/1-20251007.txt
+- https://stashnode.github.io/uploads/2025/10/2-20251007.txt
+- https://stashnode.github.io/uploads/2025/10/3-20251007.txt
+- https://stashnode.github.io/uploads/2025/10/4-20251007.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://stashnode.github.io/uploads/2025/10/20251001.json
+- https://stashnode.github.io/uploads/2025/10/20251007.json
 
 ## 更多Clash节点订阅 ：
 
