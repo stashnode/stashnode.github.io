@@ -268,14 +268,14 @@ AltStore是一款允许用户自助安装未上架应用的工具，支持安装
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的多策略组有什么作用？</h5></div>
+    <div class="panel-body">
+        多策略组可以将节点按用途、延迟或地域分类，结合路由规则实现自动分流。不同类型流量可走不同节点，提升访问速度和稳定性，特别适合多应用使用场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 节点延迟排序功能如何使用？</h5></div>
     <div class="panel-body">
         Matsuri 会自动测试节点延迟，并根据结果排序。用户可以选择延迟最低的节点使用，从而优化访问速度和稳定性，尤其适合游戏、视频和海外网站加速。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何实现用户流量分配？</h5></div>
-    <div class="panel-body">
-        管理员可为每个用户设置带宽和流量配额。超出限制时可自动降速或阻止访问，确保服务器资源合理分配，避免单用户占用过多带宽，提高整体网络公平性和效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Quantumult X 可以用脚本自动切换节点吗？</h5></div>
@@ -283,19 +283,9 @@ AltStore是一款允许用户自助安装未上架应用的工具，支持安装
         可以。Quantumult X 支持通过脚本逻辑判断网络延迟或连接失败情况，并自动切换节点。用户可以编写自定义 JS 规则，从而实现智能代理与按需分流，适合高级用户使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 订阅更新后节点消失，如何恢复？</h5></div>
+    <div class="panel-heading"><h5>Hiddify Next 如何实现用户流量分配？</h5></div>
     <div class="panel-body">
-        先检查订阅源是否更改格式或被下架，尝试重新粘贴订阅链接并手动刷新；若仍缺失，联系订阅提供方确认是否停用某些节点或使用了新的访问权限机制（例如 token 验证）。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 与传统代理协议有何不同？</h5></div>
-    <div class="panel-body">
-        Hysteria2 使用基于 QUIC 的高性能传输协议，可显著降低延迟并提升抗干扰能力。它特别适合高丢包或高延迟网络环境，提供流畅的浏览和视频播放体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 如何实现节点自动切换？</h5></div>
-    <div class="panel-body">
-        Shadowrocket 可结合延迟测速和策略组自动选择低延迟、稳定节点处理不同流量。提高网页、视频和游戏访问速度，减少掉线和卡顿，优化整体上网体验。<hr />    </div>
+        管理员可为每个用户设置带宽和流量配额。超出限制时可自动降速或阻止访问，确保服务器资源合理分配，避免单用户占用过多带宽，提高整体网络公平性和效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
@@ -308,9 +298,19 @@ AltStore是一款允许用户自助安装未上架应用的工具，支持安装
         QuantumultX 的 MITM（中间人）功能可拦截 HTTPS 流量，用于修改或分析请求与响应。开启时需安装客户端生成的根证书，确保能正确解析加密数据。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的多策略组有什么作用？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 与传统代理协议有何不同？</h5></div>
     <div class="panel-body">
-        多策略组可以将节点按用途、延迟或地域分类，结合路由规则实现自动分流。不同类型流量可走不同节点，提升访问速度和稳定性，特别适合多应用使用场景。<hr />    </div>
+        Hysteria2 使用基于 QUIC 的高性能传输协议，可显著降低延迟并提升抗干扰能力。它特别适合高丢包或高延迟网络环境，提供流畅的浏览和视频播放体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 订阅更新后节点消失，如何恢复？</h5></div>
+    <div class="panel-body">
+        先检查订阅源是否更改格式或被下架，尝试重新粘贴订阅链接并手动刷新；若仍缺失，联系订阅提供方确认是否停用某些节点或使用了新的访问权限机制（例如 token 验证）。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 如何实现节点自动切换？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 可结合延迟测速和策略组自动选择低延迟、稳定节点处理不同流量。提高网页、视频和游戏访问速度，减少掉线和卡顿，优化整体上网体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 如何导入订阅？</h5></div>
@@ -344,16 +344,16 @@ AltStore是一款允许用户自助安装未上架应用的工具，支持安装
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-11-4-free-ssr-node.htm" title="「11月4日」最高速度21.6M/S，2025年Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点每天更新免费节点订阅地址分享">「11月4日」最高速度21.6M/S，2025年Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点每天更新免费节点订阅地址分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-27-free-subscribe-node.htm" title="「10月27日」最高速度21.3M/S，2025年Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点每天更新免费节点订阅地址分享">「10月27日」最高速度21.3M/S，2025年Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-13-node-share-links.htm" title="「10月13日」最高速度21.7M/S，2025年V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点每天更新免费节点订阅地址分享">「10月13日」最高速度21.7M/S，2025年V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-12-shadowrocket-node.htm" title="「10月12日」最高速度19.5M/S，2025年Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新免费节点订阅地址分享">「10月12日」最高速度19.5M/S，2025年Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-11-free-high-speed-nodes.htm" title="「10月11日」最高速度22.9M/S，2025年Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新免费节点订阅地址分享">「10月11日」最高速度22.9M/S，2025年Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-10-free-node-subscribe-links.htm" title="「10月10日」最高速度18.2M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享">「10月10日」最高速度18.2M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-18-free-node-subscribe.htm" title="「10月18日」最高速度23M/S，2025年Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点每天更新免费节点订阅地址分享">「10月18日」最高速度23M/S，2025年Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-19-free-subscribe-node.htm" title="「10月19日」最高速度21.4M/S，2025年Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享">「10月19日」最高速度21.4M/S，2025年Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-17-node-share.htm" title="「10月17日」最高速度20.9M/S，2025年Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享">「10月17日」最高速度20.9M/S，2025年Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-16-node-share-links.htm" title="「10月16日」最高速度18.8M/S，2025年V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新免费节点订阅地址分享">「10月16日」最高速度18.8M/S，2025年V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-7-free-node-subscribe-links.htm" title="「10月7日」最高速度18.6M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点每天更新免费节点订阅地址分享">「10月7日」最高速度18.6M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Clash节点每天更新免费节点订阅地址分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-3-free-ssr-node.htm" title="「11月3日」最高速度21.1M/S，2025年V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新免费节点订阅地址分享">「11月3日」最高速度21.1M/S，2025年V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-26-node-share.htm" title="「10月26日」最高速度23M/S，2025年V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点每天更新免费节点订阅地址分享">「10月26日」最高速度23M/S，2025年V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-12-shadowrocket-node.htm" title="「10月12日」最高速度19.5M/S，2025年Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新免费节点订阅地址分享">「10月12日」最高速度19.5M/S，2025年Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-14-free-ssr-subscribe.htm" title="「10月14日」最高速度20.1M/S，2025年Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Clash节点每天更新免费节点订阅地址分享">「10月14日」最高速度20.1M/S，2025年Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Clash节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-9-node-share-links.htm" title="「10月9日」最高速度18.2M/S，2025年Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点每天更新免费节点订阅地址分享">「10月9日」最高速度18.2M/S，2025年Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-10-free-node-subscribe-links.htm" title="「10月10日」最高速度18.2M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享">「10月10日」最高速度18.2M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-19-free-subscribe-node.htm" title="「10月19日」最高速度21.4M/S，2025年Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享">「10月19日」最高速度21.4M/S，2025年Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享</a></li>
                     </ul>
     </div>
 </div>
@@ -365,7 +365,7 @@ AltStore是一款允许用户自助安装未上架应用的工具，支持安装
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
