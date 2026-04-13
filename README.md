@@ -1,4 +1,4 @@
-# 「4月2日」最高速度21.9M/S，2025年Singbox节点/SSR节点/Clash节点/V2ray节点/Shadowrocket节点每天更新免费节点订阅地址分享  更新时间 2026-04-02 10:42:05
+# 「4月13日」最高速度20M/S，2025年SSR节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点每天更新免费节点订阅地址分享  更新时间 2026-04-13 08:13:24
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://stashnode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://stashnode.github.io/uploads/2026/04/0-20260402.yaml
-- https://stashnode.github.io/uploads/2026/04/1-20260402.yaml
-- https://stashnode.github.io/uploads/2026/04/2-20260402.yaml
-- https://stashnode.github.io/uploads/2026/04/3-20260402.yaml
-- https://stashnode.github.io/uploads/2026/04/4-20260402.yaml
+- https://stashnode.github.io/uploads/2026/04/0-20260413.yaml
+- https://stashnode.github.io/uploads/2026/04/1-20260413.yaml
+- https://stashnode.github.io/uploads/2026/04/2-20260413.yaml
+- https://stashnode.github.io/uploads/2026/04/3-20260413.yaml
+- https://stashnode.github.io/uploads/2026/04/4-20260413.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://stashnode.github.io/uploads/2026/04/0-20260402.txt
-- https://stashnode.github.io/uploads/2026/04/1-20260402.txt
-- https://stashnode.github.io/uploads/2026/04/2-20260402.txt
-- https://stashnode.github.io/uploads/2026/04/3-20260402.txt
-- https://stashnode.github.io/uploads/2026/04/4-20260402.txt
+- https://stashnode.github.io/uploads/2026/04/0-20260413.txt
+- https://stashnode.github.io/uploads/2026/04/1-20260413.txt
+- https://stashnode.github.io/uploads/2026/04/2-20260413.txt
+- https://stashnode.github.io/uploads/2026/04/3-20260413.txt
+- https://stashnode.github.io/uploads/2026/04/4-20260413.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://stashnode.github.io/uploads/2026/04/20260402.json
+- https://stashnode.github.io/uploads/2026/04/20260413.json
 
 ## 更多Clash节点订阅 ：
 

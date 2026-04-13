@@ -218,19 +218,34 @@ sudo apt install unzip tar
         全局代理适合游戏或全局科学上网，将所有流量通过节点；规则代理适合只对特定应用或网站进行代理。用户可根据需求选择，提高带宽利用和网络效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 如何通过策略组优化科学上网？</h5></div>
+    <div class="panel-body">
+        PassWall2 结合策略组和节点延迟检测功能，可自动选择最佳节点处理网页、视频和游戏流量。无需手动干预，保证访问速度和网络稳定性，提高整体体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 的 QUIC 协议相比 TCP 有什么优势？</h5></div>
     <div class="panel-body">
         QUIC 协议基于 UDP，减少了握手延迟，支持多路复用和拥塞控制优化。Hysteria2 利用 QUIC 提供更低延迟、更高稳定性的网络连接，尤其适合高延迟或丢包环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 如何配置混淆以应对封锁升级？</h5></div>
-    <div class="panel-body">
-        选择合适的混淆方式，如 tls1.2_ticket_auth，可模拟正常 HTTPS 流量。合理搭配协议和混淆参数，可有效降低被 DPI 检测和封锁的风险，提高节点长期稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>当 V2Ray 报错 inbound 没有监听，可能是哪些配置问题？</h5></div>
     <div class="panel-body">
         检查 inbound 配置是否包含正确的 port、protocol 与 listen 字段；确认没有端口冲突或权限问题（非 root 绑定 1024 以下端口会失败）；查看日志中具体错误信息并根据提示修复配置。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 如何手动设置某应用直连？</h5></div>
+    <div class="panel-body">
+        在 Clash 的规则文件中添加 PROCESS-NAME 规则，如 `PROCESS-NAME,chrome.exe,DIRECT`。保存并重启后，该应用的流量将绕过代理直连。适用于游戏或内网程序等特殊场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowsocks 密码泄露后应如何应对？</h5></div>
+    <div class="panel-body">
+        立即更改服务端密码与相应的端口，检查服务器是否存在异常连接或 root 活动，查看日志并封禁可疑 IP。若使用多人共享节点，建议为每个用户单独分配独立端口与密码以降低风险传播。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何检测并处理订阅中的死节点？</h5></div>
+    <div class="panel-body">
+        定期运行批量测速脚本或使用客户端内置的 url-test、health-check 功能，自动标记或移除响应超时或重连失败的节点。结合订阅更新策略可自动替换或提醒用户维护节点列表。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何安装？</h5></div>
@@ -243,24 +258,9 @@ sudo apt install unzip tar
         WinXray 内核基于 Xray-core，因此原生支持 Trojan 协议。用户在导入配置时，只需选择 Trojan 类型节点即可，无需额外插件，非常适合需要 TLS 伪装的环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何检测并处理订阅中的死节点？</h5></div>
+    <div class="panel-heading"><h5>SSR 如何配置混淆以应对封锁升级？</h5></div>
     <div class="panel-body">
-        定期运行批量测速脚本或使用客户端内置的 url-test、health-check 功能，自动标记或移除响应超时或重连失败的节点。结合订阅更新策略可自动替换或提醒用户维护节点列表。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowsocks 密码泄露后应如何应对？</h5></div>
-    <div class="panel-body">
-        立即更改服务端密码与相应的端口，检查服务器是否存在异常连接或 root 活动，查看日志并封禁可疑 IP。若使用多人共享节点，建议为每个用户单独分配独立端口与密码以降低风险传播。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何通过策略组优化科学上网？</h5></div>
-    <div class="panel-body">
-        PassWall2 结合策略组和节点延迟检测功能，可自动选择最佳节点处理网页、视频和游戏流量。无需手动干预，保证访问速度和网络稳定性，提高整体体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 如何手动设置某应用直连？</h5></div>
-    <div class="panel-body">
-        在 Clash 的规则文件中添加 PROCESS-NAME 规则，如 `PROCESS-NAME,chrome.exe,DIRECT`。保存并重启后，该应用的流量将绕过代理直连。适用于游戏或内网程序等特殊场景。    </div>
+        选择合适的混淆方式，如 tls1.2_ticket_auth，可模拟正常 HTTPS 流量。合理搭配协议和混淆参数，可有效降低被 DPI 检测和封锁的风险，提高节点长期稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -289,16 +289,16 @@ sudo apt install unzip tar
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-1-19-shadowrocket-node.htm" title="「1月19日」最高速度21.8M/S，2025年Shadowrocket节点/V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享">「1月19日」最高速度21.8M/S，2025年Shadowrocket节点/V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-30-free-high-speed-nodes.htm" title="「1月30日」最高速度20.6M/S，2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享">「1月30日」最高速度20.6M/S，2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-28-clash-v2ray-ss-ssr.htm" title="「3月28日」最高速度22.3M/S，2025年Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享">「3月28日」最高速度22.3M/S，2025年Shadowrocket节点/Trojan节点/V2ray节点/SSR节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-26-clash-v2ray-ss-ssr.htm" title="「3月26日」最高速度19.1M/S，2025年SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/Clash节点每天更新免费节点订阅地址分享">「3月26日」最高速度19.1M/S，2025年SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/Clash节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-21-free-shadowrocket-node.htm" title="「3月21日」最高速度20.2M/S，2025年Clash节点/Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点每天更新免费节点订阅地址分享">「3月21日」最高速度20.2M/S，2025年Clash节点/Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-30-free-high-speed-nodes.htm" title="「3月30日」最高速度21.6M/S，2025年SSR节点/Singbox节点/V2ray节点/Trojan节点/Clash节点/Shadowrocket节点每天更新免费节点订阅地址分享">「3月30日」最高速度21.6M/S，2025年SSR节点/Singbox节点/V2ray节点/Trojan节点/Clash节点/Shadowrocket节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-25-free-shadowrocket-node.htm" title="「3月25日」最高速度20.3M/S，2025年Singbox节点/Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享">「3月25日」最高速度20.3M/S，2025年Singbox节点/Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-4-free-node-subscribe.htm" title="「3月4日」最高速度18.3M/S，2025年SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/Clash节点每天更新免费节点订阅地址分享">「3月4日」最高速度18.3M/S，2025年SSR节点/Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/Clash节点每天更新免费节点订阅地址分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-14-free-node-subscribe.htm" title="「3月14日」最高速度21.6M/S，2025年Singbox节点/SSR节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点每天更新免费节点订阅地址分享">「3月14日」最高速度21.6M/S，2025年Singbox节点/SSR节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-23-free-ssr-node.htm" title="「2月23日」最高速度22.2M/S，2025年V2ray节点/Clash节点/SSR节点/Singbox节点/Trojan节点/Shadowrocket节点每天更新免费节点订阅地址分享">「2月23日」最高速度22.2M/S，2025年V2ray节点/Clash节点/SSR节点/Singbox节点/Trojan节点/Shadowrocket节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-28-free-ssr-node.htm" title="「2月28日」最高速度20.6M/S，2025年SSR节点/Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享">「2月28日」最高速度20.6M/S，2025年SSR节点/Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-8-free-subscribe-node.htm" title="「2月8日」最高速度22.3M/S，2025年Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点每天更新免费节点订阅地址分享">「2月8日」最高速度22.3M/S，2025年Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/Singbox节点/SSR节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-5-free-shadowrocket-node.htm" title="「3月5日」最高速度18.3M/S，2025年Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Trojan节点/Singbox节点每天更新免费节点订阅地址分享">「3月5日」最高速度18.3M/S，2025年Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Trojan节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-10-free-ssr-subscribe.htm" title="「3月10日」最高速度19.2M/S，2025年Clash节点/V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Singbox节点每天更新免费节点订阅地址分享">「3月10日」最高速度19.2M/S，2025年Clash节点/V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-11-free-shadowrocket-node.htm" title="「3月11日」最高速度22.3M/S，2025年Shadowrocket节点/Trojan节点/Clash节点/SSR节点/V2ray节点/Singbox节点每天更新免费节点订阅地址分享">「3月11日」最高速度22.3M/S，2025年Shadowrocket节点/Trojan节点/Clash节点/SSR节点/V2ray节点/Singbox节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-15-clash-v2ray-ss-ssr.htm" title="「1月15日」最高速度20.7M/S，2025年Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点每天更新免费节点订阅地址分享">「1月15日」最高速度20.7M/S，2025年Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点每天更新免费节点订阅地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-15-free-shadowrocket-node.htm" title="「2月15日」最高速度20.4M/S，2025年SSR节点/V2ray节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点每天更新免费节点订阅地址分享">「2月15日」最高速度20.4M/S，2025年SSR节点/V2ray节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点每天更新免费节点订阅地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-19-free-high-speed-nodes.htm" title="「3月19日」最高速度20.2M/S，2025年Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Clash节点每天更新免费节点订阅地址分享">「3月19日」最高速度20.2M/S，2025年Trojan节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点/Clash节点每天更新免费节点订阅地址分享</a></li>
                     </ul>
     </div>
 </div>
@@ -310,13 +310,10 @@ sudo apt install unzip tar
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
             </li>
                     </ul>
     </div>
