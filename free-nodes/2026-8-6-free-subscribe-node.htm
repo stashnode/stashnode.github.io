@@ -262,10 +262,14 @@ A：目前尚无完全免费且支持 V2ray 的稳定客户端。出于审查与
 <p data-start="3602" data-end="3676" data-is-last-node="" data-is-only-node="">选择 Shadowrocket，不仅是选择一个工具，更是选择对抗审查、拥抱开放的态度。技术之路，从不简单；但正因为不简单，才值得我们一步步坚持前行。</p></div>
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
-        <p>上一个：<a href="/free-nodes/clash-v2ray-ss-ssr-2026-8-5.htm">「8月5日」最高速度21.7M/S，2025年Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点每天更新免费节点订阅地址分享</a></p>
         <p>下一个：<a href="/free-nodes/free-shadowrocket-node-2026-8-7.htm">「8月7日」最高速度18.5M/S，2025年Clash节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新免费节点订阅地址分享</a></p>
     </div>
 <h4>FAQ</h4>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁地区的优势？</h5></div>
+    <div class="panel-body">
+        AEAD 加密可防止数据篡改和流量特征泄露，降低被 DPI 检测风险。在高封锁地区使用，可保证节点长期稳定可用，同时提升数据传输安全性和访问可靠性。<hr />    </div>
+</div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 的订阅更新支持自动导入节点吗？</h5></div>
     <div class="panel-body">
@@ -277,9 +281,9 @@ A：目前尚无完全免费且支持 V2ray 的稳定客户端。出于审查与
         在 PassWall2 中可设置多节点策略，如“按延迟排序”、“自动选择最快节点”等。程序会定期测速，根据实时数据自动切换线路，保证连接的稳定性和速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 连接不稳定的常见原因有哪些？</h5></div>
+    <div class="panel-heading"><h5>如何识别节点是否被封锁或限速？</h5></div>
     <div class="panel-body">
-        VMess 连接不稳定可能由节点延迟过高、服务器防火墙、TLS 配置错误或 ISP 丢包引起。建议测试不同传输协议（如 WS、gRPC）或切换节点，检查日志确认具体错误信息。<hr />    </div>
+        通过对比不同节点的 speedtest、ping、下载测速以及 traceroute 路由变化来判断；若多个节点同时异常可能是本地网络问题，单个节点异常则可能被封锁或运营商限速，应尝试更换端口或传输方式。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 节点延迟排序功能如何提升访问体验？</h5></div>
@@ -287,24 +291,14 @@ A：目前尚无完全免费且支持 V2ray 的稳定客户端。出于审查与
         Shadowrocket 会测速节点延迟和丢包率，并优先使用低延迟节点。结合策略组和分流规则，可保证网页、视频和游戏流量通过最优节点，提高访问速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Trojan-Go 的多路复用（mux）如何开启？</h5></div>
+    <div class="panel-body">
+        Trojan-Go 在配置文件中通过启用 mux 参数即可实现多路复用。此功能允许多个连接共享同一隧道，减少握手延迟并提升整体传输效率，尤其在移动网络中表现出色。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 使用 WebSocket + TLS 有哪些优势？</h5></div>
     <div class="panel-body">
         WebSocket + TLS 可将 V2Ray 流量伪装成 HTTPS 请求，隐藏真实通信特征。结合域名伪装和策略组使用，可以有效绕过封锁，提高节点安全性和连接稳定性，保持长期稳定访问。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何识别节点是否被封锁或限速？</h5></div>
-    <div class="panel-body">
-        通过对比不同节点的 speedtest、ping、下载测速以及 traceroute 路由变化来判断；若多个节点同时异常可能是本地网络问题，单个节点异常则可能被封锁或运营商限速，应尝试更换端口或传输方式。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密在高封锁地区的优势？</h5></div>
-    <div class="panel-body">
-        AEAD 加密可防止数据篡改和流量特征泄露，降低被 DPI 检测风险。在高封锁地区使用，可保证节点长期稳定可用，同时提升数据传输安全性和访问可靠性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分组如何自动切换？</h5></div>
-    <div class="panel-body">
-        用户可按延迟、地区或用途将节点分组，并启用策略组。系统会根据节点健康状况和延迟自动切换到最佳节点，保证网页浏览、视频播放和游戏连接稳定顺畅。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 如何为不同用户设置流量限制？</h5></div>
@@ -312,9 +306,14 @@ A：目前尚无完全免费且支持 V2ray 的稳定客户端。出于审查与
         管理员可为每个用户设置独立带宽限制和流量配额。超过限制时，可自动降速或阻止访问，确保服务器资源合理分配，避免单用户占用过多带宽，提升整体网络效率和公平性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan-Go 的多路复用（mux）如何开启？</h5></div>
+    <div class="panel-heading"><h5>VMess 连接不稳定的常见原因有哪些？</h5></div>
     <div class="panel-body">
-        Trojan-Go 在配置文件中通过启用 mux 参数即可实现多路复用。此功能允许多个连接共享同一隧道，减少握手延迟并提升整体传输效率，尤其在移动网络中表现出色。    </div>
+        VMess 连接不稳定可能由节点延迟过高、服务器防火墙、TLS 配置错误或 ISP 丢包引起。建议测试不同传输协议（如 WS、gRPC）或切换节点，检查日志确认具体错误信息。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 节点分组如何自动切换？</h5></div>
+    <div class="panel-body">
+        用户可按延迟、地区或用途将节点分组，并启用策略组。系统会根据节点健康状况和延迟自动切换到最佳节点，保证网页浏览、视频播放和游戏连接稳定顺畅。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -362,16 +361,16 @@ A：目前尚无完全免费且支持 V2ray 的稳定客户端。出于审查与
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-7-31.htm" title="「7月31日」最高速度21.1M/S，2025年Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点每天更新免费节点订阅地址分享">「7月31日」最高速度21.1M/S，2025年Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-30-node-share.htm" title="「8月30日」最高速度20.6M/S，2025年V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点/Trojan节点每天更新免费节点订阅地址分享">「8月30日」最高速度20.6M/S，2025年V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点/Trojan节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-8-31.htm" title="「8月31日」最高速度18.8M/S，2025年Clash节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/SSR节点每天更新免费节点订阅地址分享">「8月31日」最高速度18.8M/S，2025年Clash节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/SSR节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-9-3.htm" title="「9月3日」最高速度19.3M/S，2025年Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享">「9月3日」最高速度19.3M/S，2025年Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-17.htm" title="「8月17日」最高速度18.1M/S，2025年SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享">「8月17日」最高速度18.1M/S，2025年SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-8-9.htm" title="「8月9日」最高速度21M/S，2025年Clash节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/SSR节点每天更新免费节点订阅地址分享">「8月9日」最高速度21M/S，2025年Clash节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/SSR节点每天更新免费节点订阅地址分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-12-shadowrocket-node.htm" title="「8月12日」最高速度19.4M/S，2025年V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Trojan节点/Singbox节点每天更新免费节点订阅地址分享">「8月12日」最高速度19.4M/S，2025年V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Trojan节点/Singbox节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-30-free-ssr-node.htm" title="「7月30日」最高速度22.9M/S，2025年V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新免费节点订阅地址分享">「7月30日」最高速度22.9M/S，2025年V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-25-free-node-subscribe-links.htm" title="「7月25日」最高速度21.1M/S，2025年V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享">「7月25日」最高速度21.1M/S，2025年V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-15-clash-v2ray-ss-ssr.htm" title="「7月15日」最高速度22.8M/S，2025年Clash节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点每天更新免费节点订阅地址分享">「7月15日」最高速度22.8M/S，2025年Clash节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点/SSR节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-6-free-subscribe-node.htm" title="「8月6日」最高速度19M/S，2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享">「8月6日」最高速度19M/S，2025年Shadowrocket节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-21-free-node-subscribe-links.htm" title="「7月21日」最高速度22.7M/S，2025年Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Trojan节点每天更新免费节点订阅地址分享">「7月21日」最高速度22.7M/S，2025年Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Trojan节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-shadowrocket-node-2026-7-29.htm" title="「7月29日」最高速度19.6M/S，2025年Trojan节点/V2ray节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点每天更新免费节点订阅地址分享">「7月29日」最高速度19.6M/S，2025年Trojan节点/V2ray节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-14-node-share.htm" title="「7月14日」最高速度18.3M/S，2025年SSR节点/Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点每天更新免费节点订阅地址分享">「7月14日」最高速度18.3M/S，2025年SSR节点/Trojan节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-20-free-node-subscribe.htm" title="「7月20日」最高速度22.6M/S，2025年SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点每天更新免费节点订阅地址分享">「7月20日」最高速度22.6M/S，2025年SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-shadowrocket-node-2026-8-7.htm" title="「8月7日」最高速度18.5M/S，2025年Clash节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新免费节点订阅地址分享">「8月7日」最高速度18.5M/S，2025年Clash节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-19.htm" title="「8月19日」最高速度22.4M/S，2025年Clash节点/Singbox节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点每天更新免费节点订阅地址分享">「8月19日」最高速度22.4M/S，2025年Clash节点/Singbox节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-8-free-high-speed-nodes.htm" title="「8月8日」最高速度19.8M/S，2025年SSR节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点每天更新免费节点订阅地址分享">「8月8日」最高速度19.8M/S，2025年SSR节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-8-23.htm" title="「8月23日」最高速度21.4M/S，2025年Shadowrocket节点/SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点每天更新免费节点订阅地址分享">「8月23日」最高速度21.4M/S，2025年Shadowrocket节点/SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点每天更新免费节点订阅地址分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -383,10 +382,10 @@ A：目前尚无完全免费且支持 V2ray 的稳定客户端。出于审查与
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
