@@ -144,39 +144,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
+    <div class="panel-heading"><h5>Mellow 的 TUN 模式适合哪些应用？</h5></div>
     <div class="panel-body">
-        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 支持哪些类型的重写脚本？</h5></div>
-    <div class="panel-body">
-        QuantumultX 支持 JavaScript 脚本，可修改请求头、响应内容、自动跳转、广告屏蔽和定制流量处理。结合策略组，可实现高度个性化的网络访问控制和优化。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Vmess 节点可以通过 CDN 吗？</h5></div>
-    <div class="panel-body">
-        可以。Vmess 可通过 WebSocket 与 CDN 结合使用，只需将传输方式设置为 WS 并配置 host 与 path，即可实现流量中转。这样既能隐藏真实服务器，又能提升连接速度。<hr />    </div>
+        TUN 模式拦截系统 IP 层流量，可实现全局代理。适合游戏、视频、浏览器和其他全局应用，实现低延迟和稳定连接，保证所有流量通过代理节点，提高访问速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Quantumult X 的主要功能是什么？</h5></div>
     <div class="panel-body">
         Quantumult X 是一款功能极其强大的 iOS 网络代理应用，支持多种协议和脚本扩展。它可以通过规则分流、广告屏蔽、请求重写等方式优化网络体验。Quantumult X 常被技术用户用于高级自动化与自定义代理策略。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 如何实现节点自动切换？</h5></div>
-    <div class="panel-body">
-        Shadowrocket 可结合延迟测速和策略组自动选择低延迟、稳定节点处理不同流量。提高网页、视频和游戏访问速度，减少掉线和卡顿，优化整体上网体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + Reality 与 Trojan 在性能上差异大吗？</h5></div>
-    <div class="panel-body">
-        两者性能相近。VLESS + Reality 伪装更自然，适合强封锁地区；Trojan 则依托标准 TLS 实现高速连接。选择取决于服务器支持与环境稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 的 TUN 模式适合哪些应用？</h5></div>
-    <div class="panel-body">
-        TUN 模式拦截系统 IP 层流量，可实现全局代理。适合游戏、视频、浏览器和其他全局应用，实现低延迟和稳定连接，保证所有流量通过代理节点，提高访问速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 的 QUIC 多路复用在游戏中有什么优势？</h5></div>
@@ -189,9 +164,34 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Matsuri 是基于 sing-box 的跨平台 GUI 客户端，界面现代，支持多种协议和分流方式。它提供直观的节点管理和日志监控功能，适合喜欢图形化操作的用户。Matsuri 的设计目标是简洁、高效、易于上手。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 如何实现节点自动切换？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 可结合延迟测速和策略组自动选择低延迟、稳定节点处理不同流量。提高网页、视频和游戏访问速度，减少掉线和卡顿，优化整体上网体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Vmess 节点可以通过 CDN 吗？</h5></div>
+    <div class="panel-body">
+        可以。Vmess 可通过 WebSocket 与 CDN 结合使用，只需将传输方式设置为 WS 并配置 host 与 path，即可实现流量中转。这样既能隐藏真实服务器，又能提升连接速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>何为 fake-ip 模式，它的优缺点是什么？</h5></div>
     <div class="panel-body">
-        fake-ip 是通过伪造 DNS 返回的 IP 地址让客户端透明代理流量，优点是兼容性好、无需修改应用代理设置；缺点是可能导致某些证书校验或 SNI 伪装失效，需要配合 DNS 与证书策略谨慎使用。    </div>
+        fake-ip 是通过伪造 DNS 返回的 IP 地址让客户端透明代理流量，优点是兼容性好、无需修改应用代理设置；缺点是可能导致某些证书校验或 SNI 伪装失效，需要配合 DNS 与证书策略谨慎使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + Reality 与 Trojan 在性能上差异大吗？</h5></div>
+    <div class="panel-body">
+        两者性能相近。VLESS + Reality 伪装更自然，适合强封锁地区；Trojan 则依托标准 TLS 实现高速连接。选择取决于服务器支持与环境稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
+    <div class="panel-body">
+        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>QuantumultX 支持哪些类型的重写脚本？</h5></div>
+    <div class="panel-body">
+        QuantumultX 支持 JavaScript 脚本，可修改请求头、响应内容、自动跳转、广告屏蔽和定制流量处理。结合策略组，可实现高度个性化的网络访问控制和优化。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -239,16 +239,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-11-3.htm" title="「11月3日」最高速度22.8M/S，2025年Trojan节点/V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新免费节点订阅地址分享">「11月3日」最高速度22.8M/S，2025年Trojan节点/V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-28-free-ssr-node.htm" title="「10月28日」最高速度20M/S，2025年Singbox节点/Clash节点/V2ray节点/Trojan节点/SSR节点/Shadowrocket节点每天更新免费节点订阅地址分享">「10月28日」最高速度20M/S，2025年Singbox节点/Clash节点/V2ray节点/Trojan节点/SSR节点/Shadowrocket节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-9-5.htm" title="「9月5日」最高速度21M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享">「9月5日」最高速度21M/S，2025年V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点/Trojan节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-9.htm" title="「10月9日」最高速度19.4M/S，2025年Shadowrocket节点/SSR节点/Trojan节点/Clash节点/V2ray节点/Singbox节点每天更新免费节点订阅地址分享">「10月9日」最高速度19.4M/S，2025年Shadowrocket节点/SSR节点/Trojan节点/Clash节点/V2ray节点/Singbox节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-20-shadowrocket-node.htm" title="「10月20日」最高速度19.2M/S，2025年Singbox节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Trojan节点每天更新免费节点订阅地址分享">「10月20日」最高速度19.2M/S，2025年Singbox节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Trojan节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-4-node-share.htm" title="「11月4日」最高速度20M/S，2025年Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享">「11月4日」最高速度20M/S，2025年Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-26-shadowrocket-node.htm" title="「10月26日」最高速度22.3M/S，2025年Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/SSR节点/Trojan节点每天更新免费节点订阅地址分享">「10月26日」最高速度22.3M/S，2025年Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/SSR节点/Trojan节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-12-node-share.htm" title="「9月12日」最高速度21.7M/S，2025年Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Trojan节点/Singbox节点每天更新免费节点订阅地址分享">「9月12日」最高速度21.7M/S，2025年Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Trojan节点/Singbox节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-10-free-subscribe-node.htm" title="「10月10日」最高速度22.3M/S，2025年Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/Singbox节点/SSR节点每天更新免费节点订阅地址分享">「10月10日」最高速度22.3M/S，2025年Shadowrocket节点/Clash节点/V2ray节点/Trojan节点/Singbox节点/SSR节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-15.htm" title="「10月15日」最高速度18.2M/S，2025年SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享">「10月15日」最高速度18.2M/S，2025年SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/Singbox节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-12-free-node-subscribe.htm" title="「11月12日」最高速度19.4M/S，2026年Clash节点/SSR节点/Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点每天更新免费节点订阅地址分享">「11月12日」最高速度19.4M/S，2026年Clash节点/SSR节点/Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-shadowrocket-node-2026-11-7.htm" title="「11月7日」最高速度20.1M/S，2025年Singbox节点/Clash节点/SSR节点/Trojan节点/V2ray节点/Shadowrocket节点每天更新免费节点订阅地址分享">「11月7日」最高速度20.1M/S，2025年Singbox节点/Clash节点/SSR节点/Trojan节点/V2ray节点/Shadowrocket节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-16-shadowrocket-node.htm" title="「10月16日」最高速度19M/S，2025年SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点每天更新免费节点订阅地址分享">「10月16日」最高速度19M/S，2025年SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点每天更新免费节点订阅地址分享</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-29.htm" title="「10月29日」最高速度22.6M/S，2025年Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享">「10月29日」最高速度22.6M/S，2025年Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-ssr-subscribe-2026-9-13.htm" title="「9月13日」最高速度21M/S，2025年Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Trojan节点每天更新免费节点订阅地址分享">「9月13日」最高速度21M/S，2025年Singbox节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点/Trojan节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-11-1.htm" title="「11月1日」最高速度22.1M/S，2025年Trojan节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Singbox节点每天更新免费节点订阅地址分享">「11月1日」最高速度22.1M/S，2025年Trojan节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Singbox节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-10-17.htm" title="「10月17日」最高速度19.3M/S，2025年Singbox节点/Trojan节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点每天更新免费节点订阅地址分享">「10月17日」最高速度19.3M/S，2025年Singbox节点/Trojan节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-22-shadowrocket-node.htm" title="「10月22日」最高速度21.6M/S，2025年Trojan节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点每天更新免费节点订阅地址分享">「10月22日」最高速度21.6M/S，2025年Trojan节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点每天更新免费节点订阅地址分享</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-10-31.htm" title="「10月31日」最高速度18.4M/S，2025年Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享">「10月31日」最高速度18.4M/S，2025年Trojan节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点/SSR节点每天更新免费节点订阅地址分享</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -260,13 +260,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                     </ul>
     </div>
